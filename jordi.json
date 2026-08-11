@@ -4,6 +4,7 @@
     "email": "hydrogz7@gmail.com"
   },
   "record": {
-    "CNAME": "cname.vercel-dns.com"
+    "CNAME": "cname.vercel-dns.com",
+    "TXT": "vc-domain-verify=jordi.is-a.dev,139bfa75a7c0c2aa1175"
   }
 }
