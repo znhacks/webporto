@@ -16,7 +16,7 @@ export default function Navbar() {
           <div className="relative w-10 h-10 rounded-xl bg-[#051424] border border-[#6d28d9]/40 p-1.5 flex items-center justify-center shadow-lg group-hover:border-[#d3bbff] group-hover:shadow-[0_0_20px_rgba(109,40,217,0.6)] transition-all duration-300">
             <Image
               src="/logo.png"
-              alt="Jordi Logo"
+              alt="Ordi Logo"
               width={40}
               height={40}
               className="w-full h-full object-contain group-hover:scale-110 transition-transform"
@@ -24,7 +24,7 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col">
             <span className="text-lg sm:text-xl font-extrabold text-[#d4e4fa] tracking-tight group-hover:text-[#d3bbff] transition-colors leading-none">
-              Jordi <span className="text-[#6d28d9] text-xs font-mono">.dev</span>
+              Jor <span className="text-[#6d28d9] text-xs font-mono">.dev</span>
             </span>
             <span className="text-[10px] font-mono text-[#ccc3d7] tracking-widest uppercase mt-0.5">
               znhacks

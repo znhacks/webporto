@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="w-10 h-10 rounded-xl bg-[#051424] border border-white/15 p-1.5 flex items-center justify-center shadow-lg">
             <Image
               src="/logo.png"
-              alt="Jordi Logo"
+              alt="Ordi Logo"
               width={40}
               height={40}
               className="w-full h-full object-contain"
@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col text-center md:text-left">
             <span className="font-extrabold text-white text-base tracking-tight">
-              Jordi <span className="text-[#d3bbff] font-mono text-xs">(znhacks)</span>
+              Ordi <span className="text-[#d3bbff] font-mono text-xs">(znhacks)</span>
             </span>
             <p className="text-[11px] text-[#ccc3d7] font-mono">
               Full-Stack Developer &amp; Game Engineer
@@ -71,7 +71,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-[1280px] mx-auto mt-8 pt-6 border-t border-white/5 text-center text-[11px] font-mono text-[#ccc3d7]">
-        © {new Date().getFullYear()} Jordi · Full-Stack Developer Portfolio.
+        © {new Date().getFullYear()} Ordi · Full-Stack Developer Portfolio.
       </div>
     </footer>
   );

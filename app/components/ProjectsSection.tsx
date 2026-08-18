@@ -58,8 +58,8 @@ export const PROJECTS_LIST: (ProjectData & {
     },
     {
       id: "jm-panel",
-      title: "JM-Panel (mantan BigStarter)",
-      titleEn: "JM-Panel (formerly BigStarter)",
+      title: "JM-Panel",
+      titleEn: "JM-Panel",
       subtitle:
         "Platform web admin & dashboard multi-tenant yang terintegrasi dengan Supabase Backend, manajemen organisasi, dan cloud storage.",
       subtitleEn:
@@ -83,7 +83,7 @@ export const PROJECTS_LIST: (ProjectData & {
         "Multi-tenant web admin panel system for organization management, user authentication, role controls, and Supabase cloud storage.",
       fullDetails: {
         overview:
-          "JM-Panel (sebelumnya BigStarter) adalah aplikasi web modern yang dirancang untuk manajemen organisasi multi-tenant, kontrol admin, dan integrasi cloud storage Supabase.",
+          "JM-Panel adalah aplikasi web modern yang dirancang untuk manajemen organisasi multi-tenant, kontrol admin, dan integrasi cloud storage Supabase.",
         features: [
           "Manajemen organisasi & keanggotaan multi-tenant",
           "Autentikasi Supabase & sesi keamanan server-side",
@@ -98,7 +98,7 @@ export const PROJECTS_LIST: (ProjectData & {
           "Dikembangkan dengan Next.js, TypeScript, dan Supabase backend untuk skalabilitas organisasi multi-tenant.",
       },
       overviewEn:
-        "JM-Panel (formerly BigStarter) is a modern web application designed for organization management, multi-tenant administrative controls, and Supabase cloud storage.",
+        "JM-Panel is a modern web application designed for organization management, multi-tenant administrative controls, and Supabase cloud storage.",
       featuresEn: [
         "Multi-tenant organization & membership management",
         "Supabase authentication & server-side security sessions",
@@ -108,8 +108,8 @@ export const PROJECTS_LIST: (ProjectData & {
     },
     {
       id: "jurnal-mengajar",
-      title: "Jurnal Mengajar Platform",
-      titleEn: "Jurnal Mengajar Platform",
+      title: "Jurnal Mengajar",
+      titleEn: "Jurnal Mengajar",
       subtitle:
         "Aplikasi mobile berbasis Flutter & Supabase untuk mencatat jurnal mengajar guru, jadwal kelas, dan absensi siswa secara otomatis.",
       subtitleEn:
@@ -126,8 +126,7 @@ export const PROJECTS_LIST: (ProjectData & {
       ],
       githubUrl: "https://github.com/znhacks/JurnalMengajar",
       year: "",
-      imageBg:
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
+      imageBg: "/jurnalmengajar.png",
       description:
         "Aplikasi manajemen sekolah yang memudahkan guru mencatat kegiatan mengajar harian, absensi siswa, jadwal pelajaran, dan mengunduh laporan PDF.",
       descriptionEn:
@@ -160,89 +159,46 @@ export const PROJECTS_LIST: (ProjectData & {
       ],
     },
     {
-      id: "entity-next-terrors",
-      title: "Entity: Next Terrors (W.I.P)",
-      titleEn: "Entity: Next Terrors (W.I.P)",
+      id: "rustbond",
+      title: "Rustbond",
+      titleEn: "Rustbond",
       subtitle:
-        "Game visual novel horor psikologis buatan Ren'Py Engine & Python dengan pilihan cerita bercabang dan efek audio atmosferik.",
+        "Game dating sim / visual novel interaktif bertema post-apocalyptic & romansa, dipublikasikan di Itch.io.",
       subtitleEn:
-        "A psychological horror visual novel built with Ren'Py Engine & Python featuring branching choices and atmospheric sound design.",
+        "An interactive post-apocalyptic dating sim & visual novel game published on Itch.io.",
       category: "game-dev",
       categoryLabel: "Game Development",
       categoryLabelEn: "Game Development",
-      techStack: ["Ren'Py Engine", "Python", "Visual Novel", "Sound Design"],
-      githubUrl: "https://github.com/znhacks/Entity-Next-Terrors",
+      techStack: ["Dating Sim", "Visual Novel", "Itch.io", "Character Art"],
+      itchUrl: "https://itch.io",
       year: "",
-      imageBg: "/entity.jpeg",
+      imageBg: "/ashy.png",
       description:
-        "Pengalaman game narasi horor di mana setiap pilihan pemain mempengaruhi jalan cerita, nasib karakter, dan akhir kisah.",
+        "Game dating simulator bertema romansa dan bertahan hidup dengan pilihan karakter serta jalinan ikatan yang emosional.",
       descriptionEn:
-        "Atmospheric narrative horror game where player decisions dictate story progression, character fates, and plot endings.",
+        "A romance & survival dating simulator featuring character choices and emotionally engaging storylines.",
       fullDetails: {
         overview:
-          "Entity: Next Terrors (W.I.P) adalah game horor visual novel berbasis narasi yang berfokus pada suasana mencekam dan keputusan pemain.",
+          "Rustbond adalah game dating sim / visual novel tempat pemain membangun hubungan cerita dan pilihan emosional bersama karakter pilihan.",
         features: [
-          "Pilihan dialog interaktif yang menentukan jalan cerita",
-          "Sistem audio atmosferik dengan efek suara horor dinamis",
-          "Antarmuka GUI kustom bertema horor gelap",
-          "Dukungan multi-platform untuk PC (Windows, Mac, Linux)",
+          "Cerita dating sim interaktif dengan alur keputusan pemain",
+          "Karakter unik dengan dialog dan alur hubungan khusus",
+          "Desain karakter visual & artwork berkualitas",
+          "Pengalaman naratif yang memikat",
         ],
         architecture: [
-          "Skrip Ren'Py (.rpy) untuk logika skenario & percabangan",
-          "Backend Python untuk penyimpanan variabel & state game",
+          "Visual Novel / Dating Simulator Engine",
         ],
         techDetails:
-          "Dibuat menggunakan bahasa Python di atas Ren'Py Engine dengan kustomisasi GUI dan sistem audio khusus.",
+          "Dikembangkan dengan fokus pada pengalaman naratif interaktif, artwork karakter kustom, dan pilihan dialog.",
       },
       overviewEn:
-        "Entity: Next Terrors (W.I.P) is a narrative-driven horror visual novel focusing on suspense and player choices.",
+        "Rustbond is an interactive dating sim / visual novel where players build relationships and choices with unique characters.",
       featuresEn: [
-        "Interactive choice tree dictating story outcomes and multiple endings",
-        "Custom atmospheric sound engine with dynamic horror cues",
-        "Dark custom GUI theme and dialogue UI",
-        "Cross-platform PC support (Windows, macOS, Linux)",
-      ],
-    },
-    {
-      id: "project-blinks",
-      title: "Project Blinks (W.I.P)",
-      titleEn: "Project Blinks (W.I.P)",
-      subtitle:
-        "Game Roblox interaktif yang dikembangkan menggunakan bahasa pemrograman Luau dan sistem Rojo 7.",
-      subtitleEn:
-        "An interactive Roblox game experience developed using Luau scripting language and the Rojo 7 toolchain.",
-      category: "game-dev",
-      categoryLabel: "Game Development",
-      categoryLabelEn: "Game Development",
-      techStack: ["Roblox Studio", "Luau", "Rojo 7", "VS Code"],
-      githubUrl: "https://github.com/znhacks/Projectblinks",
-      year: "",
-      imageBg: "/blinks.png",
-      description:
-        "Arsitektur game Roblox modular dengan alur kerja modern (Rojo 7 sync, VS Code, dan Git version control).",
-      descriptionEn:
-        "Modular Roblox game codebase built with modern developer tooling (Rojo 7 sync, VS Code, and Git version control).",
-      fullDetails: {
-        overview:
-          "Project Blinks menerapkan praktik pengkodean Roblox modern menggunakan skrip Luau modular yang dihubungkan langsung dari VS Code ke Roblox Studio melalui Rojo 7.",
-        features: [
-          "Sinkronisasi kode real-time Rojo 7 dari editor VS Code ke Roblox Studio",
-          "Pengkodean Luau modular dengan penanganan event terpisah",
-          "Struktur kode client-server yang terorganisir",
-        ],
-        architecture: [
-          "default.project.json untuk pemetaan struktur folder Roblox",
-          "src/ReplicatedStorage & src/ServerScriptService",
-        ],
-        techDetails:
-          "Menggunakan toolchain Rojo CLI dan Luau Scripting di Roblox Studio.",
-      },
-      overviewEn:
-        "Project Blinks applies modern Roblox development workflows using modular Luau code synced via Rojo 7.",
-      featuresEn: [
-        "Real-time Rojo 7 code injection from VS Code into Roblox Studio",
-        "Modular Luau scripting with decoupled event handling",
-        "Organized client-server network structure",
+        "Interactive dating sim narrative with branching choices",
+        "Unique character pathing and relationship dialogue",
+        "Custom character visual design & artwork",
+        "Immersive romance & story experience",
       ],
     },
     {
@@ -259,8 +215,7 @@ export const PROJECTS_LIST: (ProjectData & {
       techStack: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
       githubUrl: "https://github.com/noerezasa-source/absensi",
       year: "",
-      imageBg:
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      imageBg: "/absensi.png",
       description:
         "Sistem pencatatan kehadiran cepat yang tersimpan langsung di database cloud Supabase.",
       descriptionEn:

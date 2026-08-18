@@ -103,8 +103,7 @@ export default function JurnalMengajarHighlight() {
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                  backgroundImage:
-                    "url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80')",
+                  backgroundImage: "url('/jurnalmengajar.png')",
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#051424] via-transparent to-transparent opacity-80" />

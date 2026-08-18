@@ -5,13 +5,15 @@ import { useLanguage } from "../context/LanguageContext";
 export default function AboutSection() {
   const { lang } = useLanguage();
 
-  // Fullstack tech stack mapped directly from Jordi's repositories & projects
+  // Fullstack tech stack mapped directly from Ordi's repositories & projects
   const fullstackSkills = [
     "Full-Stack Architecture",
     "Flutter & Dart (Mobile)",
     "Next.js & TypeScript (Web)",
     "Supabase Cloud & Auth",
     "PostgreSQL & SQL RLS",
+    "Godot Engine",
+    "Unity Engine",
     "Ren'Py Engine & Python",
     "Roblox Studio & Luau",
     "Itch.io Game Dev",
@@ -40,8 +42,8 @@ export default function AboutSection() {
             </h2>
             <p className="text-base text-[#ccc3d7] leading-relaxed">
               {lang === "en"
-                ? "I am Jordi, a versatile Full-Stack Developer specializing in building complete end-to-end solutions — spanning mobile apps (Flutter), web platforms (Next.js), cloud database backends (Supabase), and interactive game engines (Ren'Py & Roblox)."
-                : "Saya Jordi, seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end — mencakup aplikasi mobile (Flutter), platform web (Next.js), cloud database backend (Supabase), hingga game engine (Ren'Py & Roblox)."}
+                ? "I am Ordi, a versatile Full-Stack Developer specializing in building complete end-to-end solutions — spanning mobile apps (Flutter), web platforms (Next.js), cloud database backends (Supabase), and interactive game engines (Ren'Py & Roblox)."
+                : "Saya Ordi, seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end — mencakup aplikasi mobile (Flutter), platform web (Next.js), cloud database backend (Supabase), hingga game engine (Ren'Py & Roblox)."}
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 font-mono text-xs text-[#ccc3d7]">

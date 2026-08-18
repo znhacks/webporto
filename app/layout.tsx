@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Jordi (znhacks) | Full-Stack Developer & Game Creator",
+  title: "Jor-dev",
   description:
-    "Portfolio of Jordi (znhacks) — Full-Stack Developer specializing in Flutter mobile apps, Next.js web applications, Supabase cloud backends, and Ren'Py / Roblox games.",
+    "Portfolio of Ordi (znhacks) — Full-Stack Developer specializing in Flutter mobile apps, Next.js web applications, Supabase cloud backends, and Ren'Py / Roblox games.",
   icons: {
     icon: "/logo.png",
   },

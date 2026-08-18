@@ -30,7 +30,7 @@ export default function Hero() {
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
               {lang === "en" ? "Hi, I'm" : "Hi, Saya"}{" "}
-              <span className="gradient-text-purple">Jordi</span>
+              <span className="gradient-text-purple">Ordi</span>
             </h1>
 
             <p className="text-base sm:text-lg text-[#ccc3d7] max-w-xl font-normal leading-relaxed mb-8">
@@ -85,7 +85,7 @@ export default function Hero() {
               {/* Direct PNG Logo Image */}
               <Image
                 src="/logo.png"
-                alt="Jordi Logo"
+                alt="Ordi Logo"
                 width={360}
                 height={360}
                 priority

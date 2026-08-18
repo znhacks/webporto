@@ -45,7 +45,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 Curriculum Vitae / Resume
               </h2>
               <p className="font-mono text-xs text-[#958da1]">
-                Jordi (znhacks) • Systems &amp; Game Engineer
+                Ordi (znhacks) • Systems &amp; Game Engineer
               </p>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           {/* Header Info */}
           <div className="border-b border-white/10 pb-6 flex flex-col sm:flex-row justify-between sm:items-end gap-4">
             <div>
-              <h1 className="text-3xl font-extrabold text-white">Jordi</h1>
+              <h1 className="text-3xl font-extrabold text-white">Ordi</h1>
               <p className="font-mono text-sm text-[#d3bbff] mt-1">
                 Software Architect &amp; Game Developer
               </p>
@@ -108,7 +108,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               <div className="bg-[#0d1c2d] p-4 rounded-xl border border-white/5">
                 <div className="flex justify-between items-start">
                   <h4 className="text-base font-bold text-white">
-                    Jurnal Mengajar Platform
+                    Jurnal Mengajar
                   </h4>
                   <span className="font-mono text-xs text-[#d3bbff]">
                     2024 - Present
