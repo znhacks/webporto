@@ -71,7 +71,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-[1280px] mx-auto mt-8 pt-6 border-t border-white/5 text-center text-[11px] font-mono text-[#ccc3d7]">
-        © {new Date().getFullYear()} Ordi · Full-Stack Developer Portfolio.
+        © {new Date().getFullYear()} Jordevs
       </div>
     </footer>
   );

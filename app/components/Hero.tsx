@@ -39,19 +39,7 @@ export default function Hero() {
                 : "Saya adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end."}
             </p>
 
-            {/* Tech Badges */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {["Full-Stack Dev", "Flutter", "Next.js", "Supabase", "Ren'Py", "Roblox / Luau", "Python"].map(
-                (tech) => (
-                  <span
-                    key={tech}
-                    className="px-3.5 py-1.5 bg-[#0d1c2d] border border-white/10 text-xs font-mono text-[#d4e4fa] rounded-full"
-                  >
-                    {tech}
-                  </span>
-                )
-              )}
-            </div>
+
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
