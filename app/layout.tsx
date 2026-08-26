@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   },
 };
 
+import AppWrapper from "./components/AppWrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +26,9 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#030c17] text-[#d4e4fa] antialiased selection:bg-[#6d28d9] selection:text-white">
-        {children}
+        <AppWrapper>
+          {children}
+        </AppWrapper>
       </body>
     </html>
   );

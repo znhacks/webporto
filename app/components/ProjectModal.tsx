@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useLanguage } from "../context/LanguageContext";
 
 export interface ProjectData {
@@ -70,8 +71,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       ? project.featuresEn
       : project.fullDetails.features;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+  const modalContent = (
+    <div 
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       {/* Modal Container */}
       <div
         className="relative w-full max-w-3xl max-h-[90vh] bg-[#0d1c2d] border border-white/15 rounded-3xl shadow-2xl overflow-y-auto flex flex-col text-[#d4e4fa]"
@@ -204,4 +208,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       </div>
     </div>
   );
+
+  return typeof document !== "undefined" ? createPortal(modalContent, document.body) : null;
 }
