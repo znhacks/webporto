@@ -66,10 +66,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     lang === "en" && project.overviewEn
       ? project.overviewEn
       : project.fullDetails.overview;
-  const displayFeatures =
-    lang === "en" && project.featuresEn && project.featuresEn.length > 0
-      ? project.featuresEn
-      : project.fullDetails.features;
 
   const modalContent = (
     <div 
@@ -124,43 +120,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <p className="text-base leading-relaxed text-[#d4e4fa]">
               {displayOverview}
             </p>
-          </div>
-
-          {/* Tech Badges */}
-          <div>
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#d3bbff] mb-3 font-bold">
-              {lang === "en" ? "Technologies & Tools" : "Teknologi & Tooling"}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3.5 py-1.5 bg-[#051424] border border-white/10 text-xs font-mono text-[#d4e4fa] rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Key Features */}
-          <div>
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#d3bbff] mb-3 font-bold">
-              {lang === "en" ? "Key Features" : "Fitur-Fitur Utama"}
-            </h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {displayFeatures.map((feature, idx) => (
-                <li
-                  key={idx}
-                  className="flex items-start gap-2.5 bg-[#051424] p-3.5 rounded-2xl border border-white/5 text-sm text-[#ccc3d7]"
-                >
-                  <span className="material-symbols-outlined text-[#d3bbff] text-base shrink-0 mt-0.5">
-                    check_circle
-                  </span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Action Links (GitHub & Itch.io) */}

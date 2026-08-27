@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 export default function ContactSection() {
   const { lang } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
-  const [copied, setCopied] = useState(false);
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -15,14 +15,17 @@ export default function ContactSection() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    
+    const subject = encodeURIComponent(`Pesan Portofolio dari ${formState.name}`);
+    const body = encodeURIComponent(`Nama: ${formState.name}\nEmail: ${formState.email}\n\nPesan:\n${formState.message}`);
+    
+    window.location.href = `mailto:hydrogz7@gmail.com?subject=${subject}&body=${body}`;
+
     setSubmitted(true);
+    setFormState({ name: "", email: "", message: "" });
   };
 
-  const handleCopyIg = () => {
-    navigator.clipboard.writeText("jxrzero");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
-  };
+
 
   return (
     <section
@@ -71,18 +74,7 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <button
-                  onClick={handleCopyIg}
-                  className="px-3.5 py-1.5 rounded-xl bg-[#0d1c2d] border border-white/10 text-xs text-[#d3bbff] hover:bg-[#6d28d9] hover:text-white transition-colors"
-                >
-                  {copied
-                    ? lang === "en"
-                      ? "Copied!"
-                      : "Tersalin!"
-                    : lang === "en"
-                    ? "Copy Handle"
-                    : "Salin Username"}
-                </button>
+
               </div>
 
               <div className="glass-cyber p-4 rounded-2xl border border-white/10 flex items-center gap-3">

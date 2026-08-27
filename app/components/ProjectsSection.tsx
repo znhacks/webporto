@@ -170,7 +170,7 @@ export const PROJECTS_LIST: (ProjectData & {
       categoryLabel: "Game Development",
       categoryLabelEn: "Game Development",
       techStack: ["Dating Sim", "Visual Novel", "Itch.io", "Character Art"],
-      itchUrl: "https://itch.io",
+      itchUrl: "https://jdevs03.itch.io/rustbond",
       year: "",
       imageBg: "/ashy.png",
       description:
