@@ -7,11 +7,14 @@ import ProjectsSection from "./components/ProjectsSection";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import SpatialBackground from "./components/SpatialBackground";
 
 export default function Home() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen flex flex-col bg-[#030c17] text-[#d4e4fa] font-sans antialiased selection:bg-[#6d28d9] selection:text-white">
+      <div className="min-h-screen flex flex-col bg-transparent text-[#d4e4fa] font-sans antialiased selection:bg-[#6d28d9] selection:text-white">
+        <SpatialBackground />
+        
         {/* Navbar with EN | ID Switcher */}
         <Navbar />
 

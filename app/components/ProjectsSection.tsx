@@ -3,6 +3,8 @@
 import { useState } from "react";
 import ProjectModal, { ProjectData } from "./ProjectModal";
 import { useLanguage } from "../context/LanguageContext";
+import Holographic3D from "./Holographic3D";
+import { motion } from "framer-motion";
 
 export const PROJECTS_LIST: (ProjectData & {
   titleEn: string;
@@ -261,7 +263,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-20 px-6 md:px-8 bg-[#030c17] border-t border-white/10 relative"
+      className="py-20 px-6 md:px-8 bg-transparent border-t border-white/10 relative"
     >
       <div className="max-w-[1280px] mx-auto">
         {/* Section Header */}
@@ -326,62 +328,63 @@ export default function ProjectsSection() {
         {/* Unified Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="glass-cyber glass-cyber-interactive rounded-3xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-6 sm:p-8 border border-white/10"
-            >
-              {/* Image Banner Header */}
-              <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-6 bg-[#051424] border border-white/10">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${project.imageBg}')` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030c17] via-transparent to-transparent opacity-70" />
-                <div className="absolute top-3 left-3 px-3 py-1 bg-[#030c17]/90 backdrop-blur-md text-[#d3bbff] border border-white/10 rounded-full font-mono text-[11px]">
-                  {lang === "en"
-                    ? project.categoryLabelEn
-                    : project.categoryLabel}
+            <Holographic3D key={project.id} maxTilt={8} className="h-full">
+              <div
+                onClick={() => setSelectedProject(project)}
+                className="glass-cyber glass-cyber-interactive rounded-3xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-6 sm:p-8 border border-white/10 h-full bg-[#030c17]/50 backdrop-blur-sm"
+              >
+                {/* Image Banner Header */}
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-6 bg-[#051424] border border-white/10">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ backgroundImage: `url('${project.imageBg}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#030c17] via-transparent to-transparent opacity-70" />
+                  <div className="absolute top-3 left-3 px-3 py-1 bg-[#030c17]/90 backdrop-blur-md text-[#d3bbff] border border-white/10 rounded-full font-mono text-[11px]">
+                    {lang === "en"
+                      ? project.categoryLabelEn
+                      : project.categoryLabel}
+                  </div>
                 </div>
-              </div>
 
-              {/* Text Info */}
-              <div className="space-y-3">
-                <h3 className="text-2xl font-extrabold text-white group-hover:text-[#d3bbff] transition-colors">
-                  {lang === "en" ? project.titleEn : project.title}
-                </h3>
+                {/* Text Info */}
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-extrabold text-white group-hover:text-[#d3bbff] transition-colors">
+                    {lang === "en" ? project.titleEn : project.title}
+                  </h3>
 
-                <p className="text-sm text-[#ccc3d7] line-clamp-2 leading-relaxed font-normal">
-                  {lang === "en" ? project.descriptionEn : project.description}
-                </p>
-              </div>
+                  <p className="text-sm text-[#ccc3d7] line-clamp-2 leading-relaxed font-normal">
+                    {lang === "en" ? project.descriptionEn : project.description}
+                  </p>
+                </div>
 
-              {/* Footer Actions */}
-              <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
-                <div className="flex flex-wrap gap-1.5">
-                  {project.techStack.slice(0, 3).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-1 bg-[#051424] text-[#ccc3d7] text-[11px] font-mono rounded-lg border border-white/5"
-                    >
-                      {tech}
+                {/* Footer Actions */}
+                <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.techStack.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 bg-[#051424] text-[#ccc3d7] text-[11px] font-mono rounded-lg border border-white/5"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.techStack.length > 3 && (
+                      <span className="px-2 py-1 text-[11px] font-mono text-[#ccc3d7]">
+                        +{project.techStack.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="inline-flex items-center gap-1 text-[#d3bbff] font-mono text-xs font-semibold group-hover:translate-x-1 transition-transform">
+                    {lang === "en" ? "View Details" : "Lihat Detail"}
+                    <span className="material-symbols-outlined text-base">
+                      arrow_forward
                     </span>
-                  ))}
-                  {project.techStack.length > 3 && (
-                    <span className="px-2 py-1 text-[11px] font-mono text-[#ccc3d7]">
-                      +{project.techStack.length - 3}
-                    </span>
-                  )}
-                </div>
-
-                <div className="inline-flex items-center gap-1 text-[#d3bbff] font-mono text-xs font-semibold group-hover:translate-x-1 transition-transform">
-                  {lang === "en" ? "View Details" : "Lihat Detail"}
-                  <span className="material-symbols-outlined text-base">
-                    arrow_forward
-                  </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Holographic3D>
           ))}
         </div>
       </div>

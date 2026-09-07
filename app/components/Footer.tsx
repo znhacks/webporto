@@ -8,7 +8,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#030c17] border-t border-white/10 py-12 px-6 md:px-8 text-[#ccc3d7]">
+    <footer className="relative bg-transparent border-t border-white/10 py-12 px-6 md:px-8 text-[#ccc3d7]">
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand with PNG Logo */}
         <div className="flex items-center gap-3">

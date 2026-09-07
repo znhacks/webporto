@@ -30,7 +30,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 px-6 md:px-8 bg-[#030c17] border-t border-white/10 relative"
+      className="py-20 px-6 md:px-8 bg-transparent border-t border-white/10 relative"
     >
       <div className="max-w-[1280px] mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6d28d9]/25 border border-[#6d28d9]/50 text-[#d3bbff] text-xs font-mono mb-4">

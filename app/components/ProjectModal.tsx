@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useLanguage } from "../context/LanguageContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export interface ProjectData {
   id: string;
@@ -37,6 +38,13 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const { lang } = useLanguage();
+  const [localProject, setLocalProject] = useState<ProjectData | null>(project);
+
+  useEffect(() => {
+    if (project) {
+      setLocalProject(project);
+    }
+  }, [project]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -52,32 +60,39 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     };
   }, [project, onClose]);
 
-  if (!project) return null;
-
   const displayTitle =
-    lang === "en" && project.titleEn ? project.titleEn : project.title;
+    lang === "en" && localProject?.titleEn ? localProject.titleEn : localProject?.title;
   const displaySubtitle =
-    lang === "en" && project.subtitleEn ? project.subtitleEn : project.subtitle;
+    lang === "en" && localProject?.subtitleEn ? localProject.subtitleEn : localProject?.subtitle;
   const displayCategoryLabel =
-    lang === "en" && project.categoryLabelEn
-      ? project.categoryLabelEn
-      : project.categoryLabel;
+    lang === "en" && localProject?.categoryLabelEn
+      ? localProject.categoryLabelEn
+      : localProject?.categoryLabel;
   const displayOverview =
-    lang === "en" && project.overviewEn
-      ? project.overviewEn
-      : project.fullDetails.overview;
+    lang === "en" && localProject?.overviewEn
+      ? localProject.overviewEn
+      : localProject?.fullDetails.overview;
 
   const modalContent = (
-    <div 
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
-      onClick={onClose}
-    >
-      {/* Modal Container */}
-      <div
-        className="relative w-full max-w-3xl max-h-[90vh] bg-[#0d1c2d] border border-white/15 rounded-3xl shadow-2xl overflow-y-auto flex flex-col text-[#d4e4fa]"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header Bar */}
+    <AnimatePresence>
+      {project && localProject && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/85 backdrop-blur-md"
+          onClick={onClose}
+        >
+          {/* Modal Container */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.8, opacity: 0, y: 20 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="relative w-full max-w-3xl max-h-[90vh] bg-[#0d1c2d] border border-white/15 rounded-3xl shadow-2xl overflow-y-auto flex flex-col text-[#d4e4fa]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header Bar */}
         <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-[#051424]/95 backdrop-blur-xl border-b border-white/10">
           <div className="flex items-center gap-3">
             <span className="px-3.5 py-1 bg-[#6d28d9]/30 border border-[#d3bbff]/30 text-[#d3bbff] rounded-full font-mono text-xs uppercase tracking-wider">
@@ -95,10 +110,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Modal Banner Graphic */}
-        <div
-          className="relative w-full h-56 sm:h-64 bg-cover bg-center flex items-end p-6 border-b border-white/10"
-          style={{ backgroundImage: `url('${project.imageBg}')` }}
-        >
+          <div
+            className="relative w-full h-56 sm:h-64 bg-cover bg-center flex items-end p-6"
+            style={{ backgroundImage: `url('${localProject?.imageBg}')` }}
+          >
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d1c2d] via-[#0d1c2d]/70 to-transparent" />
           <div className="relative z-10">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">
@@ -111,7 +126,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Modal Content Body */}
-        <div className="p-6 sm:p-8 flex flex-col gap-6">
+        <div className="p-6 sm:p-8 flex flex-col gap-6 border-t border-white/10">
           {/* System Overview */}
           <div>
             <h3 className="font-mono text-xs uppercase tracking-widest text-[#d3bbff] mb-2 font-bold">
@@ -125,9 +140,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Action Links (GitHub & Itch.io) */}
           <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-3">
-              {project.itchUrl && (
+              {localProject?.itchUrl && (
                 <a
-                  href={project.itchUrl}
+                  href={localProject.itchUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-full bg-red-600 text-white font-mono text-xs font-semibold hover:bg-red-500 transition-all flex items-center gap-2 shadow-lg shadow-red-900/30 hover:scale-105"
@@ -139,9 +154,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </a>
               )}
 
-              {project.githubUrl && (
+              {localProject?.githubUrl && (
                 <a
-                  href={project.githubUrl}
+                  href={localProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-full bg-[#6d28d9] text-white font-mono text-xs font-semibold hover:bg-[#7331df] transition-all flex items-center gap-2 shadow-lg shadow-purple-900/30 hover:scale-105"
@@ -164,8 +179,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </button>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
+      )}
+    </AnimatePresence>
   );
 
   return typeof document !== "undefined" ? createPortal(modalContent, document.body) : null;
