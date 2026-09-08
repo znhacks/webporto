@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col text-center md:text-left">
             <span className="font-extrabold text-white text-base tracking-tight">
-              Ordi <span className="text-[#d3bbff] font-mono text-xs">(znhacks)</span>
+              Ordi
             </span>
             <p className="text-[11px] text-[#ccc3d7] font-mono">
               Full-Stack Developer &amp; Game Engineer
@@ -55,7 +55,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-[#d3bbff] transition-colors"
           >
-            Instagram (@jxrzero)
+            Instagram
           </a>
           <button
             onClick={scrollToTop}

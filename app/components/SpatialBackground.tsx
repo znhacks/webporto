@@ -1,42 +1,62 @@
 "use client";
 
-import { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Stars, Sparkles } from "@react-three/drei";
-import * as THREE from "three";
-
-function Scene() {
-  const groupRef = useRef<THREE.Group>(null);
-
-  useFrame((state, delta) => {
-    if (groupRef.current) {
-      // Slowly rotate the entire scene for a dynamic spatial feel
-      groupRef.current.rotation.y += delta * 0.03;
-      groupRef.current.rotation.x += delta * 0.015;
-    }
-  });
-
-  return (
-    <group ref={groupRef}>
-      {/* Background Starfield */}
-      <Stars radius={50} depth={50} count={4000} factor={4} saturation={0} fade speed={1} />
-      
-      {/* Floating Cyber Particles */}
-      <Sparkles count={150} scale={20} size={1.5} speed={0.4} color="#6d28d9" />
-      <Sparkles count={100} scale={15} size={2.5} speed={0.2} color="#d3bbff" />
-      <Sparkles count={50} scale={10} size={2} speed={0.6} color="#051424" />
-    </group>
-  );
-}
+import { useEffect, useState } from "react";
+import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export default function SpatialBackground() {
+  const mouseX = useMotionValue(-1000);
+  const mouseY = useMotionValue(-1000);
+
+  // Smooth out the mouse movement
+  const springX = useSpring(mouseX, { damping: 40, stiffness: 150 });
+  const springY = useSpring(mouseY, { damping: 40, stiffness: 150 });
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Set initial position to center of screen
+    mouseX.set(window.innerWidth / 2);
+    mouseY.set(window.innerHeight / 2);
+    setIsVisible(true);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
-    <div className="fixed inset-0 z-[-10] bg-transparent pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-        <color attach="background" args={["#030c17"]} />
-        <ambientLight intensity={0.5} />
-        <Scene />
-      </Canvas>
+    <div className="fixed inset-0 z-[-10] bg-[#030c17] pointer-events-none overflow-hidden bg-grid-cyber">
+      {/* Interactive Cursor Orb */}
+      <motion.div
+        className="absolute w-[800px] h-[800px] rounded-full"
+        style={{
+          x: springX,
+          y: springY,
+          translateX: "-50%",
+          translateY: "-50%",
+          background: "radial-gradient(circle, rgba(109, 40, 217, 0.12) 0%, rgba(3, 12, 23, 0) 50%)",
+          opacity: isVisible ? 1 : 0,
+          transition: "opacity 1.5s ease-in-out"
+        }}
+      />
+      
+      {/* Secondary accent orb (smaller and more vibrant) */}
+      <motion.div
+        className="absolute w-[400px] h-[400px] rounded-full"
+        style={{
+          x: springX,
+          y: springY,
+          translateX: "-50%",
+          translateY: "-50%",
+          background: "radial-gradient(circle, rgba(211, 187, 255, 0.08) 0%, rgba(3, 12, 23, 0) 50%)",
+          opacity: isVisible ? 1 : 0,
+          transition: "opacity 1.5s ease-in-out"
+        }}
+      />
     </div>
   );
 }
