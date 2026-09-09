@@ -73,7 +73,88 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       ? localProject.overviewEn
       : localProject?.fullDetails.overview;
 
-  const modalContent = (
+  const modalContent = localProject?.id === "rustbond" ? (
+    <AnimatePresence>
+      {project && localProject && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050505] overflow-hidden"
+        >
+          {/* Background Images */}
+          <div className="absolute inset-0 z-0 flex justify-between items-end pointer-events-none">
+            <img 
+              src="/Rustbond/Zen.jpg" 
+              alt="Zen" 
+              className="h-[55vh] sm:h-[90vh] w-[65vw] sm:w-auto object-contain object-left-bottom -ml-20 sm:-ml-20 mb-12 sm:mb-0 opacity-100" 
+            />
+            <img 
+              src="/Rustbond/Ashy.png" 
+              alt="Ashy" 
+              className="h-[55vh] sm:h-[95vh] w-[65vw] sm:w-auto object-contain object-right-bottom -mr-24 sm:-mr-20 translate-y-8 sm:translate-y-16 opacity-100" 
+            />
+          </div>
+
+          {/* Overlay gradient for text readability on mobile */}
+          <div className="absolute inset-0 bg-black/30 sm:bg-transparent sm:bg-gradient-to-t sm:from-black/80 sm:via-transparent sm:to-transparent pointer-events-none z-10" />
+
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl w-full pt-10 sm:pt-0">
+            <img 
+              src="/Rustbond/bgrustbond.png" 
+              alt="Rustbond Title" 
+              className="w-full max-w-[200px] sm:max-w-sm object-contain mb-4 drop-shadow-[0_0_15px_rgba(220,38,38,0.5)] relative z-30" 
+            />
+            <p className="text-sm sm:text-xl text-gray-200 mb-6 leading-relaxed max-w-xl font-medium drop-shadow-lg relative z-10">
+              {lang === "en"
+                ? "Can you earn her trust and uncover the mystery behind this tragedy? There are alot different endings for you to discover."
+                : "Dapatkah kamu meraih kepercayaannya dan mengungkap misteri di balik tragedi ini? Ada banyak akhir cerita yang bisa kamu temukan."}
+            </p>
+
+            {/* PV / Preview Video */}
+            <div className="w-full max-w-lg aspect-video border border-white/20 rounded-2xl mb-8 shadow-[0_0_30px_rgba(220,38,38,0.3)] overflow-hidden relative z-30 bg-black">
+              <video 
+                src="/Rustbond/rbpv.mp4" 
+                controls
+                preload="metadata"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 relative z-30">
+              {localProject.itchUrl && (
+                <a
+                  href={localProject.itchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full bg-red-600 text-white font-bold text-sm sm:text-base hover:bg-red-500 transition-all shadow-[0_0_20px_rgba(220,38,38,0.5)] hover:scale-105 flex items-center gap-2 pointer-events-auto"
+                >
+                  <span className="material-symbols-outlined text-xl">sports_esports</span>
+                  {lang === "en" ? "Play on Itch.io" : "Mainkan di Itch.io"}
+                </a>
+              )}
+              <button
+                onClick={onClose}
+                className="px-8 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm sm:text-base hover:bg-white/10 transition-all flex items-center gap-2 pointer-events-auto"
+              >
+                {lang === "en" ? "Go Back" : "Kembali"}
+              </button>
+            </div>
+          </div>
+
+          {/* Close button top right */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 p-3 bg-white/5 hover:bg-white/15 border border-white/10 rounded-full text-white transition-colors z-20 backdrop-blur-md"
+            aria-label="Close"
+          >
+            <span className="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  ) : (
     <AnimatePresence>
       {project && localProject && (
         <motion.div 

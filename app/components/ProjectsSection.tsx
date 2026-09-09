@@ -258,7 +258,11 @@ export default function ProjectsSection() {
 
   const filteredProjects = PROJECTS_LIST.filter(
     (p) => activeTab === "all" || p.category === activeTab
-  );
+  ).sort((a, b) => {
+    if (a.id === "rustbond") return -1;
+    if (b.id === "rustbond") return 1;
+    return 0;
+  });
 
   return (
     <section
@@ -331,7 +335,11 @@ export default function ProjectsSection() {
             <Holographic3D key={project.id} maxTilt={8} className="h-full">
               <div
                 onClick={() => setSelectedProject(project)}
-                className="glass-cyber glass-cyber-interactive rounded-3xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-6 sm:p-8 border border-white/10 h-full bg-[#030c17]/50 backdrop-blur-sm"
+                className={`glass-cyber glass-cyber-interactive rounded-3xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-6 sm:p-8 h-full bg-[#030c17]/50 backdrop-blur-sm transition-all duration-300 ${
+                  project.id === "rustbond"
+                    ? "!border-yellow-500/70 !shadow-[0_0_30px_rgba(234,179,8,0.25)] hover:!shadow-[0_0_40px_rgba(234,179,8,0.4)]"
+                    : "border border-white/10"
+                }`}
               >
                 {/* Image Banner Header */}
                 <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-6 bg-[#051424] border border-white/10">
@@ -340,10 +348,19 @@ export default function ProjectsSection() {
                     style={{ backgroundImage: `url('${project.imageBg}')` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#030c17] via-transparent to-transparent opacity-70" />
-                  <div className="absolute top-3 left-3 px-3 py-1 bg-[#030c17]/90 backdrop-blur-md text-[#d3bbff] border border-white/10 rounded-full font-mono text-[11px]">
-                    {lang === "en"
-                      ? project.categoryLabelEn
-                      : project.categoryLabel}
+                  
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-2 pr-3">
+                    <div className="px-3 py-1 bg-[#030c17]/90 backdrop-blur-md text-[#d3bbff] border border-white/10 rounded-full font-mono text-[11px]">
+                      {lang === "en"
+                        ? project.categoryLabelEn
+                        : project.categoryLabel}
+                    </div>
+                    {project.id === "rustbond" && (
+                      <div className="px-2.5 py-0.5 bg-yellow-500/90 backdrop-blur-md text-yellow-950 border border-yellow-400/50 rounded-full font-mono text-[9px] font-extrabold shadow-[0_0_10px_rgba(234,179,8,0.5)] flex items-center gap-1 uppercase tracking-wider">
+                        <span className="material-symbols-outlined text-[10px] font-bold">star</span>
+                        {lang === "en" ? "RECOMMENDED" : "REKOMENDASI"}
+                      </div>
+                    )}
                   </div>
                 </div>
 
