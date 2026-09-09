@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLanguage } from "../context/LanguageContext";
 
@@ -28,8 +28,8 @@ export default function AboutSection() {
             </h2>
             <p className="text-base text-[#ccc3d7] leading-relaxed">
               {lang === "en"
-                ? "I am Ordi, a versatile Full-Stack Developer specializing in building complete end-to-end solutions — spanning mobile apps (Flutter), web platforms (Next.js), cloud database backends (Supabase), and interactive game engines (Ren'Py & Roblox)."
-                : "Saya Ordi, seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end — mencakup aplikasi mobile (Flutter), platform web (Next.js), cloud database backend (Supabase), hingga game engine (Ren'Py & Roblox)."}
+                ? "I am Ordi, Founder of Sabitplay Studio, and a versatile Full-Stack Developer specializing in building complete end-to-end solutions — spanning mobile apps (Flutter), web platforms (Next.js), cloud database backends (Supabase), and interactive game engines (Ren'Py & Roblox)."
+                : "Saya Ordi, Pendiri Sabitplay Studio, dan seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end — mencakup aplikasi mobile (Flutter), platform web (Next.js), cloud database backend (Supabase), hingga game engine (Ren'Py & Roblox)."}
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 font-mono text-xs text-[#ccc3d7]">
@@ -47,12 +47,12 @@ export default function AboutSection() {
               <div>
                 <span className="text-[#d3bbff] block font-bold">Itch.io</span>
                 <a
-                  href="https://jdevs03.itch.io/"
+                  href="https://sabitplay.itch.io/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white text-red-400"
                 >
-                  jdevs03.itch.io
+                  Sabitplay Studio - itch.io
                 </a>
               </div>
               <div>

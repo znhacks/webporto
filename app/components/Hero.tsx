@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -89,8 +89,8 @@ export default function Hero() {
             <p className={`text-base sm:text-lg text-[#ccc3d7] max-w-xl font-normal leading-relaxed mb-8 ${animBase} delay-[500ms] min-h-[100px]`}>
               <TypewriterText 
                 text={lang === "en"
-                  ? "I am a Full-Stack Developer engineering end-to-end mobile applications, web platforms, cloud database backends, and interactive games."
-                  : "Saya adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end."} 
+                  ? "I am a Full-Stack Developer engineering end-to-end mobile applications, web platforms, cloud database backends, and interactive games. Founder of Sabitplay Studio."
+                  : "Saya adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end. Pendiri dari Sabitplay Studio."} 
                 delay={2000} 
                 isEntering={isEntering} 
                 speed={25} 

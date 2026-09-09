@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 
@@ -45,7 +45,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 Curriculum Vitae / Resume
               </h2>
               <p className="font-mono text-xs text-[#958da1]">
-                Ordi (znhacks) • Systems &amp; Game Engineer
+                Ordi (znhacks) â€¢ Systems &amp; Game Engineer
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 Software Architect &amp; Game Developer
               </p>
               <p className="text-xs text-[#ccc3d7] mt-2">
-                GitHub: github.com/znhacks • Email: hydrogz7@gmail.com
+                GitHub: github.com/znhacks â€¢ Email: hydrogz7@gmail.com
               </p>
             </div>
 
@@ -115,7 +115,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   </span>
                 </div>
                 <p className="text-xs font-mono text-[#958da1] mt-0.5">
-                  Flutter • Supabase • Dart • SQL RLS Security
+                  Flutter â€¢ Supabase â€¢ Dart â€¢ SQL RLS Security
                 </p>
                 <ul className="text-xs text-[#ccc3d7] mt-2 list-disc list-inside space-y-1">
                   <li>Built complete multi-tenant teacher journal system with 9 Repository abstractions.</li>
@@ -134,7 +134,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   </span>
                 </div>
                 <p className="text-xs font-mono text-[#958da1] mt-0.5">
-                  Ren&apos;Py Engine • Python • Horror Game Design
+                  Ren&apos;Py Engine â€¢ Python â€¢ Horror Game Design
                 </p>
                 <ul className="text-xs text-[#ccc3d7] mt-2 list-disc list-inside space-y-1">
                   <li>Developed narrative horror game with branching choices and dynamic audio cues.</li>
@@ -152,7 +152,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   </span>
                 </div>
                 <p className="text-xs font-mono text-[#958da1] mt-0.5">
-                  Roblox Studio • Luau • Rojo 7 Toolchain
+                  Roblox Studio â€¢ Luau â€¢ Rojo 7 Toolchain
                 </p>
                 <ul className="text-xs text-[#ccc3d7] mt-2 list-disc list-inside space-y-1">
                   <li>Created modular game architecture using Rojo sync and external VS Code workflow.</li>

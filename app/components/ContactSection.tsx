@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, FormEvent } from "react";
 import { useLanguage } from "../context/LanguageContext";
@@ -86,12 +86,12 @@ export default function ContactSection() {
                     Itch.io Game Studio
                   </span>
                   <a
-                    href="https://jdevs03.itch.io/"
+                    href="https://sabitplay.itch.io/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-red-400 transition-colors font-bold"
                   >
-                    jdevs03.itch.io
+                    Sabitplay Studio - itch.io
                   </a>
                 </div>
               </div>

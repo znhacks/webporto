@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 export default function GameDevSection() {
   return (
@@ -28,7 +28,7 @@ export default function GameDevSection() {
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="px-3 py-1 bg-[#051424] border border-white/10 text-[#d3bbff] rounded-full font-mono text-xs uppercase tracking-wider">
-                  Ren&apos;Py • Game Horor
+                  Ren&apos;Py â€¢ Game Horor
                 </span>
                 <span className="font-mono text-xs text-[#ccc3d7]">2024</span>
               </div>
@@ -43,15 +43,15 @@ export default function GameDevSection() {
 
               <div className="space-y-2 mb-6 text-xs text-[#d4e4fa] font-mono">
                 <div className="flex items-center gap-2">
-                  <span className="text-[#6d28d9]">✓</span>
+                  <span className="text-[#6d28d9]">âœ“</span>
                   <span>Engine: Ren&apos;Py Visual Novel &amp; Python</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#6d28d9]">✓</span>
+                  <span className="text-[#6d28d9]">âœ“</span>
                   <span>Fitur: Pilihan cerita bercabang &amp; audio atmosferik</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#6d28d9]">✓</span>
+                  <span className="text-[#6d28d9]">âœ“</span>
                   <span>Platform: Windows, Mac, Linux</span>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function GameDevSection() {
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="px-3 py-1 bg-[#051424] border border-white/10 text-[#d3bbff] rounded-full font-mono text-xs uppercase tracking-wider">
-                  Roblox • Luau Scripting
+                  Roblox â€¢ Luau Scripting
                 </span>
                 <span className="font-mono text-xs text-[#ccc3d7]">2024</span>
               </div>
@@ -103,15 +103,15 @@ export default function GameDevSection() {
 
               <div className="space-y-2 mb-6 text-xs text-[#d4e4fa] font-mono">
                 <div className="flex items-center gap-2">
-                  <span className="text-[#6d28d9]">✓</span>
+                  <span className="text-[#6d28d9]">âœ“</span>
                   <span>Platform: Roblox Studio &amp; Player</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#6d28d9]">✓</span>
+                  <span className="text-[#6d28d9]">âœ“</span>
                   <span>Bahasa: Luau Scripting</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#6d28d9]">✓</span>
+                  <span className="text-[#6d28d9]">âœ“</span>
                   <span>Tooling: Rojo 7 &amp; Visual Studio Code</span>
                 </div>
               </div>

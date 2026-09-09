@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 
@@ -42,7 +42,7 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://jdevs03.itch.io/"
+            href="https://sabitplay.itch.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-red-400 transition-colors text-red-400"
@@ -71,7 +71,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-[1280px] mx-auto mt-8 pt-6 border-t border-white/5 text-center text-[11px] font-mono text-[#ccc3d7]">
-        © {new Date().getFullYear()} Jordevs
+        Â© {new Date().getFullYear()} Jordevs
       </div>
     </footer>
   );

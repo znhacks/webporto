@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import ProjectModal, { ProjectData } from "./ProjectModal";
@@ -26,7 +26,7 @@ export const PROJECTS_LIST: (ProjectData & {
       categoryLabel: "Game Development",
       categoryLabelEn: "Game Development",
       techStack: ["Game Dev", "Itch.io", "Horror Game", "Sound Design"],
-      itchUrl: "https://jdevs03.itch.io/finalnightmare",
+      itchUrl: "https://sabitplay.itch.io/finalnightmare",
       year: "",
       imageBg:
         "https://img.itch.zone/aW1nLzI0MjU3NjM5LnBuZw==/347x500/bnfeZW.png",
@@ -44,7 +44,7 @@ export const PROJECTS_LIST: (ProjectData & {
           "Tersedia dan dapat dimainkan langsung di Itch.io",
         ],
         architecture: [
-          "Dipublikasikan resmi di Itch.io (jdevs03.itch.io/finalnightmare)",
+          "Dipublikasikan resmi di Itch.io (sabitplay.itch.io/finalnightmare)",
         ],
         techDetails:
           "Engine Game & Audio Design dikembangkan khusus untuk menghadirkan pengalaman horor imersif.",
@@ -172,7 +172,7 @@ export const PROJECTS_LIST: (ProjectData & {
       categoryLabel: "Game Development",
       categoryLabelEn: "Game Development",
       techStack: ["Dating Sim", "Visual Novel", "Itch.io", "Character Art"],
-      itchUrl: "https://jdevs03.itch.io/rustbond",
+      itchUrl: "https://sabitplay.itch.io/rustbond",
       year: "",
       imageBg: "/ashy.png",
       description:
