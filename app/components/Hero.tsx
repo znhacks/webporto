@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -25,12 +25,12 @@ function TypewriterText({ text, delay = 0, speed = 40, isEntering = false }: { t
 
   useEffect(() => {
     if (!hasStarted) return;
-    
+
     // Reset if text changes entirely (e.g. language switch)
     if (!text.startsWith(displayedText) && displayedText.length > 0) {
       setDisplayedText("");
     }
-    
+
     if (displayedText.length < text.length) {
       const timeout = setTimeout(() => {
         setDisplayedText(text.slice(0, displayedText.length + 1));
@@ -51,14 +51,29 @@ export default function Hero() {
   const { lang } = useLanguage();
   const { isEntering } = useEntrance();
 
-  const animBase = `transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] ${
-    !isEntering ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"
-  }`;
+  const animBase = `transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] ${!isEntering ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"
+    }`;
 
   return (
     <section className="relative min-h-[85vh] flex flex-col justify-center pt-32 pb-16 ambient-glow-purple overflow-hidden">
-      {/* Ambient background glowing orb */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[#6d28d9]/15 blur-[140px] rounded-full pointer-events-none" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 opacity-100 flex items-center justify-center">
+          <Image
+            src="/Rustbond/Zen.jpg"
+            alt="Hero Background"
+            width={800}
+            height={800}
+            className="w-[85%] md:w-[60%] lg:w-[50%] h-auto max-h-screen object-contain -translate-y-[100px] lg:translate-y-0 lg:-translate-x-[300px]"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030c17]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030c17]/90 via-[#030c17]/40 to-transparent"></div>
+      </div>
+
+      {/* Ambient background glowing orb - Hidden on mobile to prevent lag */}
+      <div className="hidden md:block absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[#6d28d9]/15 blur-[140px] rounded-full pointer-events-none z-0" />
 
       <div className="px-6 md:px-8 max-w-[1280px] mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -78,22 +93,22 @@ export default function Hero() {
             </div>
 
             <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6 ${animBase} delay-[400ms]`}>
-              <TypewriterText 
-                text={lang === "en" ? "Hi, I'm Ordi" : "Hi, Saya Ordi"} 
-                delay={1000} 
-                isEntering={isEntering} 
-                speed={70} 
+              <TypewriterText
+                text={lang === "en" ? "Yo, I'm Ordi" : "Yo, Saya Ordi"}
+                delay={1000}
+                isEntering={isEntering}
+                speed={70}
               />
             </h1>
 
             <p className={`text-base sm:text-lg text-[#ccc3d7] max-w-xl font-normal leading-relaxed mb-8 ${animBase} delay-[500ms] min-h-[100px]`}>
-              <TypewriterText 
+              <TypewriterText
                 text={lang === "en"
                   ? "I am a Full-Stack Developer engineering end-to-end mobile applications, web platforms, cloud database backends, and interactive games. Founder of Sabitplay Studio."
-                  : "Saya adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end. Pendiri dari Sabitplay Studio."} 
-                delay={2000} 
-                isEntering={isEntering} 
-                speed={25} 
+                  : "Saya adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end. Pendiri dari Sabitplay Studio."}
+                delay={2000}
+                isEntering={isEntering}
+                speed={25}
               />
             </p>
 
@@ -125,8 +140,8 @@ export default function Hero() {
           {/* Right Column: Direct Floating PNG Logo */}
           <div className={`lg:col-span-5 flex items-center justify-center ${animBase} delay-[700ms]`}>
             <div className="relative flex items-center justify-center p-4">
-              {/* Soft background glow aura */}
-              <div className="absolute w-80 h-80 bg-[#6d28d9]/35 blur-3xl rounded-full pointer-events-none" />
+              {/* Soft background glow aura - Hidden on mobile to prevent lag */}
+              <div className="hidden md:block absolute w-80 h-80 bg-[#6d28d9]/35 blur-3xl rounded-full pointer-events-none" />
 
               {/* Direct PNG Logo Image */}
               <Image

@@ -52,7 +52,7 @@ export default function AboutSection() {
                   rel="noopener noreferrer"
                   className="hover:text-white text-red-400"
                 >
-                  Sabitplay Studio - itch.io
+                  Sabitplay Studio
                 </a>
               </div>
               <div>

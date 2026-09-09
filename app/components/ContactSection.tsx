@@ -15,10 +15,10 @@ export default function ContactSection() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    
+
     const subject = encodeURIComponent(`Pesan Portofolio dari ${formState.name}`);
     const body = encodeURIComponent(`Nama: ${formState.name}\nEmail: ${formState.email}\n\nPesan:\n${formState.message}`);
-    
+
     window.location.href = `mailto:hydrogz7@gmail.com?subject=${subject}&body=${body}`;
 
     setSubmitted(true);
@@ -91,7 +91,7 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     className="text-white hover:text-red-400 transition-colors font-bold"
                   >
-                    Sabitplay Studio - itch.io
+                    Sabitplay Studio
                   </a>
                 </div>
               </div>
