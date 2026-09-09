@@ -23,10 +23,10 @@ export default function Footer() {
           </div>
           <div className="flex flex-col text-center md:text-left">
             <span className="font-extrabold text-white text-base tracking-tight">
-              Ordi
+              Founder
             </span>
             <p className="text-[11px] text-[#ccc3d7] font-mono">
-              Full-Stack Developer &amp; Game Engineer
+              Sabitplay Studio
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-[1280px] mx-auto mt-8 pt-6 border-t border-white/5 text-center text-[11px] font-mono text-[#ccc3d7]">
-        Â© {new Date().getFullYear()} Jordevs
+        Jordy-is-a-Dev
       </div>
     </footer>
   );

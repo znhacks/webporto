@@ -24,7 +24,7 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col justify-center">
             <span className="text-lg sm:text-xl font-extrabold text-[#d4e4fa] tracking-tight group-hover:text-[#d3bbff] transition-colors leading-none">
-              Jor <span className="text-[#6d28d9] text-xs font-mono">.dev</span>
+              Hello <span className="text-[#6d28d9] text-xs font-mono">World</span>
             </span>
           </div>
         </a>
