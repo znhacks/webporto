@@ -94,7 +94,7 @@ export default function Hero() {
 
             <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6 ${animBase} delay-[400ms]`}>
               <TypewriterText
-                text={lang === "en" ? "Yo, I'm Ordi" : "Yo, Saya Ordi"}
+                text={lang === "en" ? "Yo, I'm Ordi" : "Yo, Aku Ordi"}
                 delay={1000}
                 isEntering={isEntering}
                 speed={70}
@@ -105,7 +105,7 @@ export default function Hero() {
               <TypewriterText
                 text={lang === "en"
                   ? "I am a Full-Stack Developer engineering end-to-end mobile applications, web platforms, cloud database backends, and interactive games. Founder of Sabitplay Studio."
-                  : "Saya adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end. Pendiri dari Sabitplay Studio."}
+                  : "Aku adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end. Pendiri dari Sabitplay Studio."}
                 delay={2000}
                 isEntering={isEntering}
                 speed={25}
@@ -129,7 +129,7 @@ export default function Hero() {
                 href="#contact"
                 className="px-8 py-3.5 rounded-full bg-[#0d1c2d] border border-white/10 text-[#d4e4fa] font-mono text-xs font-semibold hover:border-[#d3bbff]/50 hover:text-white transition-all flex items-center gap-2 hover:scale-105"
               >
-                {lang === "en" ? "Contact Me" : "Hubungi Saya"}
+                {lang === "en" ? "Contact Me" : "Hubungi"}
                 <span className="material-symbols-outlined text-base">
                   send
                 </span>

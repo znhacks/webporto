@@ -35,7 +35,7 @@ export default function ContactSection() {
       <div className="max-w-[1280px] mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6d28d9]/25 border border-[#6d28d9]/50 text-[#d3bbff] text-xs font-mono mb-4">
           <span className="material-symbols-outlined text-base">mail</span>
-          {lang === "en" ? "GET IN TOUCH" : "HUBUNGI SAYA"}
+          {lang === "en" ? "GET IN TOUCH" : "HUBUNGI"}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -50,7 +50,7 @@ export default function ContactSection() {
             <p className="text-base text-[#ccc3d7] leading-relaxed font-normal">
               {lang === "en"
                 ? "Send a direct message via the form or reach out on Instagram & Itch.io."
-                : "Kirimkan pesan langsung melalui formulir atau hubungi saya di Instagram & Itch.io."}
+                : "Kirimkan pesan langsung melalui formulir atau hubungi Aku di Instagram."}
             </p>
 
             <div className="pt-2 space-y-3 font-mono text-sm">
@@ -133,7 +133,7 @@ export default function ContactSection() {
                   <p className="text-sm text-[#ccc3d7] max-w-md mx-auto">
                     {lang === "en"
                       ? "Thank you for reaching out. I will respond to your email shortly."
-                      : "Terima kasih telah menghubungi. Saya akan membalas ke email Anda secepatnya."}
+                      : "Terima kasih telah menghubungi. Aku akan membalas ke email Anda secepatnya."}
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}

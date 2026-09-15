@@ -15,7 +15,7 @@ export default function AboutSection() {
       <div className="max-w-[1280px] mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6d28d9]/25 border border-[#6d28d9]/50 text-[#d3bbff] text-xs font-mono mb-4">
           <span className="material-symbols-outlined text-base">person</span>
-          {lang === "en" ? "ABOUT ME" : "TENTANG SAYA"}
+          {lang === "en" ? "ABOUT ME" : "TENTANG AKU"}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -29,7 +29,7 @@ export default function AboutSection() {
             <p className="text-base text-[#ccc3d7] leading-relaxed">
               {lang === "en"
                 ? "I am Ordi, Founder of Sabitplay Studio, and a versatile Full-Stack Developer specializing in building complete end-to-end solutions — spanning mobile apps (Flutter), web platforms (Next.js), cloud database backends (Supabase), and interactive game engines (Ren'Py & Roblox)."
-                : "Saya Ordi, Pendiri Sabitplay Studio, dan seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end — mencakup aplikasi mobile (Flutter), platform web (Next.js), cloud database backend (Supabase), hingga game engine (Ren'Py & Roblox)."}
+                : "Aku Ordi, Pendiri Sabitplay Studio, dan seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end — mencakup aplikasi mobile (Flutter), platform web (Next.js), cloud database backend (Supabase), hingga game engine (Ren'Py & Roblox)."}
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 font-mono text-xs text-[#ccc3d7]">
