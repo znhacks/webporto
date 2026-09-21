@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import ProjectModal, { ProjectData } from "./ProjectModal";
@@ -161,6 +161,53 @@ export const PROJECTS_LIST: (ProjectData & {
       ],
     },
     {
+      id: "bocah-fishing",
+      title: "Bocah Fishing",
+      titleEn: "Bocah Fishing",
+      subtitle:
+        "Game simulasi memancing santai berbalut atmosfer danau yang menenangkan dengan mekanik unik 'Everything is Bait!'.",
+      subtitleEn:
+        "A cozy, atmospheric lake fishing simulation game featuring a unique 'Everything is Bait!' mechanic.",
+      category: "game-dev",
+      categoryLabel: "Game Development",
+      categoryLabelEn: "Game Development",
+      techStack: ["Godot", "HTML5", "Simulation", "2D Pixel/Art", "Itch.io"],
+      itchUrl: "https://sabitplay.itch.io/bocah-fishing",
+      year: "2026",
+      imageBg: "/Bofish/bocahfishing.png",
+      description:
+        "Game memancing santai dengan konsep 'Semuanya adalah Umpan!'. Gunakan barang bekas hingga ikan tangkapan untuk memikat ikan raksasa.",
+      descriptionEn:
+        "A cozy lake fishing game where 'Everything is Bait!'. Hook junk, batteries, or even caught fish to lure massive trophy fish.",
+      fullDetails: {
+        overview:
+          "Bocah Fishing adalah game simulasi memancing atmosferik yang dibuat oleh Sabitplay Studio untuk Micro Jam 065. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar di danau yang tenang.",
+        features: [
+          "Mekanik unik 'Everything is Bait!' (semua barang bisa jadi umpan)",
+          "Siklus dinamis siang dan malam (Day & Night cycle)",
+          "Karakter pemancing unik dengan sifat pasif (passive traits)",
+          "Almanak ikan lengkap untuk dikoleksi",
+          "Dapat dimainkan langsung di web browser (HTML5) dan Windows",
+        ],
+        architecture: [
+          "Dikembangkan dengan Godot Engine",
+          "Entry game jam resmi Micro Jam 065: Fishing",
+          "Dipublikasikan di Itch.io (sabitplay.itch.io/bocah-fishing)",
+        ],
+        techDetails:
+          "Dikembangkan menggunakan Godot Engine dengan optimasi web export HTML5 dan artwork orisinal bertema malam di danau.",
+      },
+      overviewEn:
+        "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio for Micro Jam 065, featuring the twist: Everything is Bait!",
+      featuresEn: [
+        "Unique 'Everything is Bait!' gameplay mechanic",
+        "Dynamic day-and-night cycle with immersive ambience",
+        "Unique anglers with passive traits & personality narrations",
+        "Full fish almanac catalog to catch and discover",
+        "Directly playable in browser (HTML5) and available for Windows",
+      ],
+    },
+    {
       id: "rustbond",
       title: "Rustbond",
       titleEn: "Rustbond",
@@ -249,7 +296,7 @@ export const PROJECTS_LIST: (ProjectData & {
 
 export default function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<
-    "all" | "web" | "mobile" | "game-dev"
+    "all" | "game-dev" | "web" | "mobile"
   >("all");
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(
     null
@@ -259,8 +306,23 @@ export default function ProjectsSection() {
   const filteredProjects = PROJECTS_LIST.filter(
     (p) => activeTab === "all" || p.category === activeTab
   ).sort((a, b) => {
-    if (a.id === "rustbond") return -1;
-    if (b.id === "rustbond") return 1;
+    const categoryOrder: Record<string, number> = {
+      "game-dev": 1,
+      web: 2,
+      mobile: 3,
+    };
+
+    const orderA = categoryOrder[a.category] ?? 99;
+    const orderB = categoryOrder[b.category] ?? 99;
+
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+
+    // Inside game-dev category, keep bocah-fishing recommended as first
+    if (a.id === "bocah-fishing") return -1;
+    if (b.id === "bocah-fishing") return 1;
+
     return 0;
   });
 
@@ -300,6 +362,15 @@ export default function ProjectsSection() {
               {PROJECTS_LIST.length})
             </button>
             <button
+              onClick={() => setActiveTab("game-dev")}
+              className={`px-4 py-2 rounded-xl transition-all ${activeTab === "game-dev"
+                ? "bg-[#6d28d9] text-white font-bold shadow-lg"
+                : "text-[#ccc3d7] hover:text-white"
+                }`}
+            >
+              {lang === "en" ? "Game Dev" : "Game Development"}
+            </button>
+            <button
               onClick={() => setActiveTab("web")}
               className={`px-4 py-2 rounded-xl transition-all ${activeTab === "web"
                 ? "bg-[#6d28d9] text-white font-bold shadow-lg"
@@ -317,15 +388,6 @@ export default function ProjectsSection() {
             >
               {lang === "en" ? "Mobile Apps" : "Aplikasi Mobile"}
             </button>
-            <button
-              onClick={() => setActiveTab("game-dev")}
-              className={`px-4 py-2 rounded-xl transition-all ${activeTab === "game-dev"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg"
-                : "text-[#ccc3d7] hover:text-white"
-                }`}
-            >
-              {lang === "en" ? "Game Dev" : "Game Development"}
-            </button>
           </div>
         </div>
 
@@ -336,8 +398,8 @@ export default function ProjectsSection() {
               <div
                 onClick={() => setSelectedProject(project)}
                 className={`glass-cyber glass-cyber-interactive rounded-3xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-6 sm:p-8 h-full bg-[#030c17]/50 backdrop-blur-sm transition-all duration-300 ${
-                  project.id === "rustbond"
-                    ? "!border-yellow-500/70 !shadow-[0_0_30px_rgba(234,179,8,0.25)] hover:!shadow-[0_0_40px_rgba(234,179,8,0.4)]"
+                  project.id === "bocah-fishing"
+                    ? "!border-cyan-400/80 !shadow-[0_0_35px_rgba(6,182,212,0.35)] hover:!shadow-[0_0_45px_rgba(6,182,212,0.55)]"
                     : "border border-white/10"
                 }`}
               >
@@ -355,8 +417,8 @@ export default function ProjectsSection() {
                         ? project.categoryLabelEn
                         : project.categoryLabel}
                     </div>
-                    {project.id === "rustbond" && (
-                      <div className="px-2.5 py-0.5 bg-yellow-500/90 backdrop-blur-md text-yellow-950 border border-yellow-400/50 rounded-full font-mono text-[9px] font-extrabold shadow-[0_0_10px_rgba(234,179,8,0.5)] flex items-center gap-1 uppercase tracking-wider">
+                    {project.id === "bocah-fishing" && (
+                      <div className="px-2.5 py-0.5 bg-cyan-400/95 backdrop-blur-md text-[#022238] border border-cyan-300/60 rounded-full font-mono text-[9px] font-extrabold shadow-[0_0_12px_rgba(6,182,212,0.6)] flex items-center gap-1 uppercase tracking-wider">
                         <span className="material-symbols-outlined text-[10px] font-bold">star</span>
                         {lang === "en" ? "RECOMMENDED" : "REKOMENDASI"}
                       </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -147,6 +147,102 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             onClick={onClose}
             className="absolute top-6 right-6 p-3 bg-white/5 hover:bg-white/15 border border-white/10 rounded-full text-white transition-colors z-20 backdrop-blur-md"
+            aria-label="Close"
+          >
+            <span className="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  ) : localProject?.id === "bocah-fishing" ? (
+    <AnimatePresence>
+      {project && localProject && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#020b14] overflow-y-auto sm:overflow-hidden p-4 sm:p-6"
+        >
+          {/* Ambient Ocean / Sea Glow Orbs */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-600/15 rounded-full blur-[140px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_center,_rgba(6,182,212,0.12)_0%,_transparent_70%)]" />
+          </div>
+
+          {/* Content Container */}
+          <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-3xl w-full my-auto py-6 sm:py-0">
+            {/* Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+              <span className="px-3 py-1 bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 rounded-full font-mono text-xs uppercase tracking-wider shadow-[0_0_10px_rgba(6,182,212,0.3)] flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm">water</span>
+                {displayCategoryLabel}
+              </span>
+              <span className="px-2.5 py-0.5 bg-cyan-400 text-[#022238] font-mono text-[10px] font-extrabold rounded-full tracking-wider uppercase shadow-[0_0_10px_rgba(6,182,212,0.6)] flex items-center gap-1">
+                <span className="material-symbols-outlined text-[11px] font-bold">star</span>
+                {lang === "en" ? "RECOMMENDED" : "REKOMENDASI"}
+              </span>
+            </div>
+
+            {/* Logo Image */}
+            <img 
+              src="/Bofish/20260913_210422.png" 
+              alt="Bocah Fishing Logo" 
+              className="w-full max-w-[260px] sm:max-w-xs object-contain mb-3 drop-shadow-[0_0_25px_rgba(6,182,212,0.6)] relative z-30 transition-transform duration-300 hover:scale-105" 
+            />
+
+            {/* Subtitle / Tagline */}
+            <p className="text-sm sm:text-base text-cyan-100/90 mb-5 leading-relaxed max-w-xl font-medium drop-shadow-md">
+              {lang === "en"
+                ? "A cozy, atmospheric lake fishing game where Everything is Bait! Hook junk, batteries, or caught fish to reel in gigantic monster fish under the moonlit sky."
+                : "Game simulasi memancing santai di danau malam hari dengan mekanik unik 'Everything is Bait!' Kaitkan sampah, baterai, hingga ikan tangkapan untuk menarik monster danau raksasa!"}
+            </p>
+
+            {/* Featured Artwork Display */}
+            <div className="w-full max-w-lg aspect-video border-2 border-cyan-400/40 rounded-2xl mb-6 shadow-[0_0_35px_rgba(6,182,212,0.35)] overflow-hidden relative z-30 bg-[#021323] group">
+              <img 
+                src="/Bofish/bocahfishing.png" 
+                alt="Bocah Fishing Gameplay & Artwork" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020b14]/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-cyan-200/90">
+                <span className="bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-cyan-400/30 flex items-center gap-1">
+                  <span className="material-symbols-outlined text-xs text-cyan-300">verified</span>
+                  Micro Jam 065: Fishing
+                </span>
+                <span className="bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-cyan-400/30">
+                  Godot Engine • HTML5
+                </span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap justify-center gap-4 relative z-30">
+              {localProject.itchUrl && (
+                <a
+                  href={localProject.itchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-white font-extrabold text-sm sm:text-base hover:from-cyan-400 hover:to-blue-500 transition-all shadow-[0_0_25px_rgba(6,182,212,0.6)] hover:scale-105 flex items-center gap-2 pointer-events-auto"
+                >
+                  <span className="material-symbols-outlined text-xl">sports_esports</span>
+                  {lang === "en" ? "Play on Itch.io" : "Mainkan di Itch.io"}
+                </a>
+              )}
+              <button
+                onClick={onClose}
+                className="px-8 py-3.5 sm:py-4 rounded-full border-2 border-cyan-400/40 text-cyan-200 font-bold text-sm sm:text-base hover:bg-cyan-500/15 hover:border-cyan-300 transition-all flex items-center gap-2 pointer-events-auto"
+              >
+                {lang === "en" ? "Go Back" : "Kembali"}
+              </button>
+            </div>
+          </div>
+
+          {/* Close button top right */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 p-3 bg-cyan-950/50 hover:bg-cyan-900/60 border border-cyan-400/30 hover:border-cyan-300 rounded-full text-cyan-200 transition-colors z-30 backdrop-blur-md shadow-lg"
             aria-label="Close"
           >
             <span className="material-symbols-outlined text-2xl">close</span>
