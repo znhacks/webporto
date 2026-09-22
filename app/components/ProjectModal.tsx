@@ -174,10 +174,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-3xl w-full my-auto py-6 sm:py-0">
             {/* Badges */}
             <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-              <span className="px-3 py-1 bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 rounded-full font-mono text-xs uppercase tracking-wider shadow-[0_0_10px_rgba(6,182,212,0.3)] flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm">water</span>
-                {displayCategoryLabel}
-              </span>
               <span className="px-2.5 py-0.5 bg-cyan-400 text-[#022238] font-mono text-[10px] font-extrabold rounded-full tracking-wider uppercase shadow-[0_0_10px_rgba(6,182,212,0.6)] flex items-center gap-1">
                 <span className="material-symbols-outlined text-[11px] font-bold">star</span>
                 {lang === "en" ? "RECOMMENDED" : "REKOMENDASI"}
@@ -205,16 +201,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 alt="Bocah Fishing Gameplay & Artwork" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020b14]/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-cyan-200/90">
-                <span className="bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-cyan-400/30 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-xs text-cyan-300">verified</span>
-                  Micro Jam 065: Fishing
-                </span>
-                <span className="bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-cyan-400/30">
-                  Godot Engine • HTML5
-                </span>
-              </div>
             </div>
 
             {/* Action Buttons */}
