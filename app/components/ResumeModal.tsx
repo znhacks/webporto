@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect } from "react";
 
@@ -76,8 +76,24 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               <p className="font-mono text-sm text-[#d3bbff] mt-1">
                 Software Architect &amp; Game Developer
               </p>
-              <p className="text-xs text-[#ccc3d7] mt-2">
-                GitHub: github.com/znhacks â€¢ Email: hydrogz7@gmail.com
+              <p className="text-xs text-[#ccc3d7] mt-2 flex flex-wrap items-center gap-1.5 font-mono">
+                <span>GitHub:</span>
+                <a
+                  href="https://github.com/znhacks"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#d3bbff] hover:text-white underline underline-offset-2 decoration-[#6d28d9] hover:decoration-white transition-colors"
+                >
+                  github.com/znhacks
+                </a>
+                <span className="text-white/30">•</span>
+                <span>Email:</span>
+                <a
+                  href="mailto:hydrogz7@gmail.com"
+                  className="text-[#d3bbff] hover:text-white underline underline-offset-2 decoration-[#6d28d9] hover:decoration-white transition-colors"
+                >
+                  hydrogz7@gmail.com
+                </a>
               </p>
             </div>
 
@@ -187,7 +203,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         <div className="p-6 bg-[#0d1c2d] border-t border-white/10 flex justify-end">
           <button
             onClick={onClose}
-            className="px-6 py-2 rounded-lg bg-[#122131] text-[#d4e4fa] font-mono text-xs hover:bg-white/10"
+            className="px-6 py-2 rounded-lg bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] font-mono text-xs hover:border-[#d3bbff] hover:text-white hover:bg-[#6d28d9]/20 transition-colors cursor-pointer"
           >
             Close Window
           </button>

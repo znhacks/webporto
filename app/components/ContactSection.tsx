@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, FormEvent } from "react";
 import { useLanguage } from "../context/LanguageContext";
@@ -49,8 +49,8 @@ export default function ContactSection() {
 
             <p className="text-base text-[#ccc3d7] leading-relaxed font-normal">
               {lang === "en"
-                ? "Send a direct message via the form or reach out on Instagram & Itch.io."
-                : "Kirimkan pesan langsung melalui formulir atau hubungi Aku di Instagram."}
+                ? "Send a direct message via the form or reach out on Instagram & Sabitplay Studio."
+                : "Kirimkan pesan langsung melalui formulir atau hubungi Aku di Instagram & Sabitplay Studio."}
             </p>
 
             <div className="pt-2 space-y-3 font-mono text-sm">
@@ -67,31 +67,29 @@ export default function ContactSection() {
                       href="https://instagram.com/jxrzero"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-[#d3bbff] transition-colors font-bold"
+                      className="text-[#d3bbff] hover:text-white underline underline-offset-4 decoration-[#6d28d9] hover:decoration-white transition-colors font-bold"
                     >
                       @jxrzero
                     </a>
                   </div>
                 </div>
-
-
               </div>
 
               <div className="glass-cyber p-4 rounded-2xl border border-white/10 flex items-center gap-3">
-                <span className="material-symbols-outlined text-red-400 text-xl">
+                <span className="material-symbols-outlined text-[#d3bbff] text-xl">
                   sports_esports
                 </span>
                 <div>
                   <span className="text-[10px] text-[#ccc3d7] block uppercase">
-                    Itch.io Game Studio
+                    Sabitplay Studio
                   </span>
                   <a
-                    href="https://sabitplay.itch.io/"
+                    href="https://sabitplay.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-red-400 transition-colors font-bold"
+                    className="text-[#d3bbff] hover:text-white underline underline-offset-4 decoration-[#6d28d9] hover:decoration-white transition-colors font-bold"
                   >
-                    Sabitplay Studio
+                    sabitplay.vercel.app
                   </a>
                 </div>
               </div>
@@ -108,7 +106,7 @@ export default function ContactSection() {
                     href="https://github.com/znhacks"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-[#d3bbff] transition-colors"
+                    className="text-[#d3bbff] hover:text-white underline underline-offset-4 decoration-[#6d28d9] hover:decoration-white transition-colors font-bold"
                   >
                     github.com/znhacks
                   </a>

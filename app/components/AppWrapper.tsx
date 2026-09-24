@@ -43,7 +43,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
               <div className="absolute inset-0 bg-white/10 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
 
-            <span className="relative text-xl font-medium tracking-widest text-white/80 uppercase font-geist transition-colors duration-300 group-hover:text-white group-hover:text-shadow-sm">
+            <span className="relative text-sm sm:text-base font-bold tracking-widest text-[#d3bbff] uppercase font-mono transition-all duration-300 group-hover:text-white drop-shadow-[0_0_15px_rgba(109,40,217,0.8)]">
               Click this moon
             </span>
           </button>

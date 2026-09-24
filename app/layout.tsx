@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Ordi (znhacks) — Full-Stack Developer specializing in Flutter mobile apps, Next.js web applications, Supabase cloud backends, and Ren'Py / Roblox games.",
   icons: {
-    icon: "/logo.png",
+    icon: [
+      { url: "/icon.png" },
+      { url: "/logo.png" }
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 

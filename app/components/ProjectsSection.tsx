@@ -353,9 +353,9 @@ export default function ProjectsSection() {
           <div className="flex flex-wrap gap-2 p-1.5 glass-cyber rounded-2xl border border-white/10 font-mono text-xs">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-4 py-2 rounded-xl transition-all ${activeTab === "all"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg"
-                : "text-[#ccc3d7] hover:text-white"
+              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "all"
+                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
                 }`}
             >
               {lang === "en" ? "All Projects" : "Semua Proyek"} (
@@ -363,27 +363,27 @@ export default function ProjectsSection() {
             </button>
             <button
               onClick={() => setActiveTab("game-dev")}
-              className={`px-4 py-2 rounded-xl transition-all ${activeTab === "game-dev"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg"
-                : "text-[#ccc3d7] hover:text-white"
+              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "game-dev"
+                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
                 }`}
             >
               {lang === "en" ? "Game Dev" : "Game Development"}
             </button>
             <button
               onClick={() => setActiveTab("web")}
-              className={`px-4 py-2 rounded-xl transition-all ${activeTab === "web"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg"
-                : "text-[#ccc3d7] hover:text-white"
+              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "web"
+                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
                 }`}
             >
               {lang === "en" ? "Web Apps" : "Aplikasi Web"}
             </button>
             <button
               onClick={() => setActiveTab("mobile")}
-              className={`px-4 py-2 rounded-xl transition-all ${activeTab === "mobile"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg"
-                : "text-[#ccc3d7] hover:text-white"
+              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "mobile"
+                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
                 }`}
             >
               {lang === "en" ? "Mobile Apps" : "Aplikasi Mobile"}
@@ -455,7 +455,7 @@ export default function ProjectsSection() {
                     )}
                   </div>
 
-                  <div className="inline-flex items-center gap-1 text-[#d3bbff] font-mono text-xs font-semibold group-hover:translate-x-1 transition-transform">
+                  <div className="inline-flex items-center gap-1 text-[#d3bbff] font-mono text-xs font-bold group-hover:text-white group-hover:translate-x-1 transition-all">
                     {lang === "en" ? "View Details" : "Lihat Detail"}
                     <span className="material-symbols-outlined text-base">
                       arrow_forward

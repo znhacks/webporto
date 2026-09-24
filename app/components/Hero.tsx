@@ -118,7 +118,7 @@ export default function Hero() {
             <div className={`flex flex-wrap items-center gap-4 ${animBase} delay-[600ms]`}>
               <a
                 href="#projects"
-                className="px-8 py-3.5 rounded-full bg-[#6d28d9] text-white font-mono text-xs font-semibold hover:bg-[#7331df] transition-all shadow-lg shadow-purple-900/40 flex items-center gap-2 hover:scale-105"
+                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#6d28d9] to-[#7331df] text-white font-mono text-xs font-semibold hover:shadow-[0_0_25px_rgba(109,40,217,0.7)] transition-all shadow-lg shadow-purple-900/40 flex items-center gap-2 hover:scale-105 cursor-pointer"
               >
                 {lang === "en" ? "View Projects" : "Lihat Proyek"}
                 <span className="material-symbols-outlined text-base">
@@ -127,10 +127,10 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="px-8 py-3.5 rounded-full bg-[#0d1c2d] border border-white/10 text-[#d4e4fa] font-mono text-xs font-semibold hover:border-[#d3bbff]/50 hover:text-white transition-all flex items-center gap-2 hover:scale-105"
+                className="px-8 py-3.5 rounded-full bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] font-mono text-xs font-semibold hover:border-[#d3bbff] hover:text-white hover:bg-[#6d28d9]/20 hover:shadow-[0_0_20px_rgba(109,40,217,0.4)] transition-all flex items-center gap-2 hover:scale-105 cursor-pointer"
               >
                 {lang === "en" ? "Contact Me" : "Hubungi"}
-                <span className="material-symbols-outlined text-base">
+                <span className="material-symbols-outlined text-base text-[#d3bbff]">
                   send
                 </span>
               </a>

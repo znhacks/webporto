@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -30,24 +30,24 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#ccc3d7]">
-          <a
-            href="#projects"
-            className="hover:text-white transition-colors relative py-1 group"
-          >
-            {lang === "en" ? "Projects" : "Proyek"}
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d3bbff] group-hover:w-full transition-all duration-300" />
-          </a>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           <a
             href="#about"
-            className="hover:text-white transition-colors relative py-1 group"
+            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 group font-medium"
           >
             {lang === "en" ? "About" : "Tentang"}
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d3bbff] group-hover:w-full transition-all duration-300" />
           </a>
           <a
+            href="#projects"
+            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 group font-medium"
+          >
+            {lang === "en" ? "Projects" : "Proyek"}
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d3bbff] group-hover:w-full transition-all duration-300" />
+          </a>
+          <a
             href="#contact"
-            className="hover:text-white transition-colors relative py-1 group"
+            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 group font-medium"
           >
             {lang === "en" ? "Contact" : "Kontak"}
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d3bbff] group-hover:w-full transition-all duration-300" />
@@ -59,18 +59,18 @@ export default function Navbar() {
           {/* Dual Language Switcher Toggle */}
           <button
             onClick={toggleLang}
-            className="px-3 py-1.5 rounded-xl bg-[#051424] border border-white/10 text-xs font-mono text-[#d4e4fa] hover:border-[#d3bbff]/50 transition-all flex items-center gap-1.5 shadow-md"
+            className="px-3 py-1.5 rounded-xl bg-[#051424] border border-[#6d28d9]/40 text-xs font-mono text-[#d3bbff] hover:border-[#d3bbff] hover:bg-[#6d28d9]/20 transition-all flex items-center gap-1.5 shadow-md cursor-pointer"
             title="Switch Language / Ganti Bahasa"
           >
             <span className="material-symbols-outlined text-sm text-[#d3bbff]">
               translate
             </span>
             <span className="font-bold">
-              <span className={lang === "en" ? "text-white" : "text-[#ccc3d7]"}>
+              <span className={lang === "en" ? "text-white" : "text-[#ccc3d7]/60"}>
                 EN
               </span>
               <span className="text-[#6d28d9] mx-1">|</span>
-              <span className={lang === "id" ? "text-white" : "text-[#ccc3d7]"}>
+              <span className={lang === "id" ? "text-white" : "text-[#ccc3d7]/60"}>
                 ID
               </span>
             </span>
@@ -78,7 +78,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="px-5 py-2 text-xs font-mono font-semibold text-white bg-gradient-to-r from-[#6d28d9] to-[#7331df] rounded-xl hover:shadow-[0_0_20px_rgba(109,40,217,0.6)] hover:scale-105 transition-all flex items-center gap-1.5 shadow-lg shadow-purple-900/30"
+            className="px-5 py-2 text-xs font-mono font-semibold text-white bg-gradient-to-r from-[#6d28d9] to-[#7331df] rounded-xl hover:shadow-[0_0_20px_rgba(109,40,217,0.6)] hover:scale-105 transition-all flex items-center gap-1.5 shadow-lg shadow-purple-900/30 cursor-pointer"
           >
             {lang === "en" ? "Contact" : "Kontak"}
             <span className="material-symbols-outlined text-sm">
@@ -91,13 +91,13 @@ export default function Navbar() {
         <div className="md:hidden flex items-center gap-2">
           <button
             onClick={toggleLang}
-            className="px-2.5 py-1 rounded-lg bg-[#051424] border border-white/10 text-xs font-mono text-[#d4e4fa]"
+            className="px-2.5 py-1 rounded-lg bg-[#051424] border border-[#6d28d9]/40 text-xs font-mono text-[#d3bbff] cursor-pointer"
           >
             {lang.toUpperCase()}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#d4e4fa] hover:text-[#d3bbff] focus:outline-none"
+            className="p-2 text-[#d3bbff] hover:text-white focus:outline-none cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             <span className="material-symbols-outlined text-2xl">
@@ -111,23 +111,23 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden mt-2 glass-cyber rounded-2xl border border-white/10 px-6 py-6 flex flex-col gap-4 animate-in slide-in-from-top duration-200">
           <a
-            href="#projects"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-base text-[#d4e4fa] hover:text-[#d3bbff] py-2 border-b border-white/5"
-          >
-            {lang === "en" ? "Projects" : "Proyek"}
-          </a>
-          <a
             href="#about"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base text-[#d4e4fa] hover:text-[#d3bbff] py-2 border-b border-white/5"
+            className="text-base text-[#d3bbff] hover:text-white py-2 border-b border-white/5 font-medium"
           >
             {lang === "en" ? "About" : "Tentang"}
           </a>
           <a
+            href="#projects"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-base text-[#d3bbff] hover:text-white py-2 border-b border-white/5 font-medium"
+          >
+            {lang === "en" ? "Projects" : "Proyek"}
+          </a>
+          <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base text-[#d4e4fa] hover:text-[#d3bbff] py-2 border-b border-white/5"
+            className="text-base text-[#d3bbff] hover:text-white py-2 border-b border-white/5 font-medium"
           >
             {lang === "en" ? "Contact" : "Kontak"}
           </a>
