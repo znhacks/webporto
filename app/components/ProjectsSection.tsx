@@ -15,6 +15,145 @@ export const PROJECTS_LIST: (ProjectData & {
   featuresEn: string[];
 })[] = [
     {
+      id: "last-gate",
+      title: "Last Gate",
+      titleEn: "Last Gate",
+      subtitle:
+        "Game aksi pertahanan kastel 4-lane reflex combat berkecepatan tinggi dengan sistem deflect fireball, combo multiplier, dan ultimate abilities.",
+      subtitleEn:
+        "A high-speed 4-lane reflex castle defense game featuring projectile deflect combos, score multipliers, and devastating character ultimates.",
+      category: "game-dev",
+      categoryLabel: "Game Development",
+      categoryLabelEn: "Game Development",
+      techStack: ["Godot", "HTML5", "Arcade Action", "Pixel Art", "Itch.io"],
+      itchUrl: "https://sabitplay.itch.io/last-gate",
+      year: "2026",
+      imageBg: "/Lastgate/lastgate.jpg",
+      description:
+        "Pertahankan gerbang kastel terakhir! Uji kecepatan refleks di 4 jalur tempur, pantulkan bola api iblis, keluarkan jurus pamungkas Felix & Mella, dan selamatkan warga sipil.",
+      descriptionEn:
+        "Hold the kingdom's last gate! Test reflex speed across 4 combat lanes, deflect demon fireballs, unleash ultimates from Felix & Mella, and shepherd civilians to safety.",
+      fullDetails: {
+        overview:
+          "Last Gate adalah game aksi refleks pertahanan kastel yang dikembangkan oleh Sabitplay Studio untuk Slapjam AI Game Jam. Berdiri menjaga gerbang terakhir kerajaan, pemain harus menangkis iblis melee, memantulkan bola api musuh untuk memicu ledakan berantai, serta memandu warga sipil ber-aura hijau melarikan diri dengan selamat.",
+        features: [
+          "4-Lane Reflex Combat: Hadapi iblis melee dan pantulkan bola api berapi di 4 jalur pertahanan simultan",
+          "Deflect Combos & AoE Blasts: Pantulkan serangan musuh kembali untuk memicu ledakan berantai dahsyat",
+          "Protect the Innocents: Lindungi warga sipil ber-aura hijau untuk bonus skor & multiplier besar",
+          "2 Karakter Defender: Felix (Paladin's Rage Cleave) & Mella (Sugar Rush Flashstep auto-parry)",
+          "4 Mode Kesulitan: Easy, Medium, Hard, dan Extreme dengan sistem multiplier kombo",
+          "Dapat dimainkan langsung di web browser (HTML5) dengan kontrol Keyboard & Touch Screen",
+        ],
+        architecture: [
+          "Dikembangkan menggunakan Godot Engine",
+          "Entry game jam resmi Slapjam AI - The World's Largest AI Game Jam",
+          "Dipublikasikan di Itch.io (sabitplay.itch.io/last-gate)",
+        ],
+        techDetails:
+          "Dikembangkan dengan Godot Engine dengan optimasi web export HTML5, kontrol adaptif Keyboard (Z/X/C/V atau 1/2/3/4) & Mobile Touch UI, serta visual efek ledakan partikel dinamis.",
+      },
+      overviewEn:
+        "Last Gate is a fast-paced castle defense reflex arcade game developed by Sabitplay Studio for Slapjam AI Game Jam. Defend the kingdom's last gate against invading demon hordes, rebound fiery projectiles to trigger explosive AoE chain reactions, and shepherd fleeing civilians to safety.",
+      featuresEn: [
+        "4-Lane Reflex Combat: Clash incoming melee demons and deflect blazing fireballs across 4 active defense lanes",
+        "Deflect Combos & AoE Blasts: Rebound enemy fireballs to trigger massive chain explosions",
+        "Protect the Innocents: Shepherd green-aura civilians to safety for major score multipliers",
+        "2 Unique Defenders: Felix (Paladin's Rage Cleave) & Mella (Sugar Rush Flashstep auto-parry)",
+        "4 Difficulty Modes: Easy, Medium, Hard, and Extreme with streak multiplier systems",
+        "Playable directly in modern web browsers (HTML5) with touch and keyboard controls",
+      ],
+    },
+    {
+      id: "bocah-fishing",
+      title: "Bocah Fishing",
+      titleEn: "Bocah Fishing",
+      subtitle:
+        "Game simulasi memancing santai berbalut atmosfer danau yang menenangkan dengan mekanik unik 'Everything is Bait!'.",
+      subtitleEn:
+        "A cozy, atmospheric lake fishing simulation game featuring a unique 'Everything is Bait!' mechanic.",
+      category: "game-dev",
+      categoryLabel: "Game Development",
+      categoryLabelEn: "Game Development",
+      techStack: ["Godot", "HTML5", "Simulation", "2D Pixel/Art", "Itch.io"],
+      itchUrl: "https://sabitplay.itch.io/bocah-fishing",
+      year: "2026",
+      imageBg: "/Bofish/bocahfishing.png",
+      description:
+        "Game memancing santai dengan konsep 'Semuanya adalah Umpan!'. Gunakan barang bekas hingga ikan tangkapan untuk memikat ikan raksasa.",
+      descriptionEn:
+        "A cozy lake fishing game where 'Everything is Bait!'. Hook junk, batteries, or even caught fish to lure massive trophy fish.",
+      fullDetails: {
+        overview:
+          "Bocah Fishing adalah game simulasi memancing atmosferik yang dibuat oleh Sabitplay Studio untuk Micro Jam 065. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar di danau yang tenang.",
+        features: [
+          "Mekanik unik 'Everything is Bait!' (semua barang bisa jadi umpan)",
+          "Siklus dinamis siang dan malam (Day & Night cycle)",
+          "Karakter pemancing unik dengan sifat pasif (passive traits)",
+          "Almanak ikan lengkap untuk dikoleksi",
+          "Dapat dimainkan langsung di web browser (HTML5) dan Windows",
+        ],
+        architecture: [
+          "Dikembangkan dengan Godot Engine",
+          "Entry game jam resmi Micro Jam 065: Fishing",
+          "Dipublikasikan di Itch.io (sabitplay.itch.io/bocah-fishing)",
+        ],
+        techDetails:
+          "Dikembangkan menggunakan Godot Engine dengan optimasi web export HTML5 dan artwork orisinal bertema malam di danau.",
+      },
+      overviewEn:
+        "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio for Micro Jam 065, featuring the twist: Everything is Bait!",
+      featuresEn: [
+        "Unique 'Everything is Bait!' gameplay mechanic",
+        "Dynamic day-and-night cycle with immersive ambience",
+        "Unique anglers with passive traits & personality narrations",
+        "Full fish almanac catalog to catch and discover",
+        "Directly playable in browser (HTML5) and available for Windows",
+      ],
+    },
+    {
+      id: "rustbond",
+      title: "Rustbond",
+      titleEn: "Rustbond",
+      subtitle:
+        "Game dating sim / visual novel interaktif bertema post-apocalyptic & romansa, dipublikasikan di Itch.io.",
+      subtitleEn:
+        "An interactive post-apocalyptic dating sim & visual novel game published on Itch.io.",
+      category: "game-dev",
+      categoryLabel: "Game Development",
+      categoryLabelEn: "Game Development",
+      techStack: ["Dating Sim", "Visual Novel", "Itch.io", "Character Art"],
+      itchUrl: "https://sabitplay.itch.io/rustbond",
+      year: "",
+      imageBg: "/ashy.png",
+      description:
+        "Game dating simulator bertema romansa dan bertahan hidup dengan pilihan karakter serta jalinan ikatan yang emosional.",
+      descriptionEn:
+        "A romance & survival dating simulator featuring character choices and emotionally engaging storylines.",
+      fullDetails: {
+        overview:
+          "Rustbond adalah game dating sim / visual novel tempat pemain membangun hubungan cerita dan pilihan emosional bersama karakter pilihan.",
+        features: [
+          "Cerita dating sim interaktif dengan alur keputusan pemain",
+          "Karakter unik dengan dialog dan alur hubungan khusus",
+          "Desain karakter visual & artwork berkualitas",
+          "Pengalaman naratif yang memikat",
+        ],
+        architecture: [
+          "Visual Novel / Dating Simulator Engine",
+        ],
+        techDetails:
+          "Dikembangkan dengan fokus pada pengalaman naratif interaktif, artwork karakter kustom, dan pilihan dialog.",
+      },
+      overviewEn:
+        "Rustbond is an interactive dating sim / visual novel where players build relationships and choices with unique characters.",
+      featuresEn: [
+        "Interactive dating sim narrative with branching choices",
+        "Unique character pathing and relationship dialogue",
+        "Custom character visual design & artwork",
+        "Immersive romance & story experience",
+      ],
+    },
+    {
       id: "final-nightmare",
       title: "Final Nightmare",
       titleEn: "Final Nightmare",
@@ -161,96 +300,6 @@ export const PROJECTS_LIST: (ProjectData & {
       ],
     },
     {
-      id: "bocah-fishing",
-      title: "Bocah Fishing",
-      titleEn: "Bocah Fishing",
-      subtitle:
-        "Game simulasi memancing santai berbalut atmosfer danau yang menenangkan dengan mekanik unik 'Everything is Bait!'.",
-      subtitleEn:
-        "A cozy, atmospheric lake fishing simulation game featuring a unique 'Everything is Bait!' mechanic.",
-      category: "game-dev",
-      categoryLabel: "Game Development",
-      categoryLabelEn: "Game Development",
-      techStack: ["Godot", "HTML5", "Simulation", "2D Pixel/Art", "Itch.io"],
-      itchUrl: "https://sabitplay.itch.io/bocah-fishing",
-      year: "2026",
-      imageBg: "/Bofish/bocahfishing.png",
-      description:
-        "Game memancing santai dengan konsep 'Semuanya adalah Umpan!'. Gunakan barang bekas hingga ikan tangkapan untuk memikat ikan raksasa.",
-      descriptionEn:
-        "A cozy lake fishing game where 'Everything is Bait!'. Hook junk, batteries, or even caught fish to lure massive trophy fish.",
-      fullDetails: {
-        overview:
-          "Bocah Fishing adalah game simulasi memancing atmosferik yang dibuat oleh Sabitplay Studio untuk Micro Jam 065. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar di danau yang tenang.",
-        features: [
-          "Mekanik unik 'Everything is Bait!' (semua barang bisa jadi umpan)",
-          "Siklus dinamis siang dan malam (Day & Night cycle)",
-          "Karakter pemancing unik dengan sifat pasif (passive traits)",
-          "Almanak ikan lengkap untuk dikoleksi",
-          "Dapat dimainkan langsung di web browser (HTML5) dan Windows",
-        ],
-        architecture: [
-          "Dikembangkan dengan Godot Engine",
-          "Entry game jam resmi Micro Jam 065: Fishing",
-          "Dipublikasikan di Itch.io (sabitplay.itch.io/bocah-fishing)",
-        ],
-        techDetails:
-          "Dikembangkan menggunakan Godot Engine dengan optimasi web export HTML5 dan artwork orisinal bertema malam di danau.",
-      },
-      overviewEn:
-        "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio for Micro Jam 065, featuring the twist: Everything is Bait!",
-      featuresEn: [
-        "Unique 'Everything is Bait!' gameplay mechanic",
-        "Dynamic day-and-night cycle with immersive ambience",
-        "Unique anglers with passive traits & personality narrations",
-        "Full fish almanac catalog to catch and discover",
-        "Directly playable in browser (HTML5) and available for Windows",
-      ],
-    },
-    {
-      id: "rustbond",
-      title: "Rustbond",
-      titleEn: "Rustbond",
-      subtitle:
-        "Game dating sim / visual novel interaktif bertema post-apocalyptic & romansa, dipublikasikan di Itch.io.",
-      subtitleEn:
-        "An interactive post-apocalyptic dating sim & visual novel game published on Itch.io.",
-      category: "game-dev",
-      categoryLabel: "Game Development",
-      categoryLabelEn: "Game Development",
-      techStack: ["Dating Sim", "Visual Novel", "Itch.io", "Character Art"],
-      itchUrl: "https://sabitplay.itch.io/rustbond",
-      year: "",
-      imageBg: "/ashy.png",
-      description:
-        "Game dating simulator bertema romansa dan bertahan hidup dengan pilihan karakter serta jalinan ikatan yang emosional.",
-      descriptionEn:
-        "A romance & survival dating simulator featuring character choices and emotionally engaging storylines.",
-      fullDetails: {
-        overview:
-          "Rustbond adalah game dating sim / visual novel tempat pemain membangun hubungan cerita dan pilihan emosional bersama karakter pilihan.",
-        features: [
-          "Cerita dating sim interaktif dengan alur keputusan pemain",
-          "Karakter unik dengan dialog dan alur hubungan khusus",
-          "Desain karakter visual & artwork berkualitas",
-          "Pengalaman naratif yang memikat",
-        ],
-        architecture: [
-          "Visual Novel / Dating Simulator Engine",
-        ],
-        techDetails:
-          "Dikembangkan dengan fokus pada pengalaman naratif interaktif, artwork karakter kustom, dan pilihan dialog.",
-      },
-      overviewEn:
-        "Rustbond is an interactive dating sim / visual novel where players build relationships and choices with unique characters.",
-      featuresEn: [
-        "Interactive dating sim narrative with branching choices",
-        "Unique character pathing and relationship dialogue",
-        "Custom character visual design & artwork",
-        "Immersive romance & story experience",
-      ],
-    },
-    {
       id: "absensi-massal",
       title: "Absensi Massal",
       titleEn: "Mass Attendance App",
@@ -319,9 +368,19 @@ export default function ProjectsSection() {
       return orderA - orderB;
     }
 
-    // Inside game-dev category, keep bocah-fishing recommended as first
-    if (a.id === "bocah-fishing") return -1;
-    if (b.id === "bocah-fishing") return 1;
+    // Inside game-dev category, prioritize latest featured games
+    const gameDevPriority: Record<string, number> = {
+      "last-gate": 1,
+      "bocah-fishing": 2,
+      "rustbond": 3,
+      "final-nightmare": 4,
+    };
+
+    if (a.category === "game-dev" && b.category === "game-dev") {
+      const prioA = gameDevPriority[a.id] ?? 99;
+      const prioB = gameDevPriority[b.id] ?? 99;
+      return prioA - prioB;
+    }
 
     return 0;
   });
@@ -398,7 +457,9 @@ export default function ProjectsSection() {
               <div
                 onClick={() => setSelectedProject(project)}
                 className={`glass-cyber glass-cyber-interactive rounded-3xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-6 sm:p-8 h-full bg-[#030c17]/50 backdrop-blur-sm transition-all duration-300 ${
-                  project.id === "bocah-fishing"
+                  project.id === "last-gate"
+                    ? "!border-amber-400/80 !shadow-[0_0_35px_rgba(245,158,11,0.35)] hover:!shadow-[0_0_45px_rgba(245,158,11,0.55)]"
+                    : project.id === "bocah-fishing"
                     ? "!border-cyan-400/80 !shadow-[0_0_35px_rgba(6,182,212,0.35)] hover:!shadow-[0_0_45px_rgba(6,182,212,0.55)]"
                     : "border border-white/10"
                 }`}
@@ -417,6 +478,12 @@ export default function ProjectsSection() {
                         ? project.categoryLabelEn
                         : project.categoryLabel}
                     </div>
+                    {project.id === "last-gate" && (
+                      <div className="px-2.5 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 backdrop-blur-md text-[#261501] border border-amber-300/60 rounded-full font-mono text-[9px] font-extrabold shadow-[0_0_12px_rgba(245,158,11,0.6)] flex items-center gap-1 uppercase tracking-wider">
+                        <span className="material-symbols-outlined text-[10px] font-bold">local_fire_department</span>
+                        {lang === "en" ? "NEW RELEASE" : "RILIS TERBARU"}
+                      </div>
+                    )}
                     {project.id === "bocah-fishing" && (
                       <div className="px-2.5 py-0.5 bg-cyan-400/95 backdrop-blur-md text-[#022238] border border-cyan-300/60 rounded-full font-mono text-[9px] font-extrabold shadow-[0_0_12px_rgba(6,182,212,0.6)] flex items-center gap-1 uppercase tracking-wider">
                         <span className="material-symbols-outlined text-[10px] font-bold">star</span>

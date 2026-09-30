@@ -73,7 +73,89 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       ? localProject.overviewEn
       : localProject?.fullDetails.overview;
 
-  const modalContent = localProject?.id === "rustbond" ? (
+  const modalContent = localProject?.id === "last-gate" ? (
+    <AnimatePresence>
+      {project && localProject && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#080503] overflow-y-auto sm:overflow-hidden p-4 sm:p-6"
+        >
+          {/* Ambient Castle & Ember Glow Orbs */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute -top-28 -left-28 w-96 h-96 bg-amber-500/20 rounded-full blur-[130px]" />
+            <div className="absolute bottom-0 right-0 w-[520px] h-[520px] bg-red-600/15 rounded-full blur-[150px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.14)_0%,_transparent_70%)]" />
+          </div>
+
+          {/* Content Container */}
+          <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-3xl w-full my-auto py-6 sm:py-0">
+            {/* Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+              <span className="px-2.5 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-[#291300] font-mono text-[10px] font-extrabold rounded-full tracking-wider uppercase shadow-[0_0_12px_rgba(245,158,11,0.6)] flex items-center gap-1">
+                <span className="material-symbols-outlined text-[11px] font-bold">local_fire_department</span>
+                {lang === "en" ? "NEW RELEASE" : "RILIS TERBARU"}
+              </span>
+            </div>
+
+            {/* Logo Image */}
+            <img 
+              src="/Lastgate/lglogo.png" 
+              alt="Last Gate Logo" 
+              className="w-full max-w-[260px] sm:max-w-xs object-contain mb-2 drop-shadow-[0_0_30px_rgba(245,158,11,0.65)] relative z-30 transition-transform duration-300 hover:scale-105" 
+            />
+
+            {/* Subtitle / Tagline */}
+            <p className="text-sm sm:text-base text-amber-100/90 mb-5 leading-relaxed max-w-xl font-medium drop-shadow-md">
+              {lang === "en"
+                ? "The kingdom's last line of defense rests in your hands!"
+                : "Garis pertahanan terakhir kerajaan berada di tanganmu!"}
+            </p>
+
+            {/* Featured Artwork Display */}
+            <div className="w-full max-w-lg aspect-video border-2 border-amber-400/50 rounded-2xl mb-6 shadow-[0_0_35px_rgba(245,158,11,0.35)] overflow-hidden relative z-30 bg-[#160c04] group">
+              <img 
+                src="/Lastgate/lastgate.jpg" 
+                alt="Last Gate Castle Defense Artwork & Gameplay" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap justify-center gap-4 relative z-30">
+              {localProject.itchUrl && (
+                <a
+                  href={localProject.itchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 text-white font-extrabold text-sm sm:text-base hover:from-amber-400 hover:to-orange-500 transition-all shadow-[0_0_25px_rgba(245,158,11,0.6)] hover:scale-105 flex items-center gap-2 pointer-events-auto"
+                >
+                  <span className="material-symbols-outlined text-xl">sports_esports</span>
+                  {lang === "en" ? "Play on Itch.io" : "Mainkan di Itch.io"}
+                </a>
+              )}
+              <button
+                onClick={onClose}
+                className="px-8 py-3.5 sm:py-4 rounded-full border-2 border-amber-400/40 text-amber-200 font-bold text-sm sm:text-base hover:bg-amber-500/15 hover:border-amber-300 transition-all flex items-center gap-2 pointer-events-auto"
+              >
+                {lang === "en" ? "Go Back" : "Kembali"}
+              </button>
+            </div>
+          </div>
+
+          {/* Close button top right */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 p-3 bg-amber-950/50 hover:bg-amber-900/60 border border-amber-400/30 hover:border-amber-300 rounded-full text-amber-200 transition-colors z-30 backdrop-blur-md shadow-lg"
+            aria-label="Close"
+          >
+            <span className="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  ) : localProject?.id === "rustbond" ? (
     <AnimatePresence>
       {project && localProject && (
         <motion.div
