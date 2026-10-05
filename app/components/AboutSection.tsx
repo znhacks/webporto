@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
@@ -9,16 +9,10 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-16 px-6 md:px-8 bg-transparent border-t border-white/10 relative"
+      className="py-16 px-4 sm:px-6 md:px-8 bg-transparent border-t border-white/10 relative"
     >
       <div className="max-w-[1280px] mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6d28d9]/25 border border-[#6d28d9]/50 text-[#d3bbff] text-xs font-mono mb-4">
-          <span className="material-symbols-outlined text-base">person</span>
-          {lang === "en" ? "ABOUT ME" : "TENTANG AKU"}
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Short Bio */}
           <div className="lg:col-span-7 space-y-5">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               {lang === "en"
@@ -27,8 +21,8 @@ export default function AboutSection() {
             </h2>
             <p className="text-base text-[#ccc3d7] leading-relaxed">
               {lang === "en"
-                ? "I am Ordi, Founder of Sabitplay Studio, and a versatile Full-Stack Developer specializing in building complete end-to-end solutions - spanning mobile apps, web platforms, cloud database backends, and interactive game engines."
-                : "Aku Ordi, Pendiri Sabitplay Studio, dan seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end - mencakup aplikasi mobile, platform web, cloud database backend, hingga game engine."}
+                ? "I am Ordi, Founder of Sabitplay Studio, and a versatile Full-Stack Developer specializing in building complete end-to-end solutions, spanning mobile apps, web platforms, cloud database backends, and interactive game engines."
+                : "Aku Ordi, Pendiri Sabitplay Studio, dan seorang Full-Stack Developer yang berpengalaman membangun solusi perangkat lunak secara end-to-end, mencakup aplikasi mobile, platform web, cloud database backend, hingga game engine."}
             </p>
 
             <div className="pt-2 flex flex-wrap gap-6 font-mono text-xs">

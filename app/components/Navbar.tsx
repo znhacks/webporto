@@ -9,57 +9,50 @@ export default function Navbar() {
   const { lang, toggleLang } = useLanguage();
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 max-w-[1280px] mx-auto">
-      <nav className="glass-cyber rounded-2xl border border-white/10 px-5 sm:px-6 h-16 sm:h-20 flex items-center justify-between shadow-2xl">
-        {/* Brand with PNG Logo */}
+    <header className="fixed top-3 sm:top-4 left-0 right-0 z-50 px-3 sm:px-6 max-w-[1280px] mx-auto">
+      <nav className="glass-navbar rounded-2xl px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between shadow-xl">
         <a href="#" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl bg-[#051424] border border-[#6d28d9]/40 p-1.5 flex items-center justify-center shadow-lg group-hover:border-[#d3bbff] group-hover:shadow-[0_0_20px_rgba(109,40,217,0.6)] transition-all duration-300">
+          <div className="relative w-9 h-9 rounded-xl bg-[#051424] border border-[#6d28d9]/40 p-1 flex items-center justify-center shadow group-hover:border-[#d3bbff] transition-colors">
             <Image
               src="/logo.png"
               alt="Ordi Logo"
-              width={40}
-              height={40}
-              className="w-full h-full object-contain group-hover:scale-110 transition-transform"
+              width={36}
+              height={36}
+              className="w-full h-full object-contain"
             />
           </div>
           <div className="flex flex-col justify-center">
-            <span className="text-lg sm:text-xl font-extrabold text-[#d4e4fa] tracking-tight group-hover:text-[#d3bbff] transition-colors leading-none">
+            <span className="text-base sm:text-lg font-extrabold text-[#d4e4fa] tracking-tight group-hover:text-[#d3bbff] transition-colors leading-none">
               Hello <span className="text-[#6d28d9] text-xs font-mono">World</span>
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           <a
             href="#about"
-            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 group font-medium"
+            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 font-medium"
           >
             {lang === "en" ? "About" : "Tentang"}
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d3bbff] group-hover:w-full transition-all duration-300" />
           </a>
           <a
             href="#projects"
-            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 group font-medium"
+            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 font-medium"
           >
             {lang === "en" ? "Projects" : "Proyek"}
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d3bbff] group-hover:w-full transition-all duration-300" />
           </a>
           <a
             href="#contact"
-            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 group font-medium"
+            className="text-[#d3bbff] hover:text-white transition-colors relative py-1 font-medium"
           >
             {lang === "en" ? "Contact" : "Kontak"}
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d3bbff] group-hover:w-full transition-all duration-300" />
           </a>
         </div>
 
-        {/* Right Actions: Language Switcher Pill & Contact Button */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Dual Language Switcher Toggle */}
           <button
             onClick={toggleLang}
-            className="px-3 py-1.5 rounded-xl bg-[#051424] border border-[#6d28d9]/40 text-xs font-mono text-[#d3bbff] hover:border-[#d3bbff] hover:bg-[#6d28d9]/20 transition-all flex items-center gap-1.5 shadow-md cursor-pointer"
+            className="px-3 py-2 min-h-[40px] rounded-xl bg-[#051424] border border-[#6d28d9]/40 text-xs font-mono text-[#d3bbff] hover:border-[#d3bbff] hover:bg-[#6d28d9]/20 transition-colors flex items-center gap-1.5 cursor-pointer"
             title="Switch Language / Ganti Bahasa"
           >
             <span className="material-symbols-outlined text-sm text-[#d3bbff]">
@@ -78,26 +71,22 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="px-5 py-2 text-xs font-mono font-semibold text-white bg-gradient-to-r from-[#6d28d9] to-[#7331df] rounded-xl hover:shadow-[0_0_20px_rgba(109,40,217,0.6)] hover:scale-105 transition-all flex items-center gap-1.5 shadow-lg shadow-purple-900/30 cursor-pointer"
+            className="px-5 py-2 min-h-[40px] text-xs font-mono font-semibold text-white bg-[#6d28d9] hover:bg-[#7c3aed] rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             {lang === "en" ? "Contact" : "Kontak"}
-            <span className="material-symbols-outlined text-sm">
-              arrow_outward
-            </span>
           </a>
         </div>
 
-        {/* Mobile Toggle Button */}
         <div className="md:hidden flex items-center gap-2">
           <button
             onClick={toggleLang}
-            className="px-2.5 py-1 rounded-lg bg-[#051424] border border-[#6d28d9]/40 text-xs font-mono text-[#d3bbff] cursor-pointer"
+            className="px-3 py-2 min-h-[44px] rounded-lg bg-[#051424] border border-[#6d28d9]/40 text-xs font-mono text-[#d3bbff] cursor-pointer"
           >
             {lang.toUpperCase()}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#d3bbff] hover:text-white focus:outline-none cursor-pointer"
+            className="p-2 min-w-[44px] min-h-[44px] text-[#d3bbff] hover:text-white flex items-center justify-center cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             <span className="material-symbols-outlined text-2xl">
@@ -107,27 +96,26 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 glass-cyber rounded-2xl border border-white/10 px-6 py-6 flex flex-col gap-4 animate-in slide-in-from-top duration-200">
+        <div className="md:hidden mt-2 bg-[#071526] rounded-2xl border border-white/10 p-5 flex flex-col gap-2 shadow-2xl">
           <a
             href="#about"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base text-[#d3bbff] hover:text-white py-2 border-b border-white/5 font-medium"
+            className="text-base text-[#d3bbff] hover:text-white py-3 min-h-[44px] flex items-center border-b border-white/5 font-medium"
           >
             {lang === "en" ? "About" : "Tentang"}
           </a>
           <a
             href="#projects"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base text-[#d3bbff] hover:text-white py-2 border-b border-white/5 font-medium"
+            className="text-base text-[#d3bbff] hover:text-white py-3 min-h-[44px] flex items-center border-b border-white/5 font-medium"
           >
             {lang === "en" ? "Projects" : "Proyek"}
           </a>
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base text-[#d3bbff] hover:text-white py-2 border-b border-white/5 font-medium"
+            className="text-base text-[#d3bbff] hover:text-white py-3 min-h-[44px] flex items-center font-medium"
           >
             {lang === "en" ? "Contact" : "Kontak"}
           </a>

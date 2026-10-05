@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Jor-dev",
   description:
-    "Portfolio of Ordi (znhacks) — Full-Stack Developer specializing in Flutter mobile apps, Next.js web applications, Supabase cloud backends, and Ren'Py / Roblox games.",
+    "Portfolio of Ordi (znhacks): Full-Stack Developer specializing in Flutter mobile apps, Next.js web applications, Supabase cloud backends, and Ren'Py / Roblox games.",
   icons: {
     icon: [
       { url: "/icon.png" },

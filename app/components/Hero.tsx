@@ -77,20 +77,12 @@ export default function Hero() {
 
       <div className="px-6 md:px-8 max-w-[1280px] mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column Content */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            {/* Status Pill */}
-            <div className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#051424] border border-white/10 mb-6 shadow-md ${animBase} delay-[300ms]`}>
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <span className="font-mono text-xs text-[#d3bbff] uppercase tracking-widest">
-                {lang === "en"
-                  ? "FULL-STACK DEVELOPER & GAME CREATOR"
-                  : "PENGEMBANG FULL-STACK & PEMBUAT GAME"}
-              </span>
-            </div>
+            <p className={`font-mono text-xs text-[#d3bbff] uppercase tracking-widest mb-3 ${animBase} delay-[300ms]`}>
+              {lang === "en"
+                ? "Full-Stack Developer & Game Creator"
+                : "Pengembang Full-Stack & Pembuat Game"}
+            </p>
 
             <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6 ${animBase} delay-[400ms]`}>
               <TypewriterText
@@ -101,7 +93,7 @@ export default function Hero() {
               />
             </h1>
 
-            <p className={`text-base sm:text-lg text-[#ccc3d7] max-w-xl font-normal leading-relaxed mb-8 ${animBase} delay-[500ms] min-h-[100px]`}>
+            <p className={`text-base sm:text-lg text-[#ccc3d7] max-w-xl font-normal leading-relaxed mb-8 ${animBase} delay-[500ms] min-h-[90px]`}>
               <TypewriterText
                 text={lang === "en"
                   ? "I am a Full-Stack Developer engineering end-to-end mobile applications, web platforms, cloud database backends, and interactive games. Founder of Sabitplay Studio."
@@ -112,45 +104,31 @@ export default function Hero() {
               />
             </p>
 
-
-
-            {/* Action Buttons */}
             <div className={`flex flex-wrap items-center gap-4 ${animBase} delay-[600ms]`}>
               <a
                 href="#projects"
-                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#6d28d9] to-[#7331df] text-white font-mono text-xs font-semibold hover:shadow-[0_0_25px_rgba(109,40,217,0.7)] transition-all shadow-lg shadow-purple-900/40 flex items-center gap-2 hover:scale-105 cursor-pointer"
+                className="px-8 py-3.5 min-h-[44px] rounded-xl bg-[#6d28d9] hover:bg-[#7c3aed] text-white font-mono text-xs font-semibold transition-colors flex items-center justify-center cursor-pointer"
               >
                 {lang === "en" ? "View Projects" : "Lihat Proyek"}
-                <span className="material-symbols-outlined text-base">
-                  arrow_forward
-                </span>
               </a>
               <a
                 href="#contact"
-                className="px-8 py-3.5 rounded-full bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] font-mono text-xs font-semibold hover:border-[#d3bbff] hover:text-white hover:bg-[#6d28d9]/20 hover:shadow-[0_0_20px_rgba(109,40,217,0.4)] transition-all flex items-center gap-2 hover:scale-105 cursor-pointer"
+                className="px-8 py-3.5 min-h-[44px] rounded-xl bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] font-mono text-xs font-semibold hover:border-[#d3bbff] hover:text-white hover:bg-[#6d28d9]/20 transition-colors flex items-center justify-center cursor-pointer"
               >
                 {lang === "en" ? "Contact Me" : "Hubungi"}
-                <span className="material-symbols-outlined text-base text-[#d3bbff]">
-                  send
-                </span>
               </a>
             </div>
           </div>
 
-          {/* Right Column: Direct Floating PNG Logo */}
           <div className={`lg:col-span-5 flex items-center justify-center ${animBase} delay-[700ms]`}>
             <div className="relative flex items-center justify-center p-4">
-              {/* Soft background glow aura - Hidden on mobile to prevent lag */}
-              <div className="hidden md:block absolute w-80 h-80 bg-[#6d28d9]/35 blur-3xl rounded-full pointer-events-none" />
-
-              {/* Direct PNG Logo Image */}
               <Image
                 src="/logo.png"
                 alt="Ordi Logo"
                 width={360}
                 height={360}
                 priority
-                className="relative z-10 w-72 h-72 sm:w-88 sm:h-88 md:w-96 md:h-96 object-contain filter drop-shadow-[0_0_30px_rgba(109,40,217,0.7)] animate-float-hologram"
+                className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 md:w-88 md:h-88 object-contain"
               />
             </div>
           </div>

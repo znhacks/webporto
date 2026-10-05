@@ -82,11 +82,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#080503] overflow-y-auto sm:overflow-hidden p-4 sm:p-6"
         >
-          {/* Ambient Castle & Ember Glow Orbs */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-            <div className="absolute -top-28 -left-28 w-96 h-96 bg-amber-500/20 rounded-full blur-[130px]" />
-            <div className="absolute bottom-0 right-0 w-[520px] h-[520px] bg-red-600/15 rounded-full blur-[150px]" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.14)_0%,_transparent_70%)]" />
+            <div className="hidden sm:block absolute -top-28 -left-28 w-96 h-96 bg-amber-500/20 rounded-full blur-[130px]" />
+            <div className="hidden sm:block absolute bottom-0 right-0 w-[520px] h-[520px] bg-red-600/15 rounded-full blur-[150px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.12)_0%,_transparent_70%)]" />
           </div>
 
           {/* Content Container */}
@@ -245,10 +244,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#020b14] overflow-y-auto sm:overflow-hidden p-4 sm:p-6"
         >
-          {/* Ambient Ocean / Sea Glow Orbs */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-600/15 rounded-full blur-[140px]" />
+            <div className="hidden sm:block absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]" />
+            <div className="hidden sm:block absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-600/15 rounded-full blur-[140px]" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_center,_rgba(6,182,212,0.12)_0%,_transparent_70%)]" />
           </div>
 

@@ -30,16 +30,10 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 px-6 md:px-8 bg-transparent border-t border-white/10 relative"
+      className="py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-transparent border-t border-white/10 relative"
     >
       <div className="max-w-[1280px] mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6d28d9]/25 border border-[#6d28d9]/50 text-[#d3bbff] text-xs font-mono mb-4">
-          <span className="material-symbols-outlined text-base">mail</span>
-          {lang === "en" ? "GET IN TOUCH" : "HUBUNGI"}
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left Direct Links Column */}
           <div className="lg:col-span-5 space-y-6">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
               {lang === "en"
@@ -54,7 +48,7 @@ export default function ContactSection() {
             </p>
 
             <div className="pt-2 space-y-3 font-mono text-sm">
-              <div className="glass-cyber p-4 rounded-2xl border border-white/10 flex items-center justify-between">
+              <div className="bg-[#071526] p-4 rounded-xl border border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-[#d3bbff] text-xl">
                     photo_camera
@@ -75,7 +69,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="glass-cyber p-4 rounded-2xl border border-white/10 flex items-center gap-3">
+              <div className="bg-[#071526] p-4 rounded-xl border border-white/10 flex items-center gap-3">
                 <span className="material-symbols-outlined text-[#d3bbff] text-xl">
                   sports_esports
                 </span>
@@ -94,7 +88,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="glass-cyber p-4 rounded-2xl border border-white/10 flex items-center gap-3">
+              <div className="bg-[#071526] p-4 rounded-xl border border-white/10 flex items-center gap-3">
                 <span className="material-symbols-outlined text-[#d3bbff] text-xl">
                   code
                 </span>
@@ -115,9 +109,8 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right Form Column */}
           <div className="lg:col-span-7">
-            <div className="glass-cyber p-8 rounded-3xl border border-white/15 shadow-2xl">
+            <div className="bg-[#071526] p-6 sm:p-8 rounded-2xl border border-white/15">
               {submitted ? (
                 <div className="py-10 text-center space-y-4">
                   <div className="w-14 h-14 rounded-full bg-[#6d28d9]/25 text-[#d3bbff] border border-[#6d28d9] flex items-center justify-center mx-auto shadow-lg">

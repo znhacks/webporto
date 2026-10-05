@@ -59,7 +59,7 @@ export default function Footer() {
           </a>
           <button
             onClick={scrollToTop}
-            className="px-3.5 py-2 rounded-xl bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] hover:text-white hover:border-[#d3bbff] hover:bg-[#6d28d9]/25 transition-all flex items-center gap-1 shadow-md hover:scale-105 cursor-pointer"
+            className="px-4 py-2 min-h-[44px] rounded-xl bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] hover:text-white hover:border-[#d3bbff] hover:bg-[#6d28d9]/25 transition-colors flex items-center gap-1.5 cursor-pointer"
             title="Ke atas"
           >
             <span className="material-symbols-outlined text-base">

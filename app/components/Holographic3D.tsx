@@ -1,6 +1,6 @@
-﻿"use client";
+"use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface Holographic3DProps {
@@ -12,36 +12,49 @@ interface Holographic3DProps {
 export default function Holographic3D({
   children,
   className = "",
-  maxTilt = 10,
+  maxTilt = 6,
 }: Holographic3DProps) {
   const ref = useRef<HTMLDivElement>(null);
-  
+  const [canHover, setCanHover] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    // Only enable 3D tilt calculations on desktop devices with a mouse
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    setCanHover(mq.matches);
+
+    const handler = (e: MediaQueryListEvent) => setCanHover(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
-  
+  const springConfig = { damping: 30, stiffness: 220, mass: 0.4 };
   const mouseXSpring = useSpring(x, springConfig);
   const mouseYSpring = useSpring(y, springConfig);
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [maxTilt, -maxTilt]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-maxTilt, maxTilt]);
-  
-  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], [100, 0]);
-  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], [100, 0]);
 
-  const [isHovered, setIsHovered] = useState(false);
+  // If mobile or touch device, render directly without 3D compositing overhead
+  if (!canHover) {
+    return <div className={className}>{children}</div>;
+  }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
+
+    x.set(mouseX / rect.width - 0.5);
+    y.set(mouseY / rect.height - 0.5);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
@@ -54,46 +67,23 @@ export default function Holographic3D({
     <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`relative group ${className}`}
-      style={{ perspective: 1000 }}
+      style={{ perspective: 800 }}
     >
       <motion.div
         style={{
-          rotateX,
-          rotateY,
+          rotateX: isHovered ? rotateX : 0,
+          rotateY: isHovered ? rotateY : 0,
           transformStyle: "preserve-3d",
+          willChange: isHovered ? "transform" : "auto",
         }}
         className="w-full h-full relative rounded-[inherit]"
       >
-        <motion.div 
-          style={{
-            transform: "translateZ(30px)",
-            transformStyle: "preserve-3d",
-          }}
-          className="w-full h-full relative rounded-[inherit]"
-        >
-          {children}
-          
-          {/* Holographic Glare Overlay */}
-          <motion.div
-            className="pointer-events-none absolute inset-0 rounded-[inherit] overflow-hidden transition-opacity duration-500 mix-blend-overlay"
-            style={{
-              opacity: isHovered ? 0.4 : 0,
-            }}
-          >
-            <motion.div 
-              className="absolute inset-[-50%] rounded-full blur-2xl"
-              style={{
-                background: useTransform(
-                  () => `radial-gradient(circle at ${glareX.get()}% ${glareY.get()}%, rgba(255,255,255,0.9) 0%, rgba(109,40,217,0.3) 30%, transparent 60%)`
-                ),
-              }}
-            />
-          </motion.div>
-        </motion.div>
+        {children}
       </motion.div>
     </div>
   );
 }
+

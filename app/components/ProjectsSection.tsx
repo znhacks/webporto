@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import ProjectModal, { ProjectData } from "./ProjectModal";
 import { useLanguage } from "../context/LanguageContext";
 import Holographic3D from "./Holographic3D";
@@ -388,61 +389,54 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-20 px-6 md:px-8 bg-transparent border-t border-white/10 relative"
+      className="py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-transparent border-t border-white/10 relative"
     >
       <div className="max-w-[1280px] mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6d28d9]/25 border border-[#6d28d9]/50 text-[#d3bbff] text-xs font-mono mb-3">
-              <span className="material-symbols-outlined text-base">folder</span>
-              {lang === "en" ? "PROJECT PORTFOLIO" : "DAFTAR PROYEK"}
-            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               {lang === "en" ? "Featured Projects" : "Proyek & Hasil Karya"}
             </h2>
             <p className="text-base text-[#ccc3d7] mt-2 max-w-xl font-normal">
               {lang === "en"
-                ? "Click any project card to inspect details, features, and repositories 1 by 1."
-                : "Klik pada kartu proyek untuk melihat rincian penjelasan, fitur, dan tautan 1 per 1."}
+                ? "Select any project to explore features, architecture, and live links."
+                : "Pilih proyek untuk melihat rincian fitur, arsitektur, dan tautan langsung."}
             </p>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 p-1.5 glass-cyber rounded-2xl border border-white/10 font-mono text-xs">
+          <div className="flex flex-wrap gap-2 p-1 bg-[#071526] rounded-xl border border-white/10 font-mono text-xs">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "all"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
+              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "all"
+                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
                 }`}
             >
-              {lang === "en" ? "All Projects" : "Semua Proyek"} (
-              {PROJECTS_LIST.length})
+              {lang === "en" ? "All" : "Semua"} ({PROJECTS_LIST.length})
             </button>
             <button
               onClick={() => setActiveTab("game-dev")}
-              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "game-dev"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
+              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "game-dev"
+                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
                 }`}
             >
               {lang === "en" ? "Game Dev" : "Game Development"}
             </button>
             <button
               onClick={() => setActiveTab("web")}
-              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "web"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
+              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "web"
+                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
                 }`}
             >
               {lang === "en" ? "Web Apps" : "Aplikasi Web"}
             </button>
             <button
               onClick={() => setActiveTab("mobile")}
-              className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${activeTab === "mobile"
-                ? "bg-[#6d28d9] text-white font-bold shadow-lg shadow-purple-900/40 border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20 border border-transparent hover:border-[#6d28d9]/40"
+              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "mobile"
+                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
+                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
                 }`}
             >
               {lang === "en" ? "Mobile Apps" : "Aplikasi Mobile"}
@@ -450,52 +444,53 @@ export default function ProjectsSection() {
           </div>
         </div>
 
-        {/* Unified Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {filteredProjects.map((project) => (
-            <Holographic3D key={project.id} maxTilt={8} className="h-full">
+            <Holographic3D key={project.id} maxTilt={6} className="h-full">
               <div
                 onClick={() => setSelectedProject(project)}
-                className={`glass-cyber glass-cyber-interactive rounded-3xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-6 sm:p-8 h-full bg-[#030c17]/50 backdrop-blur-sm transition-all duration-300 ${
+                className={`surface-card surface-card-interactive rounded-2xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-5 sm:p-7 h-full ${
                   project.id === "last-gate"
-                    ? "!border-amber-400/80 !shadow-[0_0_35px_rgba(245,158,11,0.35)] hover:!shadow-[0_0_45px_rgba(245,158,11,0.55)]"
+                    ? "border-amber-400/50 hover:border-amber-400"
                     : project.id === "bocah-fishing"
-                    ? "!border-cyan-400/80 !shadow-[0_0_35px_rgba(6,182,212,0.35)] hover:!shadow-[0_0_45px_rgba(6,182,212,0.55)]"
-                    : "border border-white/10"
+                    ? "border-cyan-400/50 hover:border-cyan-400"
+                    : "border-white/10 hover:border-white/20"
                 }`}
               >
-                {/* Image Banner Header */}
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-6 bg-[#051424] border border-white/10">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${project.imageBg}')` }}
+                <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-5 bg-[#051424] border border-white/10">
+                  <Image
+                    src={project.imageBg}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#030c17] via-transparent to-transparent opacity-70" />
-                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071526] via-transparent to-transparent opacity-80" />
+
                   <div className="absolute top-3 left-3 flex flex-wrap gap-2 pr-3">
-                    <div className="px-3 py-1 bg-[#030c17]/90 backdrop-blur-md text-[#d3bbff] border border-white/10 rounded-full font-mono text-[11px]">
+                    <span className="px-3 py-1 bg-[#051424]/90 text-[#d3bbff] border border-white/10 rounded-md font-mono text-[11px]">
                       {lang === "en"
                         ? project.categoryLabelEn
                         : project.categoryLabel}
-                    </div>
+                    </span>
                     {project.id === "last-gate" && (
-                      <div className="px-2.5 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 backdrop-blur-md text-[#261501] border border-amber-300/60 rounded-full font-mono text-[9px] font-extrabold shadow-[0_0_12px_rgba(245,158,11,0.6)] flex items-center gap-1 uppercase tracking-wider">
-                        <span className="material-symbols-outlined text-[10px] font-bold">local_fire_department</span>
-                        {lang === "en" ? "NEW RELEASE" : "RILIS TERBARU"}
-                      </div>
+                      <span className="px-2.5 py-0.5 bg-amber-400 text-[#261501] border border-amber-300 rounded-md font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[11px] font-bold">local_fire_department</span>
+                        {lang === "en" ? "NEW" : "BARU"}
+                      </span>
                     )}
                     {project.id === "bocah-fishing" && (
-                      <div className="px-2.5 py-0.5 bg-cyan-400/95 backdrop-blur-md text-[#022238] border border-cyan-300/60 rounded-full font-mono text-[9px] font-extrabold shadow-[0_0_12px_rgba(6,182,212,0.6)] flex items-center gap-1 uppercase tracking-wider">
-                        <span className="material-symbols-outlined text-[10px] font-bold">star</span>
-                        {lang === "en" ? "RECOMMENDED" : "REKOMENDASI"}
-                      </div>
+                      <span className="px-2.5 py-0.5 bg-cyan-400 text-[#022238] border border-cyan-300 rounded-md font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[11px] font-bold">star</span>
+                        {lang === "en" ? "FEATURED" : "UNGGULAN"}
+                      </span>
                     )}
                   </div>
                 </div>
 
-                {/* Text Info */}
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-extrabold text-white group-hover:text-[#d3bbff] transition-colors">
+                <div className="space-y-2.5">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white group-hover:text-[#d3bbff] transition-colors">
                     {lang === "en" ? project.titleEn : project.title}
                   </h3>
 
@@ -504,13 +499,12 @@ export default function ProjectsSection() {
                   </p>
                 </div>
 
-                {/* Footer Actions */}
-                <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
                   <div className="flex flex-wrap gap-1.5">
                     {project.techStack.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 bg-[#051424] text-[#ccc3d7] text-[11px] font-mono rounded-lg border border-white/5"
+                        className="px-2.5 py-1 bg-[#051424] text-[#ccc3d7] text-[11px] font-mono rounded-md border border-white/5"
                       >
                         {tech}
                       </span>
@@ -522,11 +516,8 @@ export default function ProjectsSection() {
                     )}
                   </div>
 
-                  <div className="inline-flex items-center gap-1 text-[#d3bbff] font-mono text-xs font-bold group-hover:text-white group-hover:translate-x-1 transition-all">
-                    {lang === "en" ? "View Details" : "Lihat Detail"}
-                    <span className="material-symbols-outlined text-base">
-                      arrow_forward
-                    </span>
+                  <div className="inline-flex items-center gap-1 text-[#d3bbff] font-mono text-xs font-semibold group-hover:text-white transition-colors">
+                    <span>{lang === "en" ? "Inspect" : "Detail"}</span>
                   </div>
                 </div>
               </div>
@@ -535,7 +526,6 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      {/* Project Detail Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

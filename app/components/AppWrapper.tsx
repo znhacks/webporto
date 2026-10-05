@@ -23,34 +23,31 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#030c17]">
-      {/* Splash Screen */}
       {!hasEntered && (
         <div
           className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#030c17] transition-transform duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${isAnimatingOut ? '-translate-x-full' : 'translate-x-0'}`}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-[#030c17] to-[#030c17]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/15 via-[#030c17] to-[#030c17]"></div>
 
           <button
             onClick={handleEnter}
-            className="group relative z-10 flex flex-col items-center gap-6 transition-all duration-500 hover:scale-105"
+            className="group relative z-10 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
           >
-            <div className="relative h-40 w-40 overflow-hidden rounded-full shadow-[0_0_50px_rgba(109,40,217,0.4)] transition-all duration-500 group-hover:shadow-[0_0_80px_rgba(109,40,217,0.8)]">
+            <div className="relative h-36 w-36 sm:h-40 sm:w-40 overflow-hidden rounded-full border border-[#d3bbff]/30 shadow-2xl transition-all duration-300 group-hover:border-[#d3bbff]">
               <img
                 src="/logo.png"
                 alt="Moon Logo"
-                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-white/10 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
 
-            <span className="relative text-sm sm:text-base font-bold tracking-widest text-[#d3bbff] uppercase font-mono transition-all duration-300 group-hover:text-white drop-shadow-[0_0_15px_rgba(109,40,217,0.8)]">
-              Click this moon
+            <span className="relative text-sm sm:text-base font-bold tracking-widest text-[#d3bbff] uppercase font-mono transition-colors duration-200 group-hover:text-white">
+              Click to Enter
             </span>
           </button>
         </div>
       )}
 
-      {/* Main Content */}
       <div
         className={`h-full min-h-screen transition-all duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${!isAnimatingOut ? 'translate-x-[50vw] opacity-0 scale-95' : 'translate-x-0 opacity-100 scale-100'}`}
       >

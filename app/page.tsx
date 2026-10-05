@@ -14,11 +14,8 @@ export default function Home() {
     <LanguageProvider>
       <div className="min-h-screen flex flex-col bg-transparent text-[#d4e4fa] font-sans antialiased selection:bg-[#6d28d9] selection:text-white">
         <SpatialBackground />
-        
-        {/* Navbar with EN | ID Switcher */}
         <Navbar />
 
-        {/* Main Content */}
         <main className="flex-grow">
           <Hero />
           <AboutSection />
@@ -26,7 +23,6 @@ export default function Home() {
           <ContactSection />
         </main>
 
-        {/* Footer */}
         <Footer />
       </div>
     </LanguageProvider>
