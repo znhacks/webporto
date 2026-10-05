@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { useEntrance } from "../context/EntranceContext";
 
-function TypewriterText({ text, delay = 0, speed = 40, isEntering = false }: { text: string; delay?: number; speed?: number; isEntering?: boolean }) {
+function TypewriterText({ text, delay = 0, speed = 35, isEntering = false }: { text: string; delay?: number; speed?: number; isEntering?: boolean }) {
   const [displayedText, setDisplayedText] = useState("");
   const [hasStarted, setHasStarted] = useState(false);
 
@@ -26,7 +26,6 @@ function TypewriterText({ text, delay = 0, speed = 40, isEntering = false }: { t
   useEffect(() => {
     if (!hasStarted) return;
 
-    // Reset if text changes entirely (e.g. language switch)
     if (!text.startsWith(displayedText) && displayedText.length > 0) {
       setDisplayedText("");
     }
@@ -42,7 +41,7 @@ function TypewriterText({ text, delay = 0, speed = 40, isEntering = false }: { t
   return (
     <span>
       {displayedText}
-      <span className={`inline-block w-1 md:w-1.5 h-[0.9em] ml-1 bg-current align-middle ${displayedText.length === text.length ? 'animate-pulse opacity-50' : 'animate-[pulse_0.5s_infinite] opacity-100'}`} />
+      <span className={`inline-block w-1.5 h-[0.9em] ml-1 bg-current align-middle ${displayedText.length === text.length ? 'animate-pulse opacity-40' : 'animate-[pulse_0.4s_infinite] opacity-100'}`} />
     </span>
   );
 }
@@ -55,80 +54,94 @@ export default function Hero() {
     }`;
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center pt-32 pb-16 ambient-glow-purple overflow-hidden">
-      {/* Background Image */}
+    <section className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden">
+      {/* Background artwork blend */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 opacity-100 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center">
           <Image
             src="/Rustbond/Zen.jpg"
             alt="Hero Background"
-            width={800}
-            height={800}
-            className="w-[85%] md:w-[60%] lg:w-[50%] h-auto max-h-screen object-contain -translate-y-[100px] lg:translate-y-0 lg:-translate-x-[300px]"
+            width={900}
+            height={900}
+            className="w-[85%] md:w-[65%] lg:w-[52%] h-auto max-h-screen object-contain -translate-y-[80px] lg:translate-y-0 lg:-translate-x-[260px] opacity-95 transition-opacity duration-500"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030c17]"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030c17]/90 via-[#030c17]/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#08080a]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#08080a]/90 via-[#08080a]/45 to-transparent" />
       </div>
 
-      {/* Ambient background glowing orb - Hidden on mobile to prevent lag */}
-      <div className="hidden md:block absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[#6d28d9]/15 blur-[140px] rounded-full pointer-events-none z-0" />
-
-      <div className="px-6 md:px-8 max-w-[1280px] mx-auto w-full relative z-10">
+      <div className="px-6 md:px-10 max-w-[1340px] mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col items-start">
-            <p className={`font-mono text-xs text-[#d3bbff] uppercase tracking-widest mb-3 ${animBase} delay-[300ms]`}>
+          <div className="lg:col-span-8 flex flex-col items-start">
+            {/* Studio Telemetry Bar (Linear precision with subtle violet glow) */}
+            <div className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-purple-500/20 bg-purple-950/20 backdrop-blur-md mb-6 font-mono text-[11px] text-zinc-300 ${animBase} delay-[200ms]`}>
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+              <span className="text-zinc-200 font-semibold tracking-wider">SABITPLAY STUDIO</span>
+              <span className="text-zinc-600">/</span>
+              <span className="text-purple-300 font-medium">INDONESIA [UTC+7]</span>
+            </div>
+
+            {/* Sub-label */}
+            <p className={`font-mono text-xs text-purple-300/80 uppercase tracking-widest mb-3 ${animBase} delay-[300ms]`}>
               {lang === "en"
-                ? "Full-Stack Developer & Game Creator"
-                : "Pengembang Full-Stack & Pembuat Game"}
+                ? "Full-Stack Developer & Independent Game Creator"
+                : "Pengembang Full-Stack & Kreator Game Independen"}
             </p>
 
-            <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6 ${animBase} delay-[400ms]`}>
+            {/* Hero Main Heading (Basement Studio Syne typography) */}
+            <h1 className={`font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white leading-[0.98] mb-6 uppercase ${animBase} delay-[400ms]`}>
               <TypewriterText
                 text={lang === "en" ? "Yo, I'm Ordi" : "Yo, Aku Ordi"}
-                delay={1000}
+                delay={600}
                 isEntering={isEntering}
-                speed={70}
+                speed={60}
               />
             </h1>
 
-            <p className={`text-base sm:text-lg text-[#ccc3d7] max-w-xl font-normal leading-relaxed mb-8 ${animBase} delay-[500ms] min-h-[90px]`}>
+            {/* Editorial Statement */}
+            <p className={`text-base sm:text-lg text-zinc-300 max-w-2xl font-sans font-light leading-relaxed mb-8 ${animBase} delay-[500ms]`}>
               <TypewriterText
                 text={lang === "en"
-                  ? "I am a Full-Stack Developer engineering end-to-end mobile applications, web platforms, cloud database backends, and interactive games. Founder of Sabitplay Studio."
-                  : "Aku adalah seorang Full-Stack Developer yang menguasai pengembangan aplikasi mobile, web app, cloud database backend, hingga game interaktif secara end-to-end. Pendiri dari Sabitplay Studio."}
-                delay={2000}
+                  ? "Engineering responsive web architectures, cloud-native database pipelines, and game jam winning interactive experiences."
+                  : "Membangun arsitektur web modern, pipeline database cloud-native, serta game interaktif peraih gelar juara game jam."}
+                delay={1600}
                 isEntering={isEntering}
-                speed={25}
+                speed={20}
               />
             </p>
 
+            {/* Actions */}
             <div className={`flex flex-wrap items-center gap-4 ${animBase} delay-[600ms]`}>
               <a
                 href="#projects"
-                className="px-8 py-3.5 min-h-[44px] rounded-xl bg-[#6d28d9] hover:bg-[#7c3aed] text-white font-mono text-xs font-semibold transition-colors flex items-center justify-center cursor-pointer"
+                className="px-6 py-3 min-h-[44px] rounded-lg bg-white hover:bg-zinc-200 text-black font-mono text-xs font-bold tracking-tight transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:shadow-[0_0_35px_rgba(168,85,247,0.4)]"
               >
-                {lang === "en" ? "View Projects" : "Lihat Proyek"}
+                <span>{lang === "en" ? "Explore Projects" : "Jelajahi Proyek"}</span>
+                <span className="material-symbols-outlined text-sm font-bold">arrow_downward</span>
               </a>
+
               <a
                 href="#contact"
-                className="px-8 py-3.5 min-h-[44px] rounded-xl bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] font-mono text-xs font-semibold hover:border-[#d3bbff] hover:text-white hover:bg-[#6d28d9]/20 transition-colors flex items-center justify-center cursor-pointer"
+                className="px-6 py-3 min-h-[44px] rounded-lg bg-white/[0.04] hover:bg-purple-950/30 border border-white/[0.1] hover:border-purple-500/40 text-zinc-200 font-mono text-xs font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer"
               >
-                {lang === "en" ? "Contact Me" : "Hubungi"}
+                <span>{lang === "en" ? "Get in Touch" : "Hubungi"}</span>
+                <span className="material-symbols-outlined text-sm">mail</span>
               </a>
             </div>
           </div>
 
-          <div className={`lg:col-span-5 flex items-center justify-center ${animBase} delay-[700ms]`}>
-            <div className="relative flex items-center justify-center p-4">
+          {/* Right Logo / Seal */}
+          <div className={`lg:col-span-4 flex items-center justify-center ${animBase} delay-[700ms]`}>
+            <div className="relative flex items-center justify-center p-6 rounded-2xl border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-sm group hover:border-white/20 transition-all duration-500">
+              <div className="absolute inset-0 bg-white/[0.02] rounded-2xl filter blur-xl group-hover:bg-white/[0.05] transition-all" />
               <Image
                 src="/logo.png"
                 alt="Ordi Logo"
-                width={360}
-                height={360}
+                width={320}
+                height={320}
                 priority
-                className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 md:w-88 md:h-88 object-contain"
+                className="relative z-10 w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>

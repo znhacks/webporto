@@ -8,25 +8,25 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-transparent border-t border-white/10 py-12 px-6 md:px-8 text-[#ccc3d7]">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="relative bg-[#08080a] border-t border-white/[0.08] py-12 px-6 md:px-10 text-zinc-400">
+      <div className="max-w-[1340px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand with PNG Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#051424] border border-white/15 p-1.5 flex items-center justify-center shadow-lg">
+          <div className="w-9 h-9 rounded-lg bg-[#0c0c10] border border-white/10 p-1 flex items-center justify-center shadow">
             <Image
               src="/logo.png"
               alt="Ordi Logo"
-              width={40}
-              height={40}
+              width={36}
+              height={36}
               className="w-full h-full object-contain"
             />
           </div>
           <div className="flex flex-col text-center md:text-left">
-            <span className="font-extrabold text-white text-base tracking-tight">
-              Founder
+            <span className="font-display font-black text-white text-sm tracking-tight uppercase">
+              ORDI / SABITPLAY STUDIO
             </span>
-            <p className="text-[11px] text-[#ccc3d7] font-mono">
-              Sabitplay Studio
+            <p className="text-[11px] text-zinc-500 font-mono">
+              ENGINEERING & GAME DEVELOPMENT
             </p>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function Footer() {
             href="https://github.com/znhacks"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#d3bbff] hover:text-white underline underline-offset-4 decoration-[#6d28d9] hover:decoration-white transition-colors font-medium"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
             GitHub
           </a>
@@ -45,33 +45,34 @@ export default function Footer() {
             href="https://sabitplay.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#d3bbff] hover:text-white underline underline-offset-4 decoration-[#6d28d9] hover:decoration-white transition-colors font-medium"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
-            Sabitplay Studio
+            Sabitplay
           </a>
           <a
             href="https://instagram.com/jxrzero"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#d3bbff] hover:text-white underline underline-offset-4 decoration-[#6d28d9] hover:decoration-white transition-colors font-medium"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
             Instagram
           </a>
           <button
             onClick={scrollToTop}
-            className="px-4 py-2 min-h-[44px] rounded-xl bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] hover:text-white hover:border-[#d3bbff] hover:bg-[#6d28d9]/25 transition-colors flex items-center gap-1.5 cursor-pointer"
-            title="Ke atas"
+            className="px-3 py-1.5 min-h-[36px] rounded-lg bg-white/[0.03] border border-white/[0.08] text-zinc-300 hover:text-white hover:border-white/20 transition-all flex items-center gap-1.5 cursor-pointer"
+            title="Scroll to Top"
           >
-            <span className="material-symbols-outlined text-base">
+            <span className="material-symbols-outlined text-sm">
               arrow_upward
             </span>
-            <span>Atas</span>
+            <span>TOP</span>
           </button>
         </div>
       </div>
 
-      <div className="max-w-[1280px] mx-auto mt-8 pt-6 border-t border-white/5 text-center text-[11px] font-mono text-[#ccc3d7]">
-        Jordy-is-a-Dev
+      <div className="max-w-[1340px] mx-auto mt-8 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-zinc-500 gap-2">
+        <span>© 2026 ORDI (SABITPLAY STUDIO). ALL RIGHTS RESERVED.</span>
+        <span>DESIGNED WITH LINEAR PRECISION & BASEMENT ATTITUDE.</span>
       </div>
     </footer>
   );

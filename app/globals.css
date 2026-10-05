@@ -1,94 +1,96 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #030c17;
-  --color-[#051424]: #051424;
-  --color-surface-dim: #051424;
-  --color-surface-bright: #1c2b3c;
-  --color-surface-container: #0d1c2d;
-  --color-on-background: #d4e4fa;
-  --color-on-surface: #d4e4fa;
-  --color-on-surface-variant: #ccc3d7;
-  --color-primary: #d3bbff;
-  --color-primary-container: #6d28d9;
-  --color-outline: #273647;
+  --color-background: #08080a;
+  --color-[#051424]: #0b0b0f;
+  --color-surface-dim: #050507;
+  --color-surface-bright: #18181c;
+  --color-surface-container: #0e0e12;
+  --color-on-background: #e4e4e7;
+  --color-on-surface: #e4e4e7;
+  --color-on-surface-variant: #a1a1aa;
+  --color-primary: #ffffff;
+  --color-primary-container: #27272a;
+  --color-outline: rgba(255, 255, 255, 0.08);
 
-  --font-hanken: 'Hanken Grotesk', sans-serif;
-  --font-geist: 'Geist', sans-serif;
+  --font-syne: 'Syne', sans-serif;
+  --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
 }
 
 body {
-  background-color: #030c17;
-  color: #d4e4fa;
-  font-family: 'Hanken Grotesk', var(--font-geist-sans), sans-serif;
+  background-color: #08080a;
+  color: #e4e4e7;
+  font-family: 'Geist', -apple-system, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Linear-style hairline card */
+.linear-card {
+  background-color: rgba(14, 14, 18, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-::-webkit-scrollbar-track {
-  background: #030c17;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #273647;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #6d28d9;
-}
-
-.ambient-glow-purple {
-  background: radial-gradient(circle at 50% 30%, rgba(109, 40, 217, 0.18) 0%, rgba(3, 12, 23, 0) 70%);
-}
-
-.ambient-glow-cyan {
-  background: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.12) 0%, rgba(3, 12, 23, 0) 65%);
-}
-
-.glass-navbar {
-  background: rgba(5, 20, 36, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+@media (hover: hover) and (pointer: fine) {
+  .linear-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(18, 18, 24, 0.9);
+  }
 }
 
 .surface-card {
-  background-color: #071526;
+  background-color: #0e0e12;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .surface-card-interactive {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .surface-card-interactive:hover {
-    background-color: #0a1b2e;
-    border-color: rgba(211, 187, 255, 0.35);
-    box-shadow: 0 8px 24px -4px rgba(109, 40, 217, 0.2);
+    background-color: #121218;
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px);
   }
 }
 
-.gradient-text-purple {
-  background: linear-gradient(135deg, #ffffff 0%, #d3bbff 50%, #6d28d9 100%);
+/* Basement-style grain dot grid */
+.bg-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Custom Scrollbar - Matte Obsidian */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+.glass-navbar {
+  background: rgba(8, 8, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gradient-text-white {
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 60%, #71717a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-cyan {
-  background: linear-gradient(135deg, #d4e4fa 0%, #22d3ee 50%, #0284c7 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.card-image-overlay {
-  background: linear-gradient(to bottom, transparent 10%, rgba(3, 12, 23, 0.95) 85%);
 }

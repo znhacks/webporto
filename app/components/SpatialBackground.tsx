@@ -33,12 +33,11 @@ export default function SpatialBackground() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="fixed inset-0 z-[-10] bg-[#030c17] pointer-events-none overflow-hidden">
-      {/* Subtle static ambient glows for background depth */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#6d28d9]/[0.08] blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#06b6d4]/[0.06] blur-[100px] pointer-events-none" />
+    <div className="fixed inset-0 z-[-10] bg-[#08080a] pointer-events-none overflow-hidden">
+      {/* Subtle top ambient violet-obsidian depth */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1400px] h-[550px] bg-gradient-to-b from-purple-950/20 via-purple-900/[0.04] to-transparent pointer-events-none" />
 
-      {/* Desktop-only cursor glow */}
+      {/* Desktop subtle cursor illumination with delicate violet tint */}
       {canHover && (
         <motion.div
           className="absolute w-[600px] h-[600px] rounded-full pointer-events-none will-change-transform"
@@ -47,7 +46,7 @@ export default function SpatialBackground() {
             y: springY,
             translateX: "-50%",
             translateY: "-50%",
-            background: "radial-gradient(circle, rgba(109, 40, 217, 0.12) 0%, rgba(3, 12, 23, 0) 60%)",
+            background: "radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, rgba(255, 255, 255, 0.02) 35%, rgba(8, 8, 10, 0) 70%)",
             opacity: isVisible ? 1 : 0,
             transition: "opacity 1s ease",
           }}

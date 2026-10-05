@@ -4,8 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import ProjectModal, { ProjectData } from "./ProjectModal";
 import { useLanguage } from "../context/LanguageContext";
-import Holographic3D from "./Holographic3D";
-import { motion } from "framer-motion";
 
 export const PROJECTS_LIST: (ProjectData & {
   titleEn: string;
@@ -15,6 +13,109 @@ export const PROJECTS_LIST: (ProjectData & {
   overviewEn: string;
   featuresEn: string[];
 })[] = [
+    {
+      id: "bocah-fishing",
+      title: "Bocah Fishing",
+      titleEn: "Bocah Fishing",
+      subtitle:
+        "Game simulasi memancing santai dengan mekanik unik 'Everything is Bait!'. Peraih gelar Champion Microjam 065 Fishing, Top 1 Made with Ziva, dan Top 4 Overall Stats.",
+      subtitleEn:
+        "Cozy atmospheric lake fishing simulation featuring the 'Everything is Bait!' mechanic. Champion Microjam 065 Fishing, Top 1 Made with Ziva, and Top 4 Overall Stats.",
+      category: "game-dev",
+      categoryLabel: "Game Development",
+      categoryLabelEn: "Game Development",
+      techStack: ["Godot", "HTML5", "Simulation", "2D Pixel/Art", "Itch.io"],
+      itchUrl: "https://sabitplay.itch.io/bocah-fishing",
+      year: "2026",
+      imageBg: "/Bofish/bocahfishing.png",
+      description:
+        "Champion Microjam 065 Fishing! Game memancing santai dengan konsep 'Semuanya adalah Umpan!'. Raih Top 1 Made with Ziva dan Top 4 Overall Stats.",
+      descriptionEn:
+        "Champion Microjam 065 Fishing! A cozy lake fishing game where 'Everything is Bait!'. Awarded Top 1 Made with Ziva and Top 4 Overall Stats.",
+      fullDetails: {
+        overview:
+          "Bocah Fishing adalah game simulasi memancing atmosferik yang dinobatkan sebagai Champion Microjam 065 Fishing. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar. Game ini juga meraih gelar Top 1 Made with Ziva serta menembus Top 4 Overall Stats di kompetisi.",
+        features: [
+          "🏆 Champion Microjam 065 Fishing",
+          "🥇 Top 1 Made with Ziva",
+          "📊 Top 4 Overall Stats",
+          "Mekanik unik 'Everything is Bait!' (semua barang bisa jadi umpan)",
+          "Siklus dinamis siang dan malam (Day & Night cycle)",
+          "Karakter pemancing unik dengan sifat pasif (passive traits)",
+          "Almanak ikan lengkap untuk dikoleksi",
+          "Dapat dimainkan langsung di web browser (HTML5) dan Windows",
+        ],
+        architecture: [
+          "🏆 Champion Microjam 065 Fishing",
+          "🥇 Top 1 Made with Ziva (#ZIVA)",
+          "📊 Top 4 Overall Stats",
+          "Dikembangkan dengan Godot Engine",
+          "Entry game jam resmi Micro Jam 065: Fishing",
+          "Dipublikasikan di Itch.io (sabitplay.itch.io/bocah-fishing)",
+        ],
+        techDetails:
+          "Dikembangkan menggunakan Godot Engine dengan optimasi web export HTML5 dan artwork orisinal bertema malam di danau.",
+      },
+      overviewEn:
+        "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio that won Champion Microjam 065 Fishing. Featuring the twist 'Everything is Bait!', it also achieved Top 1 Made with Ziva and Top 4 Overall Stats across the competition.",
+      featuresEn: [
+        "🏆 Champion Microjam 065 Fishing",
+        "🥇 Top 1 Made with Ziva",
+        "📊 Top 4 Overall Stats",
+        "Unique 'Everything is Bait!' gameplay mechanic",
+        "Dynamic day-and-night cycle with immersive ambience",
+        "Unique anglers with passive traits & personality narrations",
+        "Full fish almanac catalog to catch and discover",
+        "Directly playable in browser (HTML5) and available for Windows",
+      ],
+    },
+    {
+      id: "still-her",
+      title: "Still Her?",
+      titleEn: "Still Her?",
+      subtitle:
+        "Game simulasi bertahan hidup psikologis dan fiksi interaktif di bunker pasca-kebocoran neurotoksin bersama Hana yang terinfeksi.",
+      subtitleEn:
+        "A psychological survival simulator and interactive fiction trapped in a bunker with your infected lover following a synthetic neurotoxin rupture.",
+      category: "game-dev",
+      categoryLabel: "Game Development",
+      categoryLabelEn: "Game Development",
+      techStack: ["Godot", "HTML5", "Interactive Fiction", "Psychological Horror", "Itch.io"],
+      itchUrl: "https://sabitplay.itch.io/still-her",
+      year: "2026",
+      imageBg: "/Stillher/hana.png",
+      description:
+        "Terperangkap di bunker perawatan sempit bersama Hana yang terinfeksi neurotoksin sintetis. Kelola Sanity, Toxicity, dan Supplies melalui 5 Rantai Kodependensi menuju 3 cutscene ending berbeda.",
+      descriptionEn:
+        "Trapped inside a sealed maintenance bunker with infected lover Hana. Balance Sanity, Toxicity, and Supplies across the 5 Chains of Codependency toward 3 distinct cutscene endings.",
+      fullDetails: {
+        overview:
+          "Still Her? adalah game simulasi bertahan hidup psikologis dan narasi interaktif buatan Sabitplay Studio untuk Micro Jam 066: Toxic. Terperangkap di bunker perawatan sempit bersama kekasihnya, Hana, setelah kebocoran neurotoksin sintetis. Pemain mengeksplorasi tema hubungan beracun (toxic codependency) di mana setiap kompromi mengorbankan batas diri dan kewarasan.",
+        features: [
+          "5 Rantai Kodependensi: Setiap kompromi mengikat rantai tak kasat mata hingga kehilangan otonomi",
+          "Keseimbangan Status Psikologis: Kelola Sanity (kewarasan Jito), Toxicity (kebencian parasit Hana), dan Supplies",
+          "3 Cutscene Ending Berbeda: Sever the Cord, Permanent Prey, dan Controlled Decay",
+          "Estetika Visual Ink-Brush Atmosferik dengan sprite ekspresi karakter dinamis",
+          "Dapat dimainkan langsung di web browser (HTML5) melalui Itch.io",
+        ],
+        architecture: [
+          "Dikembangkan menggunakan Godot Engine (Web Export HTML5)",
+          "Entry game jam resmi Micro Jam 066: Toxic",
+          "Dipublikasikan di Itch.io (sabitplay.itch.io/still-her)",
+        ],
+        techDetails:
+          "Dikembangkan dengan Godot Engine dengan fokus pada sistem state machine dialog, soundscape atmosferik mencekam, dan optimasi web HTML5 yang responsif di desktop maupun mobile browser.",
+      },
+      overviewEn:
+        "Still Her? is a cinematic psychological narrative survival and dialogue simulator developed by Sabitplay Studio for Micro Jam 066: Toxic. Trapped inside a maintenance bunker with your infected lover Hana, explore the razor-thin boundary between love, obsession, and toxic codependency.",
+      featuresEn: [
+        "5 Chains of Codependency: Surrendering boundaries binds iron chains that erode your autonomy",
+        "Psychological Stat Balancing: Manage Jito's Sanity, Hana's Toxicity, and survival Supplies",
+        "3 Dedicated Cutscene Endings: Sever the Cord, Permanent Prey, and Controlled Decay",
+        "Atmospheric ink-brush visual aesthetic with dynamic character sprites",
+        "Playable directly in modern web browsers (HTML5) on Itch.io",
+      ],
+    },
     {
       id: "last-gate",
       title: "Last Gate",
@@ -65,50 +166,50 @@ export const PROJECTS_LIST: (ProjectData & {
       ],
     },
     {
-      id: "bocah-fishing",
-      title: "Bocah Fishing",
-      titleEn: "Bocah Fishing",
+      id: "keepie-uppie",
+      title: "Keepie Uppie",
+      titleEn: "Keepie Uppie",
       subtitle:
-        "Game simulasi memancing santai berbalut atmosfer danau yang menenangkan dengan mekanik unik 'Everything is Bait!'.",
+        "Game arcade 2D juggle bola cepat dengan fisika pantulan dinamis berdasarkan titik kontak kaki dan hit-flash shader effects.",
       subtitleEn:
-        "A cozy, atmospheric lake fishing simulation game featuring a unique 'Everything is Bait!' mechanic.",
+        "A fast-paced 2D arcade football juggling challenge featuring dynamic bounce physics and responsive touch controls.",
       category: "game-dev",
       categoryLabel: "Game Development",
       categoryLabelEn: "Game Development",
-      techStack: ["Godot", "HTML5", "Simulation", "2D Pixel/Art", "Itch.io"],
-      itchUrl: "https://sabitplay.itch.io/bocah-fishing",
+      techStack: ["Godot", "HTML5", "2D Arcade", "Physics", "Itch.io"],
+      itchUrl: "https://sabitplay.itch.io/keepie",
       year: "2026",
-      imageBg: "/Bofish/bocahfishing.png",
+      imageBg: "/Keepie/keepie_cover.png",
       description:
-        "Game memancing santai dengan konsep 'Semuanya adalah Umpan!'. Gunakan barang bekas hingga ikan tangkapan untuk memikat ikan raksasa.",
+        "Uji refleks dan keahlian freestyle sepak bola dalam tantangan juggle bola arcade berkecepatan tinggi. Jaga ritme pantulan dan cetak rekor skor tertinggi!",
       descriptionEn:
-        "A cozy lake fishing game where 'Everything is Bait!'. Hook junk, batteries, or even caught fish to lure massive trophy fish.",
+        "Test your reflexes and freestyle football skills in this fast-paced ball juggling arcade challenge. Control bounce angles and set unbeatable high scores!",
       fullDetails: {
         overview:
-          "Bocah Fishing adalah game simulasi memancing atmosferik yang dibuat oleh Sabitplay Studio untuk Micro Jam 065. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar di danau yang tenang.",
+          "Keepie Uppie adalah game arcade 2D buatan Sabitplay Studio untuk The T-Lander Game Jam #1. Pemain mengontrol pesepak bola untuk menjaga bola tetap melayang di udara dengan kontrol posisi presisi dan sudut pantulan dinamis.",
         features: [
-          "Mekanik unik 'Everything is Bait!' (semua barang bisa jadi umpan)",
-          "Siklus dinamis siang dan malam (Day & Night cycle)",
-          "Karakter pemancing unik dengan sifat pasif (passive traits)",
-          "Almanak ikan lengkap untuk dikoleksi",
-          "Dapat dimainkan langsung di web browser (HTML5) dan Windows",
+          "Gameplay Refleks Cepat & Adiktif dengan kontrol sentuh/mouse instan",
+          "Fisika Pantulan Bola Dinamis dihitung langsung dari titik perkenaan kaki",
+          "Efek visual hit-flash impact shader dan animasi tendangan halus",
+          "Pencatatan High Score otomatis untuk menantang rekor terbaik",
+          "Dapat dimainkan langsung di web browser (HTML5)",
         ],
         architecture: [
           "Dikembangkan dengan Godot Engine",
-          "Entry game jam resmi Micro Jam 065: Fishing",
-          "Dipublikasikan di Itch.io (sabitplay.itch.io/bocah-fishing)",
+          "Entry game jam resmi The T-Lander Game Jam #1",
+          "Dipublikasikan di Itch.io (sabitplay.itch.io/keepie)",
         ],
         techDetails:
-          "Dikembangkan menggunakan Godot Engine dengan optimasi web export HTML5 dan artwork orisinal bertema malam di danau.",
+          "Dibuat dengan Godot Engine dengan sistem kalkulasi impuls fisika 2D, shader hit-flash kustom, serta dukungan kontrol input mouse, keyboard, dan layar sentuh seluler.",
       },
       overviewEn:
-        "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio for Micro Jam 065, featuring the twist: Everything is Bait!",
+        "Keepie Uppie is a fast-paced 2D arcade game developed by Sabitplay Studio for The T-Lander Game Jam #1. Move your player, time your kicks with pinpoint accuracy, and never let the ball hit the turf.",
       featuresEn: [
-        "Unique 'Everything is Bait!' gameplay mechanic",
-        "Dynamic day-and-night cycle with immersive ambience",
-        "Unique anglers with passive traits & personality narrations",
-        "Full fish almanac catalog to catch and discover",
-        "Directly playable in browser (HTML5) and available for Windows",
+        "Fast and addictive reflex gameplay with instant responsive controls",
+        "Dynamic ball trajectory physics calculated from foot contact points",
+        "Fluid kicking animations with hit-flash impact shader effects",
+        "Automatic high-score tracker for personal bests",
+        "Playable directly in modern web browsers (HTML5)",
       ],
     },
     {
@@ -355,173 +456,252 @@ export default function ProjectsSection() {
 
   const filteredProjects = PROJECTS_LIST.filter(
     (p) => activeTab === "all" || p.category === activeTab
-  ).sort((a, b) => {
-    const categoryOrder: Record<string, number> = {
-      "game-dev": 1,
-      web: 2,
-      mobile: 3,
-    };
+  );
 
-    const orderA = categoryOrder[a.category] ?? 99;
-    const orderB = categoryOrder[b.category] ?? 99;
-
-    if (orderA !== orderB) {
-      return orderA - orderB;
-    }
-
-    // Inside game-dev category, prioritize latest featured games
-    const gameDevPriority: Record<string, number> = {
-      "last-gate": 1,
-      "bocah-fishing": 2,
-      "rustbond": 3,
-      "final-nightmare": 4,
-    };
-
-    if (a.category === "game-dev" && b.category === "game-dev") {
-      const prioA = gameDevPriority[a.id] ?? 99;
-      const prioB = gameDevPriority[b.id] ?? 99;
-      return prioA - prioB;
-    }
-
-    return 0;
-  });
+  const bocahFishing = PROJECTS_LIST.find((p) => p.id === "bocah-fishing");
+  const showFlagship = (activeTab === "all" || activeTab === "game-dev") && bocahFishing;
+  const secondaryProjects = filteredProjects.filter((p) => !showFlagship || p.id !== "bocah-fishing");
 
   return (
     <section
       id="projects"
-      className="py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-transparent border-t border-white/10 relative"
+      className="py-24 px-4 sm:px-6 md:px-10 bg-transparent border-t border-white/[0.08] relative"
     >
-      <div className="max-w-[1280px] mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+      <div className="max-w-[1340px] mx-auto">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-8">
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-              {lang === "en" ? "Featured Projects" : "Proyek & Hasil Karya"}
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-zinc-400 uppercase tracking-widest mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+              <span>{lang === "en" ? "Index / 01" : "Indeks / 01"}</span>
+              <span className="text-zinc-600">/</span>
+              <span className="text-zinc-300 font-semibold">{lang === "en" ? "Production Releases" : "Katalog Karya"}</span>
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase">
+              {lang === "en" ? "Featured Works" : "Proyek Pilihan"}
             </h2>
-            <p className="text-base text-[#ccc3d7] mt-2 max-w-xl font-normal">
+
+            <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-xl font-normal leading-relaxed">
               {lang === "en"
-                ? "Select any project to explore features, architecture, and live links."
-                : "Pilih proyek untuk melihat rincian fitur, arsitektur, dan tautan langsung."}
+                ? "Award-winning independent game entries, web applications, and mobile cloud platforms."
+                : "Game independen juara kompetisi, aplikasi web terintegrasi, dan platform mobile cloud."}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 p-1 bg-[#071526] rounded-xl border border-white/10 font-mono text-xs">
+          {/* Linear Segmented Tab Controls */}
+          <div className="inline-flex flex-wrap p-1 rounded-lg bg-[#0e0e12] border border-white/[0.08] font-mono text-xs">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "all"
-                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
+              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "all"
+                ? "bg-white text-black font-bold shadow-sm"
+                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
             >
               {lang === "en" ? "All" : "Semua"} ({PROJECTS_LIST.length})
             </button>
             <button
               onClick={() => setActiveTab("game-dev")}
-              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "game-dev"
-                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
+              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "game-dev"
+                ? "bg-white text-black font-bold shadow-sm"
+                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
             >
-              {lang === "en" ? "Game Dev" : "Game Development"}
+              Game Dev (6)
             </button>
             <button
               onClick={() => setActiveTab("web")}
-              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "web"
-                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
+              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "web"
+                ? "bg-white text-black font-bold shadow-sm"
+                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
             >
-              {lang === "en" ? "Web Apps" : "Aplikasi Web"}
+              Web Apps (1)
             </button>
             <button
               onClick={() => setActiveTab("mobile")}
-              className={`px-4 py-2.5 min-h-[44px] rounded-lg transition-colors cursor-pointer ${activeTab === "mobile"
-                ? "bg-[#6d28d9] text-white font-bold border border-[#d3bbff]/30"
-                : "text-[#d3bbff]/80 hover:text-white hover:bg-[#6d28d9]/20"
+              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "mobile"
+                ? "bg-white text-black font-bold shadow-sm"
+                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
             >
-              {lang === "en" ? "Mobile Apps" : "Aplikasi Mobile"}
+              Mobile Apps (2)
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {filteredProjects.map((project) => (
-            <Holographic3D key={project.id} maxTilt={6} className="h-full">
-              <div
-                onClick={() => setSelectedProject(project)}
-                className={`surface-card surface-card-interactive rounded-2xl overflow-hidden relative group cursor-pointer flex flex-col justify-between p-5 sm:p-7 h-full ${
-                  project.id === "last-gate"
-                    ? "border-amber-400/50 hover:border-amber-400"
-                    : project.id === "bocah-fishing"
-                    ? "border-cyan-400/50 hover:border-cyan-400"
-                    : "border-white/10 hover:border-white/20"
-                }`}
-              >
-                <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-5 bg-[#051424] border border-white/10">
+        {/* Flagship Editorial Hero Card: Bocah Fishing */}
+        {showFlagship && bocahFishing && (
+          <div className="mb-10">
+            <div
+              onClick={() => setSelectedProject(bocahFishing)}
+              className="relative rounded-2xl overflow-hidden border border-white/[0.12] bg-[#0c0c10] hover:border-amber-400/50 transition-all duration-300 group cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+                {/* Visual Art Preview */}
+                <div className="lg:col-span-7 relative min-h-[280px] lg:min-h-full overflow-hidden bg-black">
                   <Image
-                    src={project.imageBg}
-                    alt={project.title}
+                    src={bocahFishing.imageBg}
+                    alt={bocahFishing.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    loading="lazy"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    priority
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 filter contrast-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071526] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-[#0c0c10]/40 to-[#0c0c10]" />
 
-                  <div className="absolute top-3 left-3 flex flex-wrap gap-2 pr-3">
-                    <span className="px-3 py-1 bg-[#051424]/90 text-[#d3bbff] border border-white/10 rounded-md font-mono text-[11px]">
-                      {lang === "en"
-                        ? project.categoryLabelEn
-                        : project.categoryLabel}
+                  {/* Accolade Ribbons on Image */}
+                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                    <span className="px-3 py-1 rounded-md bg-amber-400 text-black font-mono text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_20px_rgba(251,191,36,0.5)]">
+                      <span className="material-symbols-outlined text-sm font-bold">emoji_events</span>
+                      Champion Microjam 065 Fishing
                     </span>
-                    {project.id === "last-gate" && (
-                      <span className="px-2.5 py-0.5 bg-amber-400 text-[#261501] border border-amber-300 rounded-md font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[11px] font-bold">local_fire_department</span>
-                        {lang === "en" ? "NEW" : "BARU"}
-                      </span>
-                    )}
-                    {project.id === "bocah-fishing" && (
-                      <span className="px-2.5 py-0.5 bg-cyan-400 text-[#022238] border border-cyan-300 rounded-md font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[11px] font-bold">star</span>
-                        {lang === "en" ? "FEATURED" : "UNGGULAN"}
-                      </span>
-                    )}
                   </div>
                 </div>
 
-                <div className="space-y-2.5">
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white group-hover:text-[#d3bbff] transition-colors">
-                    {lang === "en" ? project.titleEn : project.title}
-                  </h3>
+                {/* Content Panel */}
+                <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative z-10">
+                  <div>
+                    {/* Telemetry Index */}
+                    <div className="flex items-center text-xs font-mono mb-4 pb-3 border-b border-white/[0.08]">
+                      <span className="text-amber-400 font-bold tracking-wider">AWARD WINNER</span>
+                    </div>
 
-                  <p className="text-sm text-[#ccc3d7] line-clamp-2 leading-relaxed font-normal">
-                    {lang === "en" ? project.descriptionEn : project.description}
-                  </p>
-                </div>
+                    <h3 className="font-display text-3xl sm:text-4xl font-black text-white group-hover:text-amber-300 transition-colors uppercase tracking-tight mb-3">
+                      {bocahFishing.title}
+                    </h3>
 
-                <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 bg-[#051424] text-[#ccc3d7] text-[11px] font-mono rounded-md border border-white/5"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.techStack.length > 3 && (
-                      <span className="px-2 py-1 text-[11px] font-mono text-[#ccc3d7]">
-                        +{project.techStack.length - 3}
-                      </span>
-                    )}
+                    {/* Official Accolades Checklist */}
+                    <div className="space-y-1.5 mb-5 p-3 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+                      <div className="flex items-center gap-2 text-xs font-mono text-amber-300 font-bold">
+                        <span className="material-symbols-outlined text-sm">trophy</span>
+                        <span>Champion Microjam 065 Fishing</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs font-mono text-cyan-300 font-semibold">
+                        <span className="material-symbols-outlined text-sm">verified</span>
+                        <span>Top 1 Made with Ziva</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs font-mono text-zinc-300">
+                        <span className="material-symbols-outlined text-sm">leaderboard</span>
+                        <span>Top 4 Overall Stats</span>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-zinc-300 leading-relaxed font-sans font-light mb-6">
+                      {lang === "en" ? bocahFishing.descriptionEn : bocahFishing.description}
+                    </p>
                   </div>
 
-                  <div className="inline-flex items-center gap-1 text-[#d3bbff] font-mono text-xs font-semibold group-hover:text-white transition-colors">
-                    <span>{lang === "en" ? "Inspect" : "Detail"}</span>
+                  <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between gap-4">
+                    <div className="flex flex-wrap gap-1.5">
+                      {bocahFishing.techStack.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 bg-white/[0.04] text-zinc-300 text-[11px] font-mono rounded border border-white/[0.08]"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-white group-hover:text-amber-300 transition-colors">
+                      <span>{lang === "en" ? "Inspect Details" : "Detail Proyek"}</span>
+                      <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                        arrow_forward
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </Holographic3D>
+            </div>
+          </div>
+        )}
+
+        {/* Secondary Editorial Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {secondaryProjects.map((project, idx) => (
+            <div
+              key={project.id}
+              onClick={() => setSelectedProject(project)}
+              className="group relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0c0c10] hover:border-purple-500/30 hover:bg-[#111116] transition-all duration-300 flex flex-col justify-between p-5 cursor-pointer shadow-lg"
+            >
+              {/* Thumbnail Container */}
+              <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden mb-5 bg-black border border-white/[0.06]">
+                <Image
+                  src={project.imageBg}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 filter contrast-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-transparent to-transparent opacity-80" />
+
+                {/* Index & Badges */}
+                <div className="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
+                  <span className="px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-zinc-300 border border-white/10 font-mono text-[10px]">
+                    {String(idx + 2).padStart(2, "0")}
+                  </span>
+                  {project.id === "still-her" && (
+                    <span className="px-2 py-0.5 rounded bg-emerald-500 text-black font-mono text-[10px] font-black uppercase tracking-wider">
+                      MICRO JAM 066
+                    </span>
+                  )}
+                  {project.id === "last-gate" && (
+                    <span className="px-2 py-0.5 rounded bg-amber-400 text-black font-mono text-[10px] font-black uppercase tracking-wider">
+                      SLAPJAM AI
+                    </span>
+                  )}
+                  {project.id === "keepie-uppie" && (
+                    <span className="px-2 py-0.5 rounded bg-teal-400 text-black font-mono text-[10px] font-black uppercase tracking-wider">
+                      T-LANDER JAM
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Title & Description */}
+              <div className="space-y-2 flex-grow">
+                <div className="flex items-center justify-between font-mono text-[11px] text-zinc-400">
+                  <span>{lang === "en" ? project.categoryLabelEn : project.categoryLabel}</span>
+                  {project.year && <span>{project.year}</span>}
+                </div>
+
+                <h3 className="font-display text-xl font-bold text-white group-hover:text-zinc-200 transition-colors uppercase tracking-tight">
+                  {lang === "en" ? project.titleEn : project.title}
+                </h3>
+
+                <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed font-sans font-light">
+                  {lang === "en" ? project.descriptionEn : project.description}
+                </p>
+              </div>
+
+              {/* Tech Tags & CTA Footer */}
+              <div className="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between">
+                <div className="flex flex-wrap gap-1">
+                  {project.techStack.slice(0, 2).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-0.5 bg-white/[0.03] text-zinc-400 text-[10px] font-mono rounded border border-white/[0.06]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.techStack.length > 2 && (
+                    <span className="px-1.5 py-0.5 text-[10px] font-mono text-zinc-500">
+                      +{project.techStack.length - 2}
+                    </span>
+                  )}
+                </div>
+
+                <div className="inline-flex items-center gap-1 text-[11px] font-mono text-zinc-400 group-hover:text-white transition-colors">
+                  <span>{lang === "en" ? "Inspect" : "Detail"}</span>
+                  <span className="material-symbols-outlined text-xs group-hover:translate-x-0.5 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

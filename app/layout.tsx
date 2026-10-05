@@ -27,10 +27,10 @@ export default function RootLayout({
       <head>
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="bg-[#030c17] text-[#d4e4fa] antialiased selection:bg-[#6d28d9] selection:text-white">
+      <body className="bg-[#08080a] text-[#e4e4e7] antialiased selection:bg-white selection:text-black">
         <AppWrapper>
           {children}
         </AppWrapper>
