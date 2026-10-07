@@ -539,9 +539,9 @@ export default function ProjectsSection() {
               01 <span className="text-titanium-500">/</span> {lang === "en" ? "Selected work" : "Karya pilihan"}
             </p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-titanium-50 tracking-tight uppercase leading-[0.95]">
-              {lang === "en" ? "Games first," : "Game dulu,"}
+              {lang === "en" ? "Sabitplay" : "Sabitplay"}
               <br />
-              <span className="text-titanium-400">{lang === "en" ? "then the tools." : "lalu tools-nya."}</span>
+              <span className="text-titanium-400">{lang === "en" ? "Studio" : "Studio"}</span>
             </h2>
           </div>
 

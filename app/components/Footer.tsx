@@ -71,8 +71,8 @@ export default function Footer() {
       </div>
 
       <div className="max-w-[1340px] mx-auto mt-8 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-zinc-500 gap-2">
-        <span>© 2026 ORDI (SABITPLAY STUDIO). ALL RIGHTS RESERVED.</span>
-        <span>DESIGNED WITH LINEAR PRECISION & BASEMENT ATTITUDE.</span>
+        <span>© 2026 ORDI. ALL RIGHTS RESERVED.</span>
+        <span>Bye World</span>
       </div>
     </footer>
   );
