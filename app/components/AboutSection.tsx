@@ -89,9 +89,9 @@ export default function AboutSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-transparent to-transparent opacity-60" />
 
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-[#08080a]/90 backdrop-blur-md border border-purple-500/25 flex items-center justify-between text-xs font-mono text-zinc-300 shadow-[0_4px_20px_rgba(168,85,247,0.15)]">
+                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-void/90 border border-line-strong flex items-center justify-between text-xs font-mono text-zinc-300">
                   <span className="text-white font-medium">Ordi Kurniawan, also known as Jordy</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.9)] ml-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-holo ml-2 shrink-0" />
                 </div>
               </div>
             </div>

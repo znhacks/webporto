@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import ProjectModal, { ProjectData } from "./ProjectModal";
 import { useLanguage } from "../context/LanguageContext";
+import Holographic3D from "./Holographic3D";
 
 export const PROJECTS_LIST: (ProjectData & {
   titleEn: string;
@@ -36,9 +37,9 @@ export const PROJECTS_LIST: (ProjectData & {
         overview:
           "Bocah Fishing adalah game simulasi memancing atmosferik yang dinobatkan sebagai Champion Microjam 065 Fishing. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar. Game ini juga meraih gelar Top 1 Made with Ziva serta menembus Top 4 Overall Stats di kompetisi.",
         features: [
-          "🏆 Champion Microjam 065 Fishing",
-          "🥇 Top 1 Made with Ziva",
-          "📊 Top 4 Overall Stats",
+          "Champion Microjam 065 Fishing",
+          "Top 1 Made with Ziva",
+          "Top 4 Overall Stats",
           "Mekanik unik 'Everything is Bait!' (semua barang bisa jadi umpan)",
           "Siklus dinamis siang dan malam (Day & Night cycle)",
           "Karakter pemancing unik dengan sifat pasif (passive traits)",
@@ -46,9 +47,9 @@ export const PROJECTS_LIST: (ProjectData & {
           "Dapat dimainkan langsung di web browser (HTML5) dan Windows",
         ],
         architecture: [
-          "🏆 Champion Microjam 065 Fishing",
-          "🥇 Top 1 Made with Ziva (#ZIVA)",
-          "📊 Top 4 Overall Stats",
+          "Champion Microjam 065 Fishing",
+          "Top 1 Made with Ziva (#ZIVA)",
+          "Top 4 Overall Stats",
           "Dikembangkan dengan Godot Engine",
           "Entry game jam resmi Micro Jam 065: Fishing",
           "Dipublikasikan di Itch.io (sabitplay.itch.io/bocah-fishing)",
@@ -59,9 +60,9 @@ export const PROJECTS_LIST: (ProjectData & {
       overviewEn:
         "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio that won Champion Microjam 065 Fishing. Featuring the twist 'Everything is Bait!', it also achieved Top 1 Made with Ziva and Top 4 Overall Stats across the competition.",
       featuresEn: [
-        "🏆 Champion Microjam 065 Fishing",
-        "🥇 Top 1 Made with Ziva",
-        "📊 Top 4 Overall Stats",
+        "Champion Microjam 065 Fishing",
+        "Top 1 Made with Ziva",
+        "Top 4 Overall Stats",
         "Unique 'Everything is Bait!' gameplay mechanic",
         "Dynamic day-and-night cycle with immersive ambience",
         "Unique anglers with passive traits & personality narrations",
@@ -445,271 +446,248 @@ export const PROJECTS_LIST: (ProjectData & {
     },
   ];
 
-export default function ProjectsSection() {
-  const [activeTab, setActiveTab] = useState<
-    "all" | "game-dev" | "web" | "mobile"
-  >("all");
-  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(
-    null
-  );
-  const { lang } = useLanguage();
+type Project = (typeof PROJECTS_LIST)[number];
+type Tab = "all" | "game-dev" | "apps";
 
-  const filteredProjects = PROJECTS_LIST.filter(
-    (p) => activeTab === "all" || p.category === activeTab
-  );
+const JAM_LABELS: Record<string, string> = {
+  "still-her": "Micro Jam 066",
+  "last-gate": "Slapjam AI",
+  "keepie-uppie": "T-Lander Jam #1",
+};
 
-  const bocahFishing = PROJECTS_LIST.find((p) => p.id === "bocah-fishing");
-  const showFlagship = (activeTab === "all" || activeTab === "game-dev") && bocahFishing;
-  const secondaryProjects = filteredProjects.filter((p) => !showFlagship || p.id !== "bocah-fishing");
-
+function GameCard({
+  project,
+  index,
+  large,
+  lang,
+  onOpen,
+}: {
+  project: Project;
+  index: number;
+  large: boolean;
+  lang: string;
+  onOpen: (p: Project) => void;
+}) {
+  const jam = JAM_LABELS[project.id];
   return (
-    <section
-      id="projects"
-      className="py-24 px-4 sm:px-6 md:px-10 bg-transparent border-t border-white/[0.08] relative"
+    <Holographic3D
+      variant="lite"
+      maxTilt={large ? 4 : 6}
+      className={`rounded-xl ${large ? "lg:col-span-3" : "lg:col-span-2"}`}
     >
-      <div className="max-w-[1340px] mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-8">
-          <div>
-            <div className="inline-flex items-center gap-2 font-mono text-xs text-zinc-400 uppercase tracking-widest mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
-              <span>{lang === "en" ? "Index / 01" : "Indeks / 01"}</span>
-              <span className="text-zinc-600">/</span>
-              <span className="text-zinc-300 font-semibold">{lang === "en" ? "Production Releases" : "Katalog Karya"}</span>
-            </div>
-
-            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase">
-              {lang === "en" ? "Featured Works" : "Proyek Pilihan"}
-            </h2>
-
-            <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-xl font-normal leading-relaxed">
-              {lang === "en"
-                ? "Award-winning independent game entries, web applications, and mobile cloud platforms."
-                : "Game independen juara kompetisi, aplikasi web terintegrasi, dan platform mobile cloud."}
-            </p>
-          </div>
-
-          {/* Linear Segmented Tab Controls */}
-          <div className="inline-flex flex-wrap p-1 rounded-lg bg-[#0e0e12] border border-white/[0.08] font-mono text-xs">
-            <button
-              onClick={() => setActiveTab("all")}
-              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "all"
-                ? "bg-white text-black font-bold shadow-sm"
-                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-                }`}
-            >
-              {lang === "en" ? "All" : "Semua"} ({PROJECTS_LIST.length})
-            </button>
-            <button
-              onClick={() => setActiveTab("game-dev")}
-              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "game-dev"
-                ? "bg-white text-black font-bold shadow-sm"
-                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-                }`}
-            >
-              Game Dev (6)
-            </button>
-            <button
-              onClick={() => setActiveTab("web")}
-              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "web"
-                ? "bg-white text-black font-bold shadow-sm"
-                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-                }`}
-            >
-              Web Apps (1)
-            </button>
-            <button
-              onClick={() => setActiveTab("mobile")}
-              className={`px-3.5 py-2 min-h-[40px] rounded-md transition-all cursor-pointer ${activeTab === "mobile"
-                ? "bg-white text-black font-bold shadow-sm"
-                : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-                }`}
-            >
-              Mobile Apps (2)
-            </button>
+      <button
+        type="button"
+        onClick={() => onOpen(project)}
+        className="group relative w-full h-full text-left rounded-xl overflow-hidden border border-line bg-surface hover:bg-surface-raised transition-colors duration-300 flex flex-col cursor-pointer"
+      >
+        <div className={`relative w-full overflow-hidden bg-black ${large ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
+          <Image
+            src={project.imageBg}
+            alt={project.title}
+            fill
+            sizes={large ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"}
+            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+          <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] text-titanium-200">
+            <span className="px-1.5 py-0.5 bg-void/80 border border-line">{String(index).padStart(2, "0")}</span>
+            {jam && <span className="px-1.5 py-0.5 bg-void/80 border border-line uppercase tracking-wider">{jam}</span>}
           </div>
         </div>
 
-        {/* Flagship Editorial Hero Card: Bocah Fishing */}
-        {showFlagship && bocahFishing && (
-          <div className="mb-10">
-            <div
-              onClick={() => setSelectedProject(bocahFishing)}
-              className="relative rounded-2xl overflow-hidden border border-white/[0.12] bg-[#0c0c10] hover:border-amber-400/50 transition-all duration-300 group cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
-                {/* Visual Art Preview */}
-                <div className="lg:col-span-7 relative min-h-[280px] lg:min-h-full overflow-hidden bg-black">
-                  <Image
-                    src={bocahFishing.imageBg}
-                    alt={bocahFishing.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    priority
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 filter contrast-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-[#0c0c10]/40 to-[#0c0c10]" />
+        <div className={`flex flex-col flex-grow ${large ? "p-6" : "p-5"}`}>
+          <div className="flex items-center justify-between font-mono text-[11px] text-titanium-400 mb-2">
+            <span>{project.techStack[0]}</span>
+            {project.year && <span>{project.year}</span>}
+          </div>
+          <h3 className={`font-display font-bold text-titanium-50 uppercase tracking-tight mb-2 ${large ? "text-2xl" : "text-xl"}`}>
+            {lang === "en" ? project.titleEn : project.title}
+          </h3>
+          <p className={`text-titanium-400 leading-relaxed font-light ${large ? "text-sm line-clamp-3" : "text-xs line-clamp-2"}`}>
+            {lang === "en" ? project.descriptionEn : project.description}
+          </p>
+        </div>
+      </button>
+    </Holographic3D>
+  );
+}
 
-                  {/* Accolade Ribbons on Image */}
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    <span className="px-3 py-1 rounded-md bg-amber-400 text-black font-mono text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_20px_rgba(251,191,36,0.5)]">
-                      <span className="material-symbols-outlined text-sm font-bold">emoji_events</span>
-                      Champion Microjam 065 Fishing
-                    </span>
+export default function ProjectsSection() {
+  const [activeTab, setActiveTab] = useState<Tab>("all");
+  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+  const { lang } = useLanguage();
+
+  const flagship = PROJECTS_LIST.find((p) => p.id === "bocah-fishing")!;
+  const games = PROJECTS_LIST.filter((p) => p.category === "game-dev" && p.id !== flagship.id);
+  const apps = PROJECTS_LIST.filter((p) => p.category !== "game-dev");
+
+  const showGames = activeTab !== "apps";
+  const showApps = activeTab !== "game-dev";
+
+  const tabs: { id: Tab; label: string; count: number }[] = [
+    { id: "all", label: lang === "en" ? "All" : "Semua", count: PROJECTS_LIST.length },
+    { id: "game-dev", label: "Games", count: games.length + 1 },
+    { id: "apps", label: lang === "en" ? "Web & Mobile" : "Web & Mobile", count: apps.length },
+  ];
+
+  return (
+    <section id="projects" className="relative py-28 px-4 sm:px-6 md:px-10 border-t border-line">
+      <div className="max-w-[1340px] mx-auto">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+          <div>
+            <p className="font-mono text-[11px] text-titanium-400 mb-4">
+              01 <span className="text-titanium-500">/</span> {lang === "en" ? "Selected work" : "Karya pilihan"}
+            </p>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-titanium-50 tracking-tight uppercase leading-[0.95]">
+              {lang === "en" ? "Games first," : "Game dulu,"}
+              <br />
+              <span className="text-titanium-400">{lang === "en" ? "then the tools." : "lalu tools-nya."}</span>
+            </h2>
+          </div>
+
+          <div role="tablist" aria-label={lang === "en" ? "Filter projects" : "Filter proyek"} className="inline-flex p-1 rounded-md bg-surface border border-line font-mono text-xs self-start lg:self-auto">
+            {tabs.map((t) => (
+              <button
+                key={t.id}
+                role="tab"
+                type="button"
+                aria-selected={activeTab === t.id}
+                onClick={() => setActiveTab(t.id)}
+                className={`px-3.5 min-h-[44px] rounded transition-colors cursor-pointer ${activeTab === t.id
+                  ? "bg-titanium-50 text-void font-bold"
+                  : "text-titanium-400 hover:text-titanium-50"
+                  }`}
+              >
+                {t.label} <span className="opacity-60">{t.count}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {showGames && (
+          <>
+            <Holographic3D variant="full" maxTilt={3} className="rounded-2xl mb-6">
+              <button
+                type="button"
+                onClick={() => setSelectedProject(flagship)}
+                className="group relative w-full text-left rounded-2xl overflow-hidden border border-line-strong bg-surface cursor-pointer"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+                  <div className="lg:col-span-7 relative min-h-[280px] overflow-hidden bg-black">
+                    <Image
+                      src={flagship.imageBg}
+                      alt={flagship.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-transparent to-surface" />
+                    <div className="absolute top-4 left-4 px-2.5 py-1 bg-holo text-void font-mono text-[11px] font-bold uppercase tracking-wider">
+                      Champion, Micro Jam 065
+                    </div>
                   </div>
-                </div>
 
-                {/* Content Panel */}
-                <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative z-10">
-                  <div>
-                    {/* Telemetry Index */}
-                    <div className="flex items-center text-xs font-mono mb-4 pb-3 border-b border-white/[0.08]">
-                      <span className="text-amber-400 font-bold tracking-wider">AWARD WINNER</span>
+                  <div className="reticle lg:col-span-5 relative p-6 sm:p-10 flex flex-col justify-between">
+                    <div>
+                      <p className="font-mono text-[11px] text-titanium-400 mb-5">
+                        {flagship.techStack[0]} <span className="text-titanium-500">/</span> {flagship.year}
+                      </p>
+                      <h3 className="font-display text-4xl sm:text-5xl font-black text-titanium-50 uppercase tracking-tight leading-none mb-6">
+                        {flagship.title}
+                      </h3>
+
+                      <dl className="grid grid-cols-3 gap-px bg-line border border-line mb-6 font-mono">
+                        {[
+                          ["Micro Jam 065", "Champion"],
+                          ["Made with Ziva", "Top 1"],
+                          ["Overall", "Top 4"],
+                        ].map(([label, value]) => (
+                          <div key={label} className="bg-surface p-3">
+                            <dt className="text-[10px] text-titanium-400 leading-tight">{label}</dt>
+                            <dd className="text-sm text-titanium-50 font-bold mt-1">{value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+
+                      <p className="text-sm text-titanium-200 leading-relaxed font-light">
+                        {lang === "en" ? flagship.descriptionEn : flagship.description}
+                      </p>
                     </div>
 
-                    <h3 className="font-display text-3xl sm:text-4xl font-black text-white group-hover:text-amber-300 transition-colors uppercase tracking-tight mb-3">
-                      {bocahFishing.title}
-                    </h3>
-
-                    {/* Official Accolades Checklist */}
-                    <div className="space-y-1.5 mb-5 p-3 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-                      <div className="flex items-center gap-2 text-xs font-mono text-amber-300 font-bold">
-                        <span className="material-symbols-outlined text-sm">trophy</span>
-                        <span>Champion Microjam 065 Fishing</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-xs font-mono text-cyan-300 font-semibold">
-                        <span className="material-symbols-outlined text-sm">verified</span>
-                        <span>Top 1 Made with Ziva</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-xs font-mono text-zinc-300">
-                        <span className="material-symbols-outlined text-sm">leaderboard</span>
-                        <span>Top 4 Overall Stats</span>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-zinc-300 leading-relaxed font-sans font-light mb-6">
-                      {lang === "en" ? bocahFishing.descriptionEn : bocahFishing.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-1.5">
-                      {bocahFishing.techStack.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 bg-white/[0.04] text-zinc-300 text-[11px] font-mono rounded border border-white/[0.08]"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-white group-hover:text-amber-300 transition-colors">
-                      <span>{lang === "en" ? "Inspect Details" : "Detail Proyek"}</span>
-                      <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
-                        arrow_forward
+                    <div className="mt-8 pt-5 border-t border-line flex items-center justify-between gap-4">
+                      <span className="font-mono text-[11px] text-titanium-400">
+                        {flagship.techStack.slice(0, 3).join(" · ")}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-holo">
+                        {lang === "en" ? "Open case file" : "Buka detail"}
+                        {/* The one arrow on the page: marks the flagship as the entry point. */}
+                        <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
                       </span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
+            </Holographic3D>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+              {games.map((project, i) => (
+                <GameCard
+                  key={project.id}
+                  project={project}
+                  index={i + 2}
+                  large={i < 2}
+                  lang={lang}
+                  onOpen={setSelectedProject}
+                />
+              ))}
             </div>
-          </div>
+          </>
         )}
 
-        {/* Secondary Editorial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {secondaryProjects.map((project, idx) => (
-            <div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="group relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0c0c10] hover:border-purple-500/30 hover:bg-[#111116] transition-all duration-300 flex flex-col justify-between p-5 cursor-pointer shadow-lg"
-            >
-              {/* Thumbnail Container */}
-              <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden mb-5 bg-black border border-white/[0.06]">
-                <Image
-                  src={project.imageBg}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  loading="lazy"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 filter contrast-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-transparent to-transparent opacity-80" />
-
-                {/* Index & Badges */}
-                <div className="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
-                  <span className="px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-zinc-300 border border-white/10 font-mono text-[10px]">
-                    {String(idx + 2).padStart(2, "0")}
-                  </span>
-                  {project.id === "still-her" && (
-                    <span className="px-2 py-0.5 rounded bg-emerald-500 text-black font-mono text-[10px] font-black uppercase tracking-wider">
-                      MICRO JAM 066
-                    </span>
-                  )}
-                  {project.id === "last-gate" && (
-                    <span className="px-2 py-0.5 rounded bg-amber-400 text-black font-mono text-[10px] font-black uppercase tracking-wider">
-                      SLAPJAM AI
-                    </span>
-                  )}
-                  {project.id === "keepie-uppie" && (
-                    <span className="px-2 py-0.5 rounded bg-teal-400 text-black font-mono text-[10px] font-black uppercase tracking-wider">
-                      T-LANDER JAM
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Title & Description */}
-              <div className="space-y-2 flex-grow">
-                <div className="flex items-center justify-between font-mono text-[11px] text-zinc-400">
-                  <span>{lang === "en" ? project.categoryLabelEn : project.categoryLabel}</span>
-                  {project.year && <span>{project.year}</span>}
-                </div>
-
-                <h3 className="font-display text-xl font-bold text-white group-hover:text-zinc-200 transition-colors uppercase tracking-tight">
-                  {lang === "en" ? project.titleEn : project.title}
-                </h3>
-
-                <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed font-sans font-light">
-                  {lang === "en" ? project.descriptionEn : project.description}
-                </p>
-              </div>
-
-              {/* Tech Tags & CTA Footer */}
-              <div className="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between">
-                <div className="flex flex-wrap gap-1">
-                  {project.techStack.slice(0, 2).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 bg-white/[0.03] text-zinc-400 text-[10px] font-mono rounded border border-white/[0.06]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.techStack.length > 2 && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-mono text-zinc-500">
-                      +{project.techStack.length - 2}
-                    </span>
-                  )}
-                </div>
-
-                <div className="inline-flex items-center gap-1 text-[11px] font-mono text-zinc-400 group-hover:text-white transition-colors">
-                  <span>{lang === "en" ? "Inspect" : "Detail"}</span>
-                  <span className="material-symbols-outlined text-xs group-hover:translate-x-0.5 transition-transform">
-                    arrow_forward
-                  </span>
-                </div>
-              </div>
+        {showApps && (
+          <div className={showGames ? "mt-24" : ""}>
+            <div className="flex items-baseline justify-between mb-6 pb-4 border-b border-line">
+              <h3 className="font-display text-2xl font-bold text-titanium-50 uppercase tracking-tight">
+                {lang === "en" ? "Web & mobile" : "Web & mobile"}
+              </h3>
+              <span className="font-mono text-[11px] text-titanium-400">Next.js · Flutter · Supabase</span>
             </div>
-          ))}
-        </div>
+
+            <ul>
+              {apps.map((project, i) => (
+                <li key={project.id} className="border-b border-line">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProject(project)}
+                    className="group w-full text-left grid grid-cols-[auto_1fr] md:grid-cols-[3rem_6rem_1fr_14rem_auto] items-center gap-4 md:gap-6 py-5 cursor-pointer hover:bg-surface/60 transition-colors"
+                  >
+                    <span className="hidden md:block font-mono text-[11px] text-titanium-500">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="relative block w-20 md:w-24 aspect-[4/3] overflow-hidden border border-line bg-black">
+                      <Image src={project.imageBg} alt="" fill sizes="96px" className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                    </span>
+                    <span>
+                      <span className="block font-display text-lg font-bold text-titanium-50 uppercase tracking-tight group-hover:text-holo transition-colors">
+                        {lang === "en" ? project.titleEn : project.title}
+                      </span>
+                      <span className="block text-xs text-titanium-400 font-light mt-1 line-clamp-2 md:line-clamp-1">
+                        {lang === "en" ? project.descriptionEn : project.description}
+                      </span>
+                    </span>
+                    <span className="hidden md:block font-mono text-[11px] text-titanium-400">
+                      {project.techStack.slice(0, 3).join(" · ")}
+                    </span>
+                    <span className="hidden md:block font-mono text-[11px] text-titanium-500">
+                      {lang === "en" ? project.categoryLabelEn : project.categoryLabel}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 }

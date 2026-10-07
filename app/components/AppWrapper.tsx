@@ -22,18 +22,17 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#030c17]">
+    <div className="relative z-[1] min-h-screen overflow-hidden">
       {!hasEntered && (
         <div
-          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#030c17] transition-transform duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${isAnimatingOut ? '-translate-x-full' : 'translate-x-0'}`}
+          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-void transition-transform duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${isAnimatingOut ? '-translate-x-full' : 'translate-x-0'}`}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/15 via-[#030c17] to-[#030c17]"></div>
 
           <button
             onClick={handleEnter}
             className="group relative z-10 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
           >
-            <div className="relative h-36 w-36 sm:h-40 sm:w-40 overflow-hidden rounded-full border border-[#d3bbff]/30 shadow-2xl transition-all duration-300 group-hover:border-[#d3bbff]">
+            <div className="relative h-36 w-36 sm:h-40 sm:w-40 overflow-hidden rounded-full border border-line-strong transition-all duration-300 group-hover:border-holo">
               <img
                 src="/logo.png"
                 alt="Moon Logo"
@@ -41,7 +40,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
               />
             </div>
 
-            <span className="relative text-sm sm:text-base font-bold tracking-widest text-[#d3bbff] uppercase font-mono transition-colors duration-200 group-hover:text-white">
+            <span className="relative text-sm sm:text-base font-bold tracking-widest text-titanium-200 uppercase font-mono transition-colors duration-200 group-hover:text-holo">
               Click to Enter
             </span>
           </button>

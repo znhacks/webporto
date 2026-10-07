@@ -43,7 +43,7 @@ export default function BackgroundMusic({ playOnEnter }: { playOnEnter: boolean 
 
       <button
         onClick={toggleMusic}
-        className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#051424] backdrop-blur-md border border-[#6d28d9]/50 text-[#d3bbff] shadow-lg transition-all duration-300 hover:scale-110 hover:border-[#d3bbff] hover:text-white hover:bg-[#6d28d9]/25 cursor-pointer ${isPlaying ? 'animate-pulse shadow-[0_0_20px_rgba(109,40,217,0.6)]' : 'opacity-75 hover:opacity-100'}`}
+        className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-surface border text-titanium-200 transition-all duration-300 hover:text-titanium-50 cursor-pointer ${isPlaying ? 'border-holo/60' : 'border-line-strong opacity-75 hover:opacity-100'}`}
         aria-label="Toggle Background Music"
       >
         <span className="material-symbols-outlined text-2xl">

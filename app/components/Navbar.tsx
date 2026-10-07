@@ -13,7 +13,7 @@ export default function Navbar() {
       <nav className="pointer-events-auto rounded-xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between bg-[#0e0e12]/85 backdrop-blur-xl border border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
         {/* Brand */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="relative w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 p-1 flex items-center justify-center group-hover:border-purple-400/40 transition-colors">
+          <div className="relative w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 p-1 flex items-center justify-center group-hover:border-line-strong transition-colors">
             <Image
               src="/logo.png"
               alt="Ordi Logo"
@@ -23,8 +23,8 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col justify-center">
-            <span className="font-display text-sm sm:text-base font-black text-white tracking-tight uppercase group-hover:text-purple-200 transition-colors leading-none">
-              ORDI <span className="text-[10px] font-mono text-purple-400 font-normal">/ SABITPLAY</span>
+            <span className="font-display text-sm sm:text-base font-black text-white tracking-tight uppercase group-hover:text-holo transition-colors leading-none">
+              ORDI <span className="text-[10px] font-mono text-titanium-400 font-normal">/ SABITPLAY</span>
             </span>
           </div>
         </a>
@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={toggleLang}
-            className="px-2.5 py-1.5 min-h-[36px] rounded-md bg-white/[0.03] border border-white/[0.08] text-[11px] font-mono text-zinc-400 hover:text-white hover:border-purple-400/30 transition-all flex items-center gap-1.5 cursor-pointer"
+            className="px-2.5 py-1.5 min-h-[36px] rounded-md bg-white/[0.03] border border-white/[0.08] text-[11px] font-mono text-zinc-400 hover:text-white hover:border-line-strong transition-all flex items-center gap-1.5 cursor-pointer"
             title="Switch Language"
           >
             <span className={lang === "en" ? "text-white font-bold" : "text-zinc-500"}>
@@ -97,7 +97,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto md:hidden mt-2 bg-[#0e0e12]/95 backdrop-blur-xl rounded-xl border border-purple-500/20 p-5 flex flex-col gap-2 shadow-2xl">
+        <div className="pointer-events-auto md:hidden mt-2 bg-surface rounded-xl border border-line-strong p-5 flex flex-col gap-2 shadow-2xl">
           <a
             href="#projects"
             onClick={() => setMobileMenuOpen(false)}

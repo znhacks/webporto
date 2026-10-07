@@ -1,58 +1,36 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue } from "framer-motion";
+
+const HoloField = dynamic(() => import("./HoloField"), { ssr: false });
+
+type Mode = "off" | "lite" | "full";
 
 export default function SpatialBackground() {
-  const [canHover, setCanHover] = useState(false);
-  const mouseX = useMotionValue(-1000);
-  const mouseY = useMotionValue(-1000);
-
-  const springX = useSpring(mouseX, { damping: 45, stiffness: 140 });
-  const springY = useSpring(mouseY, { damping: 45, stiffness: 140 });
-
-  const [isVisible, setIsVisible] = useState(false);
+  const [mode, setMode] = useState<Mode>("off");
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
-    setCanHover(mq.matches);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (reduced) return;
+    setMode(fine ? "full" : "lite");
 
-    if (!mq.matches) return;
-
-    mouseX.set(window.innerWidth / 2);
-    mouseY.set(window.innerHeight / 2);
-    setIsVisible(true);
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+    const onVisibility = () => setHidden(document.hidden);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
 
   return (
-    <div className="fixed inset-0 z-[-10] bg-[#08080a] pointer-events-none overflow-hidden">
-      {/* Subtle top ambient violet-obsidian depth */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1400px] h-[550px] bg-gradient-to-b from-purple-950/20 via-purple-900/[0.04] to-transparent pointer-events-none" />
-
-      {/* Desktop subtle cursor illumination with delicate violet tint */}
-      {canHover && (
-        <motion.div
-          className="absolute w-[600px] h-[600px] rounded-full pointer-events-none will-change-transform"
-          style={{
-            x: springX,
-            y: springY,
-            translateX: "-50%",
-            translateY: "-50%",
-            background: "radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, rgba(255, 255, 255, 0.02) 35%, rgba(8, 8, 10, 0) 70%)",
-            opacity: isVisible ? 1 : 0,
-            transition: "opacity 1s ease",
-          }}
-        />
+    <div aria-hidden className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-void">
+      <div className="absolute inset-x-0 top-0 h-[60vh] bg-gradient-to-b from-[#0d1216] to-transparent" />
+      {mode !== "off" && (
+        <div className="absolute inset-0">
+          <HoloField paused={hidden} count={mode === "full" ? 1800 : 700} />
+        </div>
       )}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#070709_100%)]" />
     </div>
   );
 }
-

@@ -46,6 +46,25 @@ function TypewriterText({ text, delay = 0, speed = 35, isEntering = false }: { t
   );
 }
 
+function LocalClock() {
+  const [time, setTime] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fmt = new Intl.DateTimeFormat("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZone: "Asia/Jakarta",
+    });
+    const tick = () => setTime(fmt.format(new Date()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return <span className="tabular-nums text-titanium-200">{time ?? "--:--:--"}</span>;
+}
+
 export default function Hero() {
   const { lang } = useLanguage();
   const { isEntering } = useEntrance();
@@ -54,43 +73,38 @@ export default function Hero() {
     }`;
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden">
-      {/* Background artwork blend */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <section className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-24 overflow-hidden">
+      <div aria-hidden className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <Image
-            src="/Rustbond/Zen.jpg"
-            alt="Hero Background"
-            width={900}
-            height={900}
-            className="w-[85%] md:w-[65%] lg:w-[52%] h-auto max-h-screen object-contain -translate-y-[80px] lg:translate-y-0 lg:-translate-x-[260px] opacity-95 transition-opacity duration-500"
-            priority
-          />
+          {/* Artwork treated as a projection: scanlines and reticle are clipped to the image box. */}
+          <div className="reticle relative w-[85%] md:w-[65%] lg:w-[48%] -translate-y-[80px] lg:translate-y-0 lg:-translate-x-[240px]">
+            <Image
+              src="/Rustbond/Zen.jpg"
+              alt=""
+              width={900}
+              height={900}
+              className="w-full h-auto max-h-screen object-contain opacity-90"
+              priority
+            />
+            <div className="scanlines absolute inset-0" />
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#08080a]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#08080a]/90 via-[#08080a]/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-void" />
+        <div className="absolute inset-0 bg-gradient-to-r from-void/95 via-void/50 to-transparent" />
       </div>
 
       <div className="px-6 md:px-10 max-w-[1340px] mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8 flex flex-col items-start">
-            {/* Studio Telemetry Bar (Linear precision with subtle violet glow) */}
-            <div className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-purple-500/20 bg-purple-950/20 backdrop-blur-md mb-6 font-mono text-[11px] text-zinc-300 ${animBase} delay-[200ms]`}>
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
-              <span className="text-zinc-200 font-semibold tracking-wider">SABITPLAY STUDIO</span>
-              <span className="text-zinc-600">/</span>
-              <span className="text-purple-300 font-medium">INDONESIA [UTC+7]</span>
-            </div>
-
-            {/* Sub-label */}
-            <p className={`font-mono text-xs text-purple-300/80 uppercase tracking-widest mb-3 ${animBase} delay-[300ms]`}>
-              {lang === "en"
-                ? "Full-Stack Developer & Independent Game Creator"
-                : "Pengembang Full-Stack & Kreator Game Independen"}
+            <p className={`flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-titanium-400 mb-10 ${animBase} delay-[200ms]`}>
+              <span className="text-titanium-50">SabitPlay Studio</span>
+              <span className="h-px w-6 bg-line-strong" />
+              <span>Indonesia, UTC+7</span>
+              <span className="h-px w-6 bg-line-strong" />
+              <LocalClock />
             </p>
 
-            {/* Hero Main Heading (Basement Studio Syne typography) */}
-            <h1 className={`font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white leading-[0.98] mb-6 uppercase ${animBase} delay-[400ms]`}>
+            <h1 className={`font-display text-5xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-black tracking-tighter text-titanium-50 leading-[0.9] mb-8 uppercase ${animBase} delay-[400ms]`}>
               <TypewriterText
                 text={lang === "en" ? "Yo, I'm Ordi" : "Yo, Aku Ordi"}
                 delay={600}
@@ -99,49 +113,40 @@ export default function Hero() {
               />
             </h1>
 
-            {/* Editorial Statement */}
-            <p className={`text-base sm:text-lg text-zinc-300 max-w-2xl font-sans font-light leading-relaxed mb-8 ${animBase} delay-[500ms]`}>
-              <TypewriterText
-                text={lang === "en"
-                  ? "Engineering responsive web architectures, cloud-native database pipelines, and game jam winning interactive experiences."
-                  : "Membangun arsitektur web modern, pipeline database cloud-native, serta game interaktif peraih gelar juara game jam."}
-                delay={1600}
-                isEntering={isEntering}
-                speed={20}
-              />
+            <p className={`text-base sm:text-lg text-titanium-200 max-w-xl font-light leading-relaxed mb-3 ${animBase} delay-[500ms]`}>
+              {lang === "en"
+                ? "I build web and mobile apps on Next.js, Flutter and Supabase, and ship small games that win jams."
+                : "Aku bikin aplikasi web dan mobile pakai Next.js, Flutter dan Supabase, plus game kecil yang juara game jam."}
+            </p>
+            <p className={`font-mono text-[11px] text-titanium-400 mb-10 ${animBase} delay-[550ms]`}>
+              {lang === "en" ? "Full-stack developer / indie game creator" : "Full-stack developer / kreator game indie"}
             </p>
 
-            {/* Actions */}
-            <div className={`flex flex-wrap items-center gap-4 ${animBase} delay-[600ms]`}>
+            <div className={`flex flex-wrap items-center gap-3 ${animBase} delay-[600ms]`}>
               <a
                 href="#projects"
-                className="px-6 py-3 min-h-[44px] rounded-lg bg-white hover:bg-zinc-200 text-black font-mono text-xs font-bold tracking-tight transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:shadow-[0_0_35px_rgba(168,85,247,0.4)]"
+                className="px-6 min-h-[48px] inline-flex items-center rounded-md bg-holo text-void font-mono text-xs font-bold tracking-tight transition-[transform,background-color] duration-200 hover:bg-titanium-50 active:scale-[0.98]"
               >
-                <span>{lang === "en" ? "Explore Projects" : "Jelajahi Proyek"}</span>
-                <span className="material-symbols-outlined text-sm font-bold">arrow_downward</span>
+                {lang === "en" ? "See the games & apps" : "Lihat game & aplikasi"}
               </a>
-
               <a
                 href="#contact"
-                className="px-6 py-3 min-h-[44px] rounded-lg bg-white/[0.04] hover:bg-purple-950/30 border border-white/[0.1] hover:border-purple-500/40 text-zinc-200 font-mono text-xs font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                className="px-6 min-h-[48px] inline-flex items-center rounded-md border border-line-strong text-titanium-200 font-mono text-xs font-semibold transition-colors duration-200 hover:text-titanium-50 hover:border-titanium-400"
               >
-                <span>{lang === "en" ? "Get in Touch" : "Hubungi"}</span>
-                <span className="material-symbols-outlined text-sm">mail</span>
+                {lang === "en" ? "Work with me" : "Ajak kolaborasi"}
               </a>
             </div>
           </div>
 
-          {/* Right Logo / Seal */}
-          <div className={`lg:col-span-4 flex items-center justify-center ${animBase} delay-[700ms]`}>
-            <div className="relative flex items-center justify-center p-6 rounded-2xl border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-sm group hover:border-white/20 transition-all duration-500">
-              <div className="absolute inset-0 bg-white/[0.02] rounded-2xl filter blur-xl group-hover:bg-white/[0.05] transition-all" />
+          <div className={`hidden sm:flex lg:col-span-4 items-center justify-center ${animBase} delay-[700ms]`}>
+            <div className="reticle relative p-8 group">
               <Image
                 src="/logo.png"
-                alt="Ordi Logo"
+                alt="SabitPlay logo"
                 width={320}
                 height={320}
                 priority
-                className="relative z-10 w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-500"
+                className="relative w-56 h-56 lg:w-64 lg:h-64 object-contain transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
               />
             </div>
           </div>

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 import AppWrapper from "./components/AppWrapper";
+import SpatialBackground from "./components/SpatialBackground";
 
 export default function RootLayout({
   children,
@@ -30,10 +31,12 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="bg-[#08080a] text-[#e4e4e7] antialiased selection:bg-white selection:text-black">
+      <body className="bg-void text-titanium-50 antialiased">
+        <SpatialBackground />
         <AppWrapper>
           {children}
         </AppWrapper>
+        <div aria-hidden className="noise-overlay" />
       </body>
     </html>
   );

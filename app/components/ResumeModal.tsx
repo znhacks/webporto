@@ -37,7 +37,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         {/* Top Sticky Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-[#0d1c2d]/90 backdrop-blur-xl border-b border-white/10">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-[#d3bbff] text-2xl">
+            <span className="material-symbols-outlined text-titanium-400 text-2xl">
               badge
             </span>
             <div>
@@ -73,7 +73,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           <div className="border-b border-white/10 pb-6 flex flex-col sm:flex-row justify-between sm:items-end gap-4">
             <div>
               <h1 className="text-3xl font-extrabold text-white">Ordi</h1>
-              <p className="font-mono text-sm text-[#d3bbff] mt-1">
+              <p className="font-mono text-sm text-titanium-400 mt-1">
                 Software Architect &amp; Game Developer
               </p>
               <p className="text-xs text-[#ccc3d7] mt-2 flex flex-wrap items-center gap-1.5 font-mono">
@@ -82,7 +82,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   href="https://github.com/znhacks"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#d3bbff] hover:text-white underline underline-offset-2 decoration-[#6d28d9] hover:decoration-white transition-colors"
+                  className="text-titanium-400 hover:text-white underline underline-offset-2 decoration-titanium-500 hover:decoration-white transition-colors"
                 >
                   github.com/znhacks
                 </a>
@@ -90,7 +90,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <span>Email:</span>
                 <a
                   href="mailto:hydrogz7@gmail.com"
-                  className="text-[#d3bbff] hover:text-white underline underline-offset-2 decoration-[#6d28d9] hover:decoration-white transition-colors"
+                  className="text-titanium-400 hover:text-white underline underline-offset-2 decoration-titanium-500 hover:decoration-white transition-colors"
                 >
                   hydrogz7@gmail.com
                 </a>
@@ -106,7 +106,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
           {/* Executive Summary */}
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#d3bbff] mb-2">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-titanium-400 mb-2">
               Executive Summary
             </h3>
             <p className="text-sm text-[#ccc3d7] leading-relaxed">
@@ -116,7 +116,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
           {/* Key Projects */}
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#d3bbff] mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-titanium-400 mb-4">
               Key Projects &amp; Repositories
             </h3>
 
@@ -126,7 +126,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   <h4 className="text-base font-bold text-white">
                     Jurnal Mengajar
                   </h4>
-                  <span className="font-mono text-xs text-[#d3bbff]">
+                  <span className="font-mono text-xs text-titanium-400">
                     2024 - Present
                   </span>
                 </div>
@@ -145,7 +145,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   <h4 className="text-base font-bold text-white">
                     Entity: Next Terrors (W.I.P)
                   </h4>
-                  <span className="font-mono text-xs text-[#d3bbff]">
+                  <span className="font-mono text-xs text-titanium-400">
                     2024
                   </span>
                 </div>
@@ -163,7 +163,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   <h4 className="text-base font-bold text-white">
                     Project Blinks (W.I.P)
                   </h4>
-                  <span className="font-mono text-xs text-[#d3bbff]">
+                  <span className="font-mono text-xs text-titanium-400">
                     2024
                   </span>
                 </div>
@@ -179,7 +179,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
           {/* Technical Skills */}
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#d3bbff] mb-3">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-titanium-400 mb-3">
               Technical Skill Set
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono">
@@ -203,7 +203,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         <div className="p-6 bg-[#0d1c2d] border-t border-white/10 flex justify-end">
           <button
             onClick={onClose}
-            className="px-6 py-2 rounded-lg bg-[#051424] border border-[#6d28d9]/50 text-[#d3bbff] font-mono text-xs hover:border-[#d3bbff] hover:text-white hover:bg-[#6d28d9]/20 transition-colors cursor-pointer"
+            className="px-6 py-2 min-h-[44px] rounded-md bg-surface border border-line-strong text-titanium-200 font-mono text-xs hover:text-titanium-50 hover:border-titanium-400 transition-colors cursor-pointer"
           >
             Close Window
           </button>
