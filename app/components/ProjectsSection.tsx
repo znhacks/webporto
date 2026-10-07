@@ -570,10 +570,10 @@ export default function ProjectsSection() {
               <button
                 type="button"
                 onClick={() => setSelectedProject(flagship)}
-                className="group relative w-full text-left rounded-2xl overflow-hidden border border-line-strong bg-surface cursor-pointer"
+                className="group reticle relative w-full text-left rounded-2xl overflow-hidden border border-line-strong bg-surface cursor-pointer"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-                  <div className="lg:col-span-7 relative min-h-[280px] overflow-hidden bg-black">
+                  <div className="lg:col-span-7 relative min-h-[280px] lg:min-h-full overflow-hidden bg-black">
                     <Image
                       src={flagship.imageBg}
                       alt={flagship.title}
@@ -581,13 +581,13 @@ export default function ProjectsSection() {
                       sizes="(max-width: 1024px) 100vw, 60vw"
                       className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-transparent to-surface" />
+                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-surface/40 to-surface" />
                     <div className="absolute top-4 left-4 px-2.5 py-1 bg-holo text-void font-mono text-[11px] font-bold uppercase tracking-wider">
                       Champion, Micro Jam 065
                     </div>
                   </div>
 
-                  <div className="reticle lg:col-span-5 relative p-6 sm:p-10 flex flex-col justify-between">
+                  <div className="lg:col-span-5 relative z-10 bg-surface lg:-ml-px p-6 sm:p-10 flex flex-col justify-between">
                     <div>
                       <p className="font-mono text-[11px] text-titanium-400 mb-5">
                         {flagship.techStack[0]} <span className="text-titanium-500">/</span> {flagship.year}
