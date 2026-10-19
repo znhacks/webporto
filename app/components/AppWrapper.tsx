@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import BackgroundMusic from "./BackgroundMusic";
 import { EntranceProvider } from "../context/EntranceContext";
+import { LanguageProvider } from "../context/LanguageContext";
+import { MusicProvider } from "../context/MusicContext";
+import { TransitionProvider } from "../context/TransitionContext";
 
 export default function AppWrapper({ children }: { children: React.ReactNode }) {
   const [hasEntered, setHasEntered] = useState(false);
@@ -22,42 +25,64 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <div className="relative z-[1] min-h-screen overflow-hidden">
-      {!hasEntered && (
-        <div
-          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-void transition-transform duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${isAnimatingOut ? '-translate-x-full' : 'translate-x-0'}`}
-        >
+    <LanguageProvider>
+      <MusicProvider>
+        <TransitionProvider>
+          <div className="relative z-[1] min-h-screen overflow-hidden">
+          {!hasEntered && (
+            <div
+              className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-void transition-transform duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${isAnimatingOut ? '-translate-x-full' : 'translate-x-0'}`}
+            >
+              <button
+                type="button"
+                onClick={handleEnter}
+                className="group relative z-10 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
+              >
+                <div className="relative h-36 w-36 sm:h-40 sm:w-40 overflow-hidden rounded-full border border-line-strong transition-all duration-300 group-hover:border-holo">
+                  <img
+                    src="/logo.png"
+                    alt="Moon Logo"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
 
-          <button
-            onClick={handleEnter}
-            className="group relative z-10 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
-          >
-            <div className="relative h-36 w-36 sm:h-40 sm:w-40 overflow-hidden rounded-full border border-line-strong transition-all duration-300 group-hover:border-holo">
-              <img
-                src="/logo.png"
-                alt="Moon Logo"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+                <span className="relative text-sm sm:text-base font-bold tracking-widest text-titanium-200 uppercase font-mono transition-colors duration-200 group-hover:text-holo">
+                  Click to Enter
+                </span>
+              </button>
             </div>
+          )}
 
-            <span className="relative text-sm sm:text-base font-bold tracking-widest text-titanium-200 uppercase font-mono transition-colors duration-200 group-hover:text-holo">
-              Click to Enter
-            </span>
-          </button>
+          <div
+            className={`h-full min-h-screen ${
+              !hasEntered
+                ? `transition-all duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${
+                    !isAnimatingOut
+                      ? "translate-x-[50vw] opacity-0 scale-95"
+                      : "translate-x-0 opacity-100 scale-100"
+                  }`
+                : ""
+            }`}
+          >
+            <div
+              className={`h-full ${
+                !hasEntered
+                  ? `transition-all duration-1000 delay-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+                      !isAnimatingOut ? "opacity-0" : "opacity-100"
+                    }`
+                  : ""
+              }`}
+            >
+              <EntranceProvider isEntering={isAnimatingOut}>
+                {children}
+              </EntranceProvider>
+            </div>
+          </div>
+
+          <BackgroundMusic playOnEnter={isAnimatingOut} />
         </div>
-      )}
-
-      <div
-        className={`h-full min-h-screen transition-all duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)] ${!isAnimatingOut ? 'translate-x-[50vw] opacity-0 scale-95' : 'translate-x-0 opacity-100 scale-100'}`}
-      >
-        <div className={`h-full transition-all duration-1000 delay-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${!isAnimatingOut ? 'opacity-0' : 'opacity-100'}`}>
-          <EntranceProvider isEntering={isAnimatingOut}>
-            {children}
-          </EntranceProvider>
-        </div>
-      </div>
-
-      <BackgroundMusic playOnEnter={isAnimatingOut} />
-    </div>
+      </TransitionProvider>
+    </MusicProvider>
+  </LanguageProvider>
   );
 }

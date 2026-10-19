@@ -3,16 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
+import { usePageTransition } from "../context/TransitionContext";
+import { useMusic } from "../context/MusicContext";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { lang, toggleLang } = useLanguage();
+  const { navigateWithTransition } = usePageTransition();
+
+  const handleGoToChampionHall = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigateWithTransition(
+      "/champion-hall",
+      lang === "en" ? "ENTERING CHAMPION HALL" : "MEMASUKI RUANG JUARA"
+    );
+  };
 
   return (
     <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-3 sm:px-6 max-w-[1340px] mx-auto pointer-events-none">
       <nav className="pointer-events-auto rounded-xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between bg-[#0e0e12]/85 backdrop-blur-xl border border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
         {/* Brand */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a href="/" className="flex items-center gap-3 group">
           <div className="relative w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 p-1 flex items-center justify-center group-hover:border-line-strong transition-colors">
             <Image
               src="/logo.png"
@@ -30,9 +41,17 @@ export default function Navbar() {
         </a>
 
         {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-8 text-xs font-mono">
+        <div className="hidden md:flex items-center gap-7 text-xs font-mono">
+          <button
+            type="button"
+            onClick={handleGoToChampionHall}
+            className="text-amber-400 hover:text-amber-300 transition-colors uppercase tracking-wider flex items-center gap-1.5 font-bold px-2.5 py-1 rounded bg-amber-500/10 border border-amber-500/30 cursor-pointer shadow-[0_0_12px_rgba(245,158,11,0.2)]"
+          >
+            <span className="material-symbols-outlined text-sm">emoji_events</span>
+            <span>{lang === "en" ? "Champion Hall" : "Ruang Juara"}</span>
+          </button>
           <a
-            href="#projects"
+            href="/#projects"
             className="text-zinc-400 hover:text-white transition-colors uppercase tracking-wider"
           >
             {lang === "en" ? "Works" : "Proyek"}
@@ -98,6 +117,17 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="pointer-events-auto md:hidden mt-2 bg-surface rounded-xl border border-line-strong p-5 flex flex-col gap-2 shadow-2xl">
+          <button
+            type="button"
+            onClick={(e) => {
+              setMobileMenuOpen(false);
+              handleGoToChampionHall(e);
+            }}
+            className="text-sm font-mono text-amber-400 hover:text-amber-300 py-2.5 flex items-center gap-2 uppercase tracking-wider font-bold cursor-pointer text-left"
+          >
+            <span className="material-symbols-outlined text-base">emoji_events</span>
+            <span>{lang === "en" ? "Champion Hall" : "Ruang Juara"}</span>
+          </button>
           <a
             href="#projects"
             onClick={() => setMobileMenuOpen(false)}

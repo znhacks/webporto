@@ -544,19 +544,19 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-85" />
             </div>
 
-            {/* Accolade Telemetry Grid */}
+            {/* Gameplay Telemetry Grid */}
             <dl className="w-full max-w-lg grid grid-cols-3 gap-px bg-cyan-500/20 border border-cyan-500/30 mb-6 font-mono text-left">
               <div className="bg-[#031322] p-2.5 sm:p-3">
-                <dt className="text-[10px] text-amber-300 font-bold leading-tight">CHAMPION</dt>
-                <dd className="text-xs text-titanium-50 font-bold mt-1">Microjam 065</dd>
+                <dt className="text-[10px] text-cyan-300 font-bold leading-tight">MECHANIC</dt>
+                <dd className="text-xs text-titanium-50 font-bold mt-1">Everything is Bait</dd>
               </div>
               <div className="bg-[#031322] p-2.5 sm:p-3">
-                <dt className="text-[10px] text-cyan-300 font-bold leading-tight">TOP 1</dt>
-                <dd className="text-xs text-titanium-50 font-bold mt-1">Made with Ziva</dd>
+                <dt className="text-[10px] text-cyan-300 font-bold leading-tight">AMBIENCE</dt>
+                <dd className="text-xs text-titanium-50 font-bold mt-1">Day & Night</dd>
               </div>
               <div className="bg-[#031322] p-2.5 sm:p-3">
-                <dt className="text-[10px] text-titanium-400 leading-tight">TOP 4</dt>
-                <dd className="text-xs text-titanium-50 font-bold mt-1">Overall Stats</dd>
+                <dt className="text-[10px] text-titanium-400 leading-tight">PLATFORM</dt>
+                <dd className="text-xs text-titanium-50 font-bold mt-1">Web HTML5</dd>
               </div>
             </dl>
 
@@ -593,7 +593,257 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     }
 
     // =========================================================================
-    // 5. STANDARD TECHNICAL DOSSIER — Web Applications, Mobile & Other Projects
+    // 5. LEMBUR — Bespoke Late-Night Studio Survival & Window Surveillance
+    // =========================================================================
+    if (localProject.id === "lembur") {
+      return (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#070503] overflow-y-auto p-4 sm:p-6 md:p-8"
+        >
+          {/* Ambient Amber Studio Light Depth */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-amber-500/[0.09] rounded-full blur-[170px]" />
+            <div className="absolute bottom-0 right-0 w-[550px] h-[550px] bg-orange-950/[0.14] rounded-full blur-[180px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.06)_0%,_transparent_75%)]" />
+          </div>
+
+          {/* Close HUD Button Top Right */}
+          <button
+            type="button"
+            onClick={onClose}
+            className="fixed top-5 right-5 sm:top-7 sm:right-7 z-50 px-3 py-1.5 rounded-md bg-[#160c04]/80 border border-amber-500/30 text-amber-300 hover:text-white hover:border-amber-400 font-mono text-xs flex items-center gap-1.5 backdrop-blur-md transition-all cursor-pointer shadow-lg"
+            aria-label="Close"
+          >
+            <span className="material-symbols-outlined text-sm">close</span>
+            <span className="hidden sm:inline text-[11px] uppercase tracking-wider">ESC</span>
+          </button>
+
+          {/* Content Container */}
+          <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-2xl w-full my-auto py-8">
+            {/* Telemetry Index & Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-4 font-mono text-[10px]">
+              <span className="px-2.5 py-1 rounded bg-[#1e0e03] border border-amber-500/40 text-amber-300 font-bold uppercase tracking-wider">
+                SURVIVAL HORROR // GODOT
+              </span>
+              <span className="px-2.5 py-1 rounded bg-black/60 border border-amber-900/50 text-amber-400/80 uppercase tracking-widest">
+                STUDIO OVERTIME // SURVIVAL
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-wider mb-2 uppercase">
+              Lembur
+            </h1>
+
+            {/* Tagline */}
+            <p className="font-mono text-xs sm:text-sm text-amber-200/90 mb-6 leading-relaxed max-w-lg">
+              {lang === "en"
+                ? "Late-night deadline survival horror. Watch the windows before sunrise."
+                : "Game simulasi horor kesunyian studio larut malam di bawah deadline fajar."}
+            </p>
+
+            {/* Header Artwork Frame */}
+            <div className="reticle relative w-full max-w-lg aspect-video rounded-xl overflow-hidden border border-amber-500/40 mb-5 bg-[#0e0703] shadow-[0_16px_40px_rgba(0,0,0,0.8)] group">
+              <Image
+                src="/Lembur/lembur.png"
+                alt="Lembur Studio Gameplay"
+                fill
+                sizes="(max-width: 1024px) 100vw, 512px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105 filter contrast-105"
+                priority
+              />
+              <div className="scanlines absolute inset-0 opacity-20 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-85" />
+            </div>
+
+            {/* Studio Characters Row */}
+            <div className="w-full max-w-lg flex items-center justify-center gap-4 mb-5 p-2 rounded-lg bg-[#140b04]/70 border border-amber-500/20">
+              <span className="font-mono text-[11px] text-amber-400/80 uppercase tracking-wider">
+                {lang === "en" ? "Studio Crew:" : "Karakter:"}
+              </span>
+              <div className="flex items-center gap-2">
+                <div className="relative w-8 h-8 rounded-full overflow-hidden border border-amber-400/70 bg-black">
+                  <Image src="/Lembur/jitto.png" alt="Jitto" fill sizes="32px" className="object-cover" />
+                </div>
+                <span className="font-mono text-xs text-titanium-100 font-bold">Jitto</span>
+              </div>
+              <div className="text-amber-500/30">|</div>
+              <div className="flex items-center gap-2">
+                <div className="relative w-8 h-8 rounded-full overflow-hidden border border-amber-400/70 bg-black">
+                  <Image src="/Lembur/mia.png" alt="Mia" fill sizes="32px" className="object-cover" />
+                </div>
+                <span className="font-mono text-xs text-titanium-100 font-bold">Mia</span>
+              </div>
+            </div>
+
+            {/* Telemetry Grid */}
+            <dl className="w-full max-w-lg grid grid-cols-3 gap-px bg-amber-500/20 border border-amber-500/30 mb-6 font-mono text-left">
+              <div className="bg-[#0e0703] p-2.5 sm:p-3">
+                <dt className="text-[10px] text-amber-400/70 leading-tight">MECHANIC</dt>
+                <dd className="text-xs text-amber-200 font-bold mt-1">Blind Defense</dd>
+              </div>
+              <div className="bg-[#0e0703] p-2.5 sm:p-3">
+                <dt className="text-[10px] text-amber-400/70 leading-tight">CHALLENGE</dt>
+                <dd className="text-xs text-amber-200 font-bold mt-1">Render Deadline</dd>
+              </div>
+              <div className="bg-[#0e0703] p-2.5 sm:p-3">
+                <dt className="text-[10px] text-amber-400/70 leading-tight">ENVIRONMENT</dt>
+                <dd className="text-xs text-amber-200 font-bold mt-1">Night Studio</dd>
+              </div>
+            </dl>
+
+            <p className="text-xs sm:text-sm text-zinc-300 mb-8 leading-relaxed max-w-lg font-light">
+              {lang === "en"
+                ? "Manage PC workloads, monitor left and right studio blinds, and survive till the morning shift as mysterious entities watch from outside."
+                : "Kelola render komputer kantor, awasi tirai jendela studio kiri dan kanan, serta bertahan hidup hingga shift pagi di bawah tatapan entitas di balik kegelapan."}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap justify-center gap-3">
+              {localProject.itchUrl && (
+                <a
+                  href={localProject.itchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 min-h-[44px] rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                >
+                  <span className="material-symbols-outlined text-base font-bold">sports_esports</span>
+                  {lang === "en" ? "Play on Itch.io" : "Mainkan di Itch.io"}
+                </a>
+              )}
+              <button
+                type="button"
+                onClick={onClose}
+                className="px-6 py-3 min-h-[44px] rounded-lg border border-amber-500/30 text-amber-300 hover:text-white hover:border-amber-400 font-mono text-xs uppercase tracking-wider transition-all cursor-pointer"
+              >
+                {lang === "en" ? "Return" : "Kembali"}
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      );
+    }
+
+    // =========================================================================
+    // 6. KEEPIE UPPIE — Bespoke 2D Arcade Pitch & Dynamic Impulse Physics
+    // =========================================================================
+    if (localProject.id === "keepie-uppie") {
+      return (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#030a06] overflow-y-auto p-4 sm:p-6 md:p-8"
+        >
+          {/* Ambient Stadium Turf Depth */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-emerald-500/[0.08] rounded-full blur-[160px]" />
+            <div className="absolute bottom-0 right-0 w-[550px] h-[550px] bg-teal-950/[0.14] rounded-full blur-[180px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(16,185,129,0.06)_0%,_transparent_75%)]" />
+          </div>
+
+          {/* Close HUD Button Top Right */}
+          <button
+            type="button"
+            onClick={onClose}
+            className="fixed top-5 right-5 sm:top-7 sm:right-7 z-50 px-3 py-1.5 rounded-md bg-[#05170e]/80 border border-emerald-500/30 text-emerald-300 hover:text-white hover:border-emerald-400 font-mono text-xs flex items-center gap-1.5 backdrop-blur-md transition-all cursor-pointer shadow-lg"
+            aria-label="Close"
+          >
+            <span className="material-symbols-outlined text-sm">close</span>
+            <span className="hidden sm:inline text-[11px] uppercase tracking-wider">ESC</span>
+          </button>
+
+          {/* Content Container */}
+          <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-2xl w-full my-auto py-8">
+            {/* Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-4 font-mono text-[10px]">
+              <span className="px-2.5 py-1 rounded bg-[#072415] border border-emerald-500/40 text-emerald-300 font-bold uppercase tracking-wider">
+                2D ARCADE // FREESTYLE
+              </span>
+              <span className="px-2.5 py-1 rounded bg-black/60 border border-emerald-900/50 text-emerald-400/80 uppercase tracking-widest">
+                FOOTBALL JUGGLE
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-wider mb-2 uppercase">
+              Keepie Uppie
+            </h1>
+
+            {/* Tagline */}
+            <p className="font-mono text-xs sm:text-sm text-emerald-200/90 mb-6 leading-relaxed max-w-lg">
+              {lang === "en"
+                ? "Fast-paced 2D football juggling challenge with dynamic contact physics."
+                : "Tantangan juggle bola arcade cepat dengan kalkulasi fisika pantulan dinamis."}
+            </p>
+
+            {/* Cover Frame */}
+            <div className="reticle relative w-full max-w-lg aspect-video rounded-xl overflow-hidden border border-emerald-500/40 mb-6 bg-[#04120a] shadow-[0_16px_40px_rgba(0,0,0,0.8)] group">
+              <Image
+                src="/Keepie/keepie_cover.png"
+                alt="Keepie Uppie Gameplay"
+                fill
+                sizes="(max-width: 1024px) 100vw, 512px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105 filter contrast-105"
+                priority
+              />
+              <div className="scanlines absolute inset-0 opacity-15 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-85" />
+            </div>
+
+            {/* Specs Grid */}
+            <dl className="w-full max-w-lg grid grid-cols-3 gap-px bg-emerald-500/20 border border-emerald-500/30 mb-6 font-mono text-left">
+              <div className="bg-[#04140b] p-2.5 sm:p-3">
+                <dt className="text-[10px] text-emerald-400/70 leading-tight">PHYSICS</dt>
+                <dd className="text-xs text-emerald-200 font-bold mt-1">Impulse Vector</dd>
+              </div>
+              <div className="bg-[#04140b] p-2.5 sm:p-3">
+                <dt className="text-[10px] text-emerald-400/70 leading-tight">ENGINE</dt>
+                <dd className="text-xs text-emerald-200 font-bold mt-1">Godot HTML5</dd>
+              </div>
+              <div className="bg-[#04140b] p-2.5 sm:p-3">
+                <dt className="text-[10px] text-emerald-400/70 leading-tight">CONTROLS</dt>
+                <dd className="text-xs text-emerald-200 font-bold mt-1">Touch & Mouse</dd>
+              </div>
+            </dl>
+
+            <p className="text-xs sm:text-sm text-zinc-300 mb-8 leading-relaxed max-w-lg font-light">
+              {lang === "en"
+                ? "Test your reflexes and freestyle juggling skills. Control bounce angles and set unbeatable high scores directly in your browser."
+                : "Uji refleks dan keahlian freestyle sepak bola dalam tantangan juggle arcade berkecepatan tinggi dengan hit-flash shader dan kontrol responsif."}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap justify-center gap-3">
+              {localProject.itchUrl && (
+                <a
+                  href={localProject.itchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 min-h-[44px] rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+                >
+                  <span className="material-symbols-outlined text-base font-bold">sports_esports</span>
+                  {lang === "en" ? "Play on Itch.io" : "Mainkan di Itch.io"}
+                </a>
+              )}
+              <button
+                type="button"
+                onClick={onClose}
+                className="px-6 py-3 min-h-[44px] rounded-lg border border-emerald-500/30 text-emerald-300 hover:text-white hover:border-emerald-400 font-mono text-xs uppercase tracking-wider transition-all cursor-pointer"
+              >
+                {lang === "en" ? "Return" : "Kembali"}
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      );
+    }
+
+    // =========================================================================
+    // 7. STANDARD TECHNICAL DOSSIER — Web Applications, Mobile & Other Projects
     // =========================================================================
     return (
       <motion.div

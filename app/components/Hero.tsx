@@ -115,8 +115,8 @@ export default function Hero() {
 
             <p className={`text-base sm:text-lg text-titanium-200 max-w-xl font-light leading-relaxed mb-3 ${animBase} delay-[500ms]`}>
               {lang === "en"
-                ? "I build web and mobile apps on Next.js, Flutter and Supabase, and ship games that win jams."
-                : "Aku bikin aplikasi web dan mobile pakai Next.js, Flutter dan Supabase, plus game kecil yang juara game jam."}
+                ? "I build web and mobile apps on Next.js, Flutter and Supabase, and create original indie games."
+                : "Aku bikin aplikasi web dan mobile pakai Next.js, Flutter dan Supabase, serta merilis game indie orisinal."}
             </p>
             <p className={`font-mono text-[11px] text-titanium-400 mb-10 ${animBase} delay-[550ms]`}>
               {lang === "en" ? "Full-stack developer / indie game creator" : "Full-stack developer / kreator game indie"}

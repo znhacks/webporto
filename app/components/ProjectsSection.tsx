@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import ProjectModal, { ProjectData } from "./ProjectModal";
 import { useLanguage } from "../context/LanguageContext";
-import Holographic3D from "./Holographic3D";
 
 export const PROJECTS_LIST: (ProjectData & {
   titleEn: string;
@@ -15,13 +14,62 @@ export const PROJECTS_LIST: (ProjectData & {
   featuresEn: string[];
 })[] = [
     {
+      id: "lembur",
+      title: "Lembur",
+      titleEn: "Lembur",
+      subtitle:
+        "Game simulasi horor kesunyian studio larut malam. Bertahan dari deadline fajar sambil mengawasi siluet misterius di jendela studio.",
+      subtitleEn:
+        "Atmospheric late-night studio survival horror. Race against a dawn deadline while monitoring lurking silhouettes outside studio windows.",
+      category: "game-dev",
+      categoryLabel: "Game Development",
+      categoryLabelEn: "Game Development",
+      techStack: ["Godot", "HTML5", "Survival Horror", "FNAF-Inspired", "Itch.io"],
+      itchUrl: "https://sabitplay.itch.io/lembur",
+      year: "2026",
+      imageBg: "/Lembur/lembur.png",
+      description:
+        "Game simulasi horor kesunyian studio larut malam. Seimbangkan tugas render komputer kantor dengan pengawasan jendela dari entitas pengintai sebelum fajar.",
+      descriptionEn:
+        "Late-night studio survival horror simulation. Balance computer render workloads with monitoring studio windows before sunrise.",
+      fullDetails: {
+        overview:
+          "Lembur adalah game simulasi horor kesunyian studio larut malam buatan Sabitplay Studio. Terjebak mengerjakan deadline fajar, pemain harus menyeimbangkan alur kerja render di layar komputer sambil mengawasi jendela kiri, tengah, dan kanan studio. Ketika siluet gelap muncul di kaca, segera tutup tirai sebelum ketakutan merenggut konsentrasi dan keselamatan.",
+        features: [
+          "Mekanik pertahanan jendela dengan sistem monitoring tirai interaktif",
+          "Manajemen beban kerja ganda: Tugas render komputer vs Deteksi entitas",
+          "Karakter studio unik: Jitto & Mia dengan alur narasi lembur",
+          "Mode shift berjenjang: Classic Shift hingga Evolved Protocol",
+          "Pencahayaan CRT monitor dinamis dan soundscape atmosferik malam",
+          "Dapat dimainkan langsung di web browser (HTML5) melalui Itch.io",
+        ],
+        architecture: [
+          "Dikembangkan dengan Godot Engine (Web Export HTML5)",
+          "Arsitektur Game Loop & Render Task Manager",
+          "Dipublikasikan resmi di Itch.io (sabitplay.itch.io/lembur)",
+        ],
+        techDetails:
+          "Dikembangkan menggunakan Godot Engine dengan optimasi web export HTML5 responsif, pencahayaan CRT monitor dinamis, dan soundscape atmosferik kantor tengah malam.",
+      },
+      overviewEn:
+        "Lembur is a suspenseful late-night studio survival horror simulation developed by Sabitplay Studio. Racing against a strict dawn deadline, balance computer rendering tasks while keeping vigil over left, center, and right studio windows as ominous entities draw near.",
+      featuresEn: [
+        "Interactive studio defense with rapid window-blind surveillance",
+        "Dual task balancing: Computer render tasks vs Entity detection",
+        "Distinct studio characters: Jitto & Mia with rich overtime lore",
+        "Escalating shift modes: Classic Shift and Evolved Protocol",
+        "Dynamic CRT monitor lighting and ambient late-night soundscape",
+        "Playable directly in modern web browsers (HTML5) on Itch.io",
+      ],
+    },
+    {
       id: "bocah-fishing",
       title: "Bocah Fishing",
       titleEn: "Bocah Fishing",
       subtitle:
-        "Game simulasi memancing santai dengan mekanik unik 'Everything is Bait!'. Peraih gelar Champion Microjam 065 Fishing, Top 1 Made with Ziva, dan Top 4 Overall Stats.",
+        "Game simulasi memancing santai di danau malam hari dengan mekanik unik 'Everything is Bait!'. Pancing berbagai spesies ikan dan monster danau legendaris.",
       subtitleEn:
-        "Cozy atmospheric lake fishing simulation featuring the 'Everything is Bait!' mechanic. Champion Microjam 065 Fishing, Top 1 Made with Ziva, and Top 4 Overall Stats.",
+        "Cozy atmospheric lake fishing simulation featuring the 'Everything is Bait!' mechanic. Catch diverse fish species and legendary lake monsters.",
       category: "game-dev",
       categoryLabel: "Game Development",
       categoryLabelEn: "Game Development",
@@ -30,43 +78,37 @@ export const PROJECTS_LIST: (ProjectData & {
       year: "2026",
       imageBg: "/Bofish/bocahfishing.png",
       description:
-        "Champion Microjam 065 Fishing! Game memancing santai dengan konsep 'Semuanya adalah Umpan!'. Raih Top 1 Made with Ziva dan Top 4 Overall Stats.",
+        "Game memancing santai dengan konsep 'Semuanya adalah Umpan!'. Kaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat monster danau raksasa.",
       descriptionEn:
-        "Champion Microjam 065 Fishing! A cozy lake fishing game where 'Everything is Bait!'. Awarded Top 1 Made with Ziva and Top 4 Overall Stats.",
+        "A cozy lake fishing game where 'Everything is Bait!'. Hook junk, rusty batteries, or smaller catches to reel in gigantic lake monsters.",
       fullDetails: {
         overview:
-          "Bocah Fishing adalah game simulasi memancing atmosferik yang dinobatkan sebagai Champion Microjam 065 Fishing. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar. Game ini juga meraih gelar Top 1 Made with Ziva serta menembus Top 4 Overall Stats di kompetisi.",
+          "Bocah Fishing adalah game simulasi memancing atmosferik di danau malam hari buatan Sabitplay Studio. Dengan mekanik unik 'Everything is Bait!', pemain dapat mengaitkan sampah, baterai berkarat, hingga ikan tangkapan untuk memikat ikan yang lebih besar dan monster danau legendaris.",
         features: [
-          "Champion Microjam 065 Fishing",
-          "Top 1 Made with Ziva",
-          "Top 4 Overall Stats",
           "Mekanik unik 'Everything is Bait!' (semua barang bisa jadi umpan)",
           "Siklus dinamis siang dan malam (Day & Night cycle)",
           "Karakter pemancing unik dengan sifat pasif (passive traits)",
-          "Almanak ikan lengkap untuk dikoleksi",
+          "Almanak ikan lengkap dengan berbagai spesies langka",
+          "Audio soundscape danau malam yang menenangkan",
           "Dapat dimainkan langsung di web browser (HTML5) dan Windows",
         ],
         architecture: [
-          "Champion Microjam 065 Fishing",
-          "Top 1 Made with Ziva (#ZIVA)",
-          "Top 4 Overall Stats",
           "Dikembangkan dengan Godot Engine",
-          "Entry game jam resmi Micro Jam 065: Fishing",
+          "Sistem inventaris umpan & rantai tangkapan modular",
+          "Optimasi ekspor web HTML5 responsif",
           "Dipublikasikan di Itch.io (sabitplay.itch.io/bocah-fishing)",
         ],
         techDetails:
           "Dikembangkan menggunakan Godot Engine dengan optimasi web export HTML5 dan artwork orisinal bertema malam di danau.",
       },
       overviewEn:
-        "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio that won Champion Microjam 065 Fishing. Featuring the twist 'Everything is Bait!', it also achieved Top 1 Made with Ziva and Top 4 Overall Stats across the competition.",
+        "Bocah Fishing is a cozy, atmospheric lake fishing game developed by Sabitplay Studio. Featuring the mechanic 'Everything is Bait!', hook junk, batteries, and small catches to lure in giant nocturnal lake creatures.",
       featuresEn: [
-        "Champion Microjam 065 Fishing",
-        "Top 1 Made with Ziva",
-        "Top 4 Overall Stats",
         "Unique 'Everything is Bait!' gameplay mechanic",
         "Dynamic day-and-night cycle with immersive ambience",
         "Unique anglers with passive traits & personality narrations",
         "Full fish almanac catalog to catch and discover",
+        "Calming night lake audio soundscapes",
         "Directly playable in browser (HTML5) and available for Windows",
       ],
     },
@@ -449,66 +491,68 @@ export const PROJECTS_LIST: (ProjectData & {
 type Project = (typeof PROJECTS_LIST)[number];
 type Tab = "all" | "game-dev" | "apps";
 
-const JAM_LABELS: Record<string, string> = {
-  "still-her": "Micro Jam 066",
-  "last-gate": "Slapjam AI",
-  "keepie-uppie": "T-Lander Jam #1",
-};
-
-function GameCard({
+function GameCatalogCard({
   project,
-  index,
-  large,
   lang,
   onOpen,
 }: {
-  project: Project;
-  index: number;
-  large: boolean;
+  project: (typeof PROJECTS_LIST)[number];
   lang: string;
-  onOpen: (p: Project) => void;
+  onOpen: (p: ProjectData) => void;
 }) {
-  const jam = JAM_LABELS[project.id];
   return (
-    <Holographic3D
-      variant="lite"
-      maxTilt={large ? 4 : 6}
-      className={`rounded-xl ${large ? "lg:col-span-3" : "lg:col-span-2"}`}
-    >
+    <article className="group relative flex flex-col rounded-xl overflow-hidden border border-line bg-surface hover:border-line-strong transition-all duration-300">
+      {/* Cover Artwork Thumbnail */}
       <button
         type="button"
         onClick={() => onOpen(project)}
-        className="group relative w-full h-full text-left rounded-xl overflow-hidden border border-line bg-surface hover:bg-surface-raised transition-colors duration-300 flex flex-col cursor-pointer"
+        className="relative w-full aspect-[16/10] overflow-hidden bg-black cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo"
+        aria-label={`${lang === "en" ? project.titleEn : project.title} details`}
       >
-        <div className={`relative w-full overflow-hidden bg-black ${large ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
-          <Image
-            src={project.imageBg}
-            alt={project.title}
-            fill
-            sizes={large ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"}
-            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
-          <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] text-titanium-200">
-            <span className="px-1.5 py-0.5 bg-void/80 border border-line">{String(index).padStart(2, "0")}</span>
-            {jam && <span className="px-1.5 py-0.5 bg-void/80 border border-line uppercase tracking-wider">{jam}</span>}
-          </div>
-        </div>
+        <Image
+          src={project.imageBg}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent opacity-60" />
+      </button>
 
-        <div className={`flex flex-col flex-grow ${large ? "p-6" : "p-5"}`}>
-          <div className="flex items-center justify-between font-mono text-[11px] text-titanium-400 mb-2">
-            <span>{project.techStack[0]}</span>
-            {project.year && <span>{project.year}</span>}
-          </div>
-          <h3 className={`font-display font-bold text-titanium-50 uppercase tracking-tight mb-2 ${large ? "text-2xl" : "text-xl"}`}>
-            {lang === "en" ? project.titleEn : project.title}
+      {/* Concise Catalog Content: Judul, Short Desc, Play Now */}
+      <div className="p-5 sm:p-6 flex flex-col flex-grow justify-between">
+        <div>
+          {/* Judul */}
+          <h3 className="font-display text-xl sm:text-2xl font-bold text-titanium-50 uppercase tracking-tight mb-2.5">
+            <button
+              type="button"
+              onClick={() => onOpen(project)}
+              className="hover:text-holo transition-colors text-left cursor-pointer"
+            >
+              {lang === "en" ? project.titleEn : project.title}
+            </button>
           </h3>
-          <p className={`text-titanium-400 leading-relaxed font-light ${large ? "text-sm line-clamp-3" : "text-xs line-clamp-2"}`}>
+
+          {/* Short Desc */}
+          <p className="text-xs sm:text-sm text-titanium-400 font-light leading-relaxed line-clamp-3 mb-6">
             {lang === "en" ? project.descriptionEn : project.description}
           </p>
         </div>
-      </button>
-    </Holographic3D>
+
+        {/* Play Now CTA (Direct Link) */}
+        <div className="pt-4 border-t border-line/60">
+          <a
+            href={project.itchUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] w-full rounded-lg bg-white/[0.05] hover:bg-white text-titanium-100 hover:text-black border border-white/10 hover:border-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo"
+          >
+            <span className="material-symbols-outlined text-base">sports_esports</span>
+            <span>{lang === "en" ? "Play Now" : "Mainkan Sekarang"}</span>
+          </a>
+        </div>
+      </div>
+    </article>
   );
 }
 
@@ -517,8 +561,7 @@ export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const { lang } = useLanguage();
 
-  const flagship = PROJECTS_LIST.find((p) => p.id === "bocah-fishing")!;
-  const games = PROJECTS_LIST.filter((p) => p.category === "game-dev" && p.id !== flagship.id);
+  const games = PROJECTS_LIST.filter((p) => p.category === "game-dev");
   const apps = PROJECTS_LIST.filter((p) => p.category !== "game-dev");
 
   const showGames = activeTab !== "apps";
@@ -526,7 +569,7 @@ export default function ProjectsSection() {
 
   const tabs: { id: Tab; label: string; count: number }[] = [
     { id: "all", label: lang === "en" ? "All" : "Semua", count: PROJECTS_LIST.length },
-    { id: "game-dev", label: "Games", count: games.length + 1 },
+    { id: "game-dev", label: "Games", count: games.length },
     { id: "apps", label: lang === "en" ? "Web & Mobile" : "Web & Mobile", count: apps.length },
   ];
 
@@ -554,8 +597,8 @@ export default function ProjectsSection() {
                 aria-selected={activeTab === t.id}
                 onClick={() => setActiveTab(t.id)}
                 className={`px-3.5 min-h-[44px] rounded transition-colors cursor-pointer ${activeTab === t.id
-                  ? "bg-titanium-50 text-void font-bold"
-                  : "text-titanium-400 hover:text-titanium-50"
+                    ? "bg-titanium-50 text-void font-bold"
+                    : "text-titanium-400 hover:text-titanium-50"
                   }`}
               >
                 {t.label} <span className="opacity-60">{t.count}</span>
@@ -565,83 +608,16 @@ export default function ProjectsSection() {
         </div>
 
         {showGames && (
-          <>
-            <Holographic3D variant="full" maxTilt={3} className="rounded-2xl mb-6">
-              <button
-                type="button"
-                onClick={() => setSelectedProject(flagship)}
-                className="group reticle relative w-full text-left rounded-2xl overflow-hidden border border-line-strong bg-surface cursor-pointer"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-                  <div className="lg:col-span-7 relative min-h-[280px] lg:min-h-full overflow-hidden bg-black">
-                    <Image
-                      src={flagship.imageBg}
-                      alt={flagship.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-surface/40 to-surface" />
-                    <div className="absolute top-4 left-4 px-2.5 py-1 bg-holo text-void font-mono text-[11px] font-bold uppercase tracking-wider">
-                      Champion, Micro Jam 065
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-5 relative z-10 bg-surface lg:-ml-px p-6 sm:p-10 flex flex-col justify-between">
-                    <div>
-                      <p className="font-mono text-[11px] text-titanium-400 mb-5">
-                        {flagship.techStack[0]} <span className="text-titanium-500">/</span> {flagship.year}
-                      </p>
-                      <h3 className="font-display text-4xl sm:text-5xl font-black text-titanium-50 uppercase tracking-tight leading-none mb-6">
-                        {flagship.title}
-                      </h3>
-
-                      <dl className="grid grid-cols-3 gap-px bg-line border border-line mb-6 font-mono">
-                        {[
-                          ["Micro Jam 065", "Champion"],
-                          ["Made with Ziva", "Top 1"],
-                          ["Overall", "Top 4"],
-                        ].map(([label, value]) => (
-                          <div key={label} className="bg-surface p-3">
-                            <dt className="text-[10px] text-titanium-400 leading-tight">{label}</dt>
-                            <dd className="text-sm text-titanium-50 font-bold mt-1">{value}</dd>
-                          </div>
-                        ))}
-                      </dl>
-
-                      <p className="text-sm text-titanium-200 leading-relaxed font-light">
-                        {lang === "en" ? flagship.descriptionEn : flagship.description}
-                      </p>
-                    </div>
-
-                    <div className="mt-8 pt-5 border-t border-line flex items-center justify-between gap-4">
-                      <span className="font-mono text-[11px] text-titanium-400">
-                        {flagship.techStack.slice(0, 3).join(" · ")}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-holo">
-                        {lang === "en" ? "Open case file" : "Buka detail"}
-                        {/* The one arrow on the page: marks the flagship as the entry point. */}
-                        <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </button>
-            </Holographic3D>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-              {games.map((project, i) => (
-                <GameCard
-                  key={project.id}
-                  project={project}
-                  index={i + 2}
-                  large={i < 2}
-                  lang={lang}
-                  onOpen={setSelectedProject}
-                />
-              ))}
-            </div>
-          </>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {games.map((project) => (
+              <GameCatalogCard
+                key={project.id}
+                project={project}
+                lang={lang}
+                onOpen={setSelectedProject}
+              />
+            ))}
+          </div>
         )}
 
         {showApps && (

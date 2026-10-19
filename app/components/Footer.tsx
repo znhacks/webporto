@@ -25,7 +25,7 @@ export default function Footer() {
             <span className="font-display font-black text-white text-sm tracking-tight uppercase">
               ORDI / SABITPLAY STUDIO
             </span>
-            <p className="text-[11px] text-zinc-500 font-mono">
+            <p className="text-[11px] text-zinc-400 font-mono">
               ENGINEERING & GAME DEVELOPMENT
             </p>
           </div>
@@ -70,8 +70,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-[1340px] mx-auto mt-8 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-zinc-500 gap-2">
-        <span>© 2026 ORDI. ALL RIGHTS RESERVED.</span>
+      <div className="max-w-[1340px] mx-auto mt-8 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-zinc-400 gap-2">
+        <span>� 2026 ORDI. ALL RIGHTS RESERVED.</span>
         <span>Bye World</span>
       </div>
     </footer>

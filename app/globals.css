@@ -14,7 +14,8 @@
   --color-holo: #c084fc;
   --color-holo-dim: rgba(192, 132, 252, 0.16);
 
-  --font-syne: 'Syne', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-syne: 'Plus Jakarta Sans', sans-serif;
   --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Geist Mono', monospace;
 }
