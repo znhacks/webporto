@@ -97,22 +97,22 @@ const EXHIBITS: ExhibitGame[] = [
     certificates: [
       {
         image: "/Bofish/certificate_1st.jpg",
-        title: "Sertifikat Peringkat 1 (1st Place) Micro Jam 065",
-        titleEn: "Micro Jam 065 1st Place Certificate (Bocah Fishing)",
-        badge: "Juara 1",
-        badgeEn: "1st Place",
+        title: "Sertifikat",
+        titleEn: "Certificate",
+        badge: "1",
+        badgeEn: "1",
       },
       {
         image: "/Bofish/certificate_jam.jpg",
-        title: "Sertifikat Resmi Micro Jam 065: Fishing",
-        titleEn: "Micro Jam 065: Fishing Official Certificate",
-        badge: "Sertifikat Jam",
-        badgeEn: "Jam Certificate",
+        title: "Sertifikat",
+        titleEn: "Certificate",
+        badge: "2",
+        badgeEn: "2",
       },
     ],
     certificateImage: "/Bofish/certificate_1st.jpg",
     certificateTitle: "Sertifikat Peringkat 1 Micro Jam 065 (Bocah Fishing)",
-    certificateTitleEn: "Micro Jam 065 1st Place Certificate (Bocah Fishing)",
+    certificateTitleEn: "Certificate",
     itchUrl: "https://sabitplay.itch.io/bocah-fishing",
     tagline: "Game memancing malam atmosferik dengan konsep 'Semua barang adalah umpan!'.",
     taglineEn: "Cozy nocturnal lake fishing adventure featuring the 'Everything is Bait!' chain mechanic.",
@@ -147,15 +147,15 @@ const EXHIBITS: ExhibitGame[] = [
     certificates: [
       {
         image: "/Stillher/certificate.jpg",
-        title: "Sertifikat Pemenang Micro Jam 066 (Still Her?)",
-        titleEn: "Micro Jam 066 Winner Certificate (Still Her?)",
+        title: "Sertifikat",
+        titleEn: "Certificate",
         badge: "Pemenang",
         badgeEn: "Winner",
       },
     ],
     certificateImage: "/Stillher/certificate.jpg",
-    certificateTitle: "Sertifikat Pemenang Micro Jam 066 (Still Her?)",
-    certificateTitleEn: "Micro Jam 066 Winner Certificate (Still Her?)",
+    certificateTitle: "Sertifikat",
+    certificateTitleEn: "Certificate",
     itchUrl: "https://sabitplay.itch.io/still-her",
     tagline: "Simulasi bertahan hidup psikologis dan fiksi interaktif di bunker terisolasi.",
     taglineEn: "Psychological survival simulation and branching interactive fiction in a quarantine bunker.",
@@ -190,15 +190,15 @@ const EXHIBITS: ExhibitGame[] = [
     certificates: [
       {
         image: "/Keepie/certificate.png",
-        title: "Sertifikat Peringkat 1 The T-Lander Game Jam #1 (Keepie Uppie)",
-        titleEn: "The T-Lander Game Jam #1 1st Place Certificate (Keepie Uppie)",
-        badge: "Juara 1",
+        title: "Sertifikat",
+        titleEn: "Certificate",
+        badge: "1",
         badgeEn: "1st Place",
       },
     ],
     certificateImage: "/Keepie/certificate.png",
-    certificateTitle: "Sertifikat Peringkat 1 The T-Lander Game Jam #1 (Keepie Uppie)",
-    certificateTitleEn: "The T-Lander Game Jam #1 1st Place Certificate (Keepie Uppie)",
+    certificateTitle: "Sertifikat",
+    certificateTitleEn: "Certificate",
     itchUrl: "https://sabitplay.itch.io/keepie",
     tagline: "Tantangan juggle bola arcade cepat dengan kalkulasi vektor impuls dinamis.",
     taglineEn: "Fast-paced 2D football juggling arcade featuring dynamic foot-contact impulse vectors.",
@@ -240,14 +240,14 @@ export default function ChampionHallPage() {
     activeGame.certificates ??
     (activeGame.certificateImage
       ? [
-          {
-            image: activeGame.certificateImage,
-            title: activeGame.certificateTitle || activeGame.title,
-            titleEn: activeGame.certificateTitleEn || activeGame.titleEn,
-            badge: "Sertifikat",
-            badgeEn: "Certificate",
-          },
-        ]
+        {
+          image: activeGame.certificateImage,
+          title: activeGame.certificateTitle || activeGame.title,
+          titleEn: activeGame.certificateTitleEn || activeGame.titleEn,
+          badge: "Sertifikat",
+          badgeEn: "Certificate",
+        },
+      ]
       : []);
   const currentCert = activeCertificates[activeCertIndex] ?? null;
 
@@ -341,17 +341,15 @@ export default function ChampionHallPage() {
 
   return (
     <div
-      className={`relative min-h-[100dvh] bg-[#06050a] text-titanium-50 overflow-x-hidden ${
-        !hasEnteredVault ? "h-[100dvh] overflow-hidden" : ""
-      }`}
+      className={`relative min-h-[100dvh] bg-[#06050a] text-titanium-50 overflow-x-hidden ${!hasEnteredVault ? "h-[100dvh] overflow-hidden" : ""
+        }`}
     >
 
       {/* CHAMBER GATE */}
       {!hasEnteredVault && (
         <div
-          className={`fixed inset-0 w-full h-[100dvh] z-[100] flex flex-col items-center justify-center bg-[#06050a] p-4 sm:p-6 transition-transform duration-[800ms] ease-[cubic-bezier(0.87,0,0.13,1)] ${
-            isAnimatingVaultOut ? "-translate-y-full" : "translate-y-0"
-          }`}
+          className={`fixed inset-0 w-full h-[100dvh] z-[100] flex flex-col items-center justify-center bg-[#06050a] p-4 sm:p-6 transition-transform duration-[800ms] ease-[cubic-bezier(0.87,0,0.13,1)] ${isAnimatingVaultOut ? "-translate-y-full" : "translate-y-0"
+            }`}
         >
           <div
             className="absolute inset-0 pointer-events-none"
@@ -390,8 +388,8 @@ export default function ChampionHallPage() {
             </h2>
             <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 sm:mb-8 max-w-sm">
               {lang === "en"
-                ? "Game jam wins, certificates, and the work behind each one."
-                : "Kemenangan game jam, sertifikat, dan karya di baliknya."}
+                ? "Game developing wins, certificates, and the work behind each one."
+                : "Kemenangan game development, sertifikat, dan karya di baliknya."}
             </p>
             <div className="flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-black font-mono text-xs font-bold uppercase tracking-widest rounded group-hover:bg-amber-300 transition-colors duration-200">
               <span>{lang === "en" ? "Enter" : "Masuk"}</span>
@@ -458,11 +456,10 @@ export default function ChampionHallPage() {
                 key={game.id}
                 type="button"
                 onClick={() => setActiveIndex(idx)}
-                className={`flex items-center gap-2 px-4 py-2.5 text-left transition-all duration-200 cursor-pointer whitespace-nowrap -mb-px border-b-2 ${
-                  isActive
-                    ? "border-amber-400 text-white font-semibold"
-                    : "border-transparent text-zinc-400 hover:text-zinc-100"
-                }`}
+                className={`flex items-center gap-2 px-4 py-2.5 text-left transition-all duration-200 cursor-pointer whitespace-nowrap -mb-px border-b-2 ${isActive
+                  ? "border-amber-400 text-white font-semibold"
+                  : "border-transparent text-zinc-400 hover:text-zinc-100"
+                  }`}
               >
                 <span className={`font-mono text-[10px] tabular-nums ${isActive ? "text-amber-400 font-bold" : "text-zinc-400"}`}>
                   {game.order}
@@ -494,18 +491,16 @@ export default function ChampionHallPage() {
                     <button
                       type="button"
                       onClick={() => setMediaView("cover")}
-                      className={`px-2.5 py-1 rounded transition-all cursor-pointer ${
-                        mediaView === "cover" ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
-                      }`}
+                      className={`px-2.5 py-1 rounded transition-all cursor-pointer ${mediaView === "cover" ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
+                        }`}
                     >
                       {lang === "en" ? "Art" : "Gambar"}
                     </button>
                     <button
                       type="button"
                       onClick={() => setMediaView("certificate")}
-                      className={`px-2.5 py-1 rounded transition-all cursor-pointer ${
-                        mediaView === "certificate" ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
-                      }`}
+                      className={`px-2.5 py-1 rounded transition-all cursor-pointer ${mediaView === "certificate" ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
+                        }`}
                     >
                       {activeCertificates.length > 1
                         ? `${lang === "en" ? "Certs" : "Sertif"} (${activeCertificates.length})`
@@ -534,9 +529,8 @@ export default function ChampionHallPage() {
                             key={cert.image}
                             type="button"
                             onClick={(e) => { e.stopPropagation(); setActiveCertIndex(cIdx); }}
-                            className={`px-2.5 py-1 rounded transition-all cursor-pointer ${
-                              activeCertIndex === cIdx ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
-                            }`}
+                            className={`px-2.5 py-1 rounded transition-all cursor-pointer ${activeCertIndex === cIdx ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
+                              }`}
                           >
                             {lang === "en" ? cert.badgeEn || `Cert ${cIdx + 1}` : cert.badge || `Sertif ${cIdx + 1}`}
                           </button>
@@ -690,14 +684,14 @@ export default function ChampionHallPage() {
           selectedCertificate.game.certificates ??
           (selectedCertificate.game.certificateImage
             ? [
-                {
-                  image: selectedCertificate.game.certificateImage,
-                  title: selectedCertificate.game.certificateTitle || selectedCertificate.game.title,
-                  titleEn: selectedCertificate.game.certificateTitleEn || selectedCertificate.game.titleEn,
-                  badge: "Sertifikat",
-                  badgeEn: "Certificate",
-                },
-              ]
+              {
+                image: selectedCertificate.game.certificateImage,
+                title: selectedCertificate.game.certificateTitle || selectedCertificate.game.title,
+                titleEn: selectedCertificate.game.certificateTitleEn || selectedCertificate.game.titleEn,
+                badge: "Sertifikat",
+                badgeEn: "Certificate",
+              },
+            ]
             : []);
         const currentModalCert = certs[selectedCertificate.certIndex] || certs[0];
         if (!currentModalCert) return null;
@@ -728,9 +722,8 @@ export default function ChampionHallPage() {
                           key={c.image}
                           type="button"
                           onClick={() => setSelectedCertificate({ ...selectedCertificate, certIndex: i })}
-                          className={`px-2.5 py-1 rounded transition-all cursor-pointer ${
-                            selectedCertificate.certIndex === i ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
-                          }`}
+                          className={`px-2.5 py-1 rounded transition-all cursor-pointer ${selectedCertificate.certIndex === i ? "bg-amber-400 text-black font-bold" : "text-zinc-300 hover:text-white"
+                            }`}
                         >
                           {lang === "en" ? c.badgeEn || `Cert ${i + 1}` : c.badge || `Sertif ${i + 1}`}
                         </button>

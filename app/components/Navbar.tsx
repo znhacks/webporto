@@ -34,8 +34,8 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col justify-center">
-            <span className="font-display text-sm sm:text-base font-black text-white tracking-tight uppercase group-hover:text-holo transition-colors leading-none">
-              ORDI <span className="text-[10px] font-mono text-titanium-400 font-normal">/ SABITPLAY</span>
+            <span className="font-display text-sm sm:text-base font-black text-white tracking-tight group-hover:text-holo transition-colors leading-none">
+              Ordi
             </span>
           </div>
         </a>

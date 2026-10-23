@@ -22,8 +22,8 @@ export default function Footer() {
             />
           </div>
           <div className="flex flex-col text-center md:text-left">
-            <span className="font-display font-black text-white text-sm tracking-tight uppercase">
-              ORDI / SABITPLAY STUDIO
+            <span className="font-display font-black text-white text-sm tracking-tight">
+              Ordi
             </span>
             <p className="text-[11px] text-zinc-400 font-mono">
               ENGINEERING & GAME DEVELOPMENT

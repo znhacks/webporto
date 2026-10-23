@@ -284,7 +284,7 @@ export function MusicProvider({ children }: { children: React.ReactNode }) {
 
   const trackName = isChampionHall
     ? "If The Sun Burns Out Tonight"
-    : "Sabitplay Ambient Void";
+    : "Void";
 
   return (
     <MusicContext.Provider
